@@ -9,3 +9,44 @@ Version: 1.0
 */
 
 /* Parent stylesheet should be loaded from functions.php not using @import */
+
+.custom__header {
+  background-color: white;
+}
+
+.custom__header i {
+  font-size: 24px;
+}
+
+.header__right_menu {
+  gap: 24px;
+}
+
+.header__left_menu i {
+  font-size: 32px;
+}
+
+.header__logo_wrapper {
+  max-width: 200px !important;
+}
+
+.header__search_form {
+  display: none;
+}
+
+@keyframes show_search_form_animation {
+  from {
+    opacity: 0;
+    width: 0;
+  }
+
+  to {
+    opacity: 1;
+    width: 100%;
+  }
+}
+
+.show__search_form {
+  display: block;
+  animation: 1s show_search_form_animation forwards;
+}
