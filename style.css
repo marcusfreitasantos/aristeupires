@@ -9,107 +9,66 @@ Version: 1.0
 */
 
 /* Parent stylesheet should be loaded from functions.php not using @import */
+@import "components/custom-header/styles.css";
 
-:root {
-  --primary_color: #312c21;
-  --primary_color_hover: #30170a;
+.home__carousel {
+  width: 100%;
+  height: 100vh;
 }
 
-.custom__header {
+.carousel__wrapper {
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-attachment: fixed !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-decoration: none !important;
+  box-shadow: inset 0 0 0 1000px rgba(49, 44, 33, 0.8);
+}
+
+.carousel__content_wrapper {
+  gap: 12px !important;
+}
+
+.carousel__title {
+  font-size: 6rem;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+
+.carousel__subtitle {
+  font-size: 2rem;
+  color: white;
+  font-weight: light;
+  text-align: center;
+}
+
+.carousel__btn {
+  font-size: 2rem;
+  color: var(--primary_color);
   background-color: white;
+  padding: 8px 16px;
+  text-transform: uppercase;
 }
 
-.custom__header i {
-  font-size: 24px;
+.home__carousel .swiper-button-prev,
+.home__carousel .swiper-button-next {
+  color: white !important;
 }
 
-.header__right_menu {
-  gap: 24px;
-}
-
-.header__left_menu i {
-  font-size: 32px;
-}
-
-.header__logo_wrapper {
-  max-width: 200px !important;
-}
-
-.header__search_form {
-  display: none;
-}
-
-.header__search_form_btn,
-.header__main_menu_btn,
-.header__main_menu_btn_close {
-  cursor: pointer;
-}
-
-.header__main_menu {
-  margin: 0 !important;
-  padding: 64px 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  display: none;
-}
-
-.header__main_menu a {
-  text-decoration: none;
-  font-size: 2.5rem;
-  font-weight: 300;
-}
-
-.header__main_menu a:hover {
-  color: var(--primary_color_hover);
-}
-
-.header__main_menu li {
-  list-style: none;
-}
-
-.header__main_menu_btn_close {
-  display: none;
-}
-
-@keyframes show_search_form_animation {
-  from {
-    opacity: 0;
-    width: 0;
+@media (max-width: 40rem) {
+  .carousel__title {
+    font-size: 3rem;
   }
 
-  to {
-    opacity: 1;
-    width: 100%;
-  }
-}
-
-@keyframes show_main_menu_animation {
-  from {
-    opacity: 0;
+  .carousel__subtitle {
+    font-size: 2rem;
   }
 
-  to {
-    opacity: 1;
-  }
-}
-
-.show__header_main_menu {
-  display: flex;
-  animation: 1s show_main_menu_animation forwards;
-}
-
-.show__search_form {
-  display: block;
-  animation: 3s show_search_form_animation forwards;
-}
-
-@media (max-width: 60rem) {
-  .header__logo_wrapper {
-    width: 150px !important;
-  }
-
-  .header__main_menu {
-    flex-direction: column;
+  .home__carousel .swiper-button-prev,
+  .home__carousel .swiper-button-next {
+    display: none;
   }
 }
