@@ -60,7 +60,7 @@ Version: 1.0
 }
 
 /*CATEGORIES SECTION HOME*/
-#section_products {
+#section_categories {
   margin-top: -100px;
   position: relative;
   z-index: 3;
@@ -74,8 +74,8 @@ Version: 1.0
   padding: 0 !important;
 }
 
-#section_products .category__card:nth-child(3),
-#section_products .category__card:nth-child(4) {
+#section_categories .category__card:nth-child(3),
+#section_categories .category__card:nth-child(4) {
   flex-direction: row-reverse;
 }
 
@@ -120,9 +120,10 @@ Version: 1.0
   padding: 150px 120px !important;
 }
 
-.about__title {
+.section__title {
   font-size: 4rem;
   color: var(--primary_color);
+  margin-bottom: 20px;
 }
 
 .about__description {
@@ -161,10 +162,9 @@ Version: 1.0
 }
 
 .about__img {
-  position: absolute;
-  height: 580px;
-  left: 50%;
-  top: 70%;
+  width: 100%;
+  object-fit: cover;
+  margin-left: 150px;
 }
 
 .about__video_popup {
@@ -195,6 +195,57 @@ Version: 1.0
   cursor: pointer;
 }
 
+/*PRODUCTS HOME SECTION*/
+#section_products {
+  padding: 100px 0;
+}
+
+.product__img {
+  background-color: white;
+  height: 440px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-decoration: none;
+  margin-bottom: 20px;
+}
+
+.product__img img {
+  height: 230px;
+  object-fit: cover;
+}
+
+.product__card_img_btn {
+  display: flex;
+  flex-direction: column;
+  text-transform: uppercase;
+  justify-content: flex-start;
+  width: 100%;
+  margin-top: 20px;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.product__img:hover .product__card_img_btn {
+  opacity: 1;
+}
+
+.product__title {
+  color: var(--primary_color);
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.product__category {
+  color: var(--primary_color);
+  font-size: 1.6rem;
+  font-weight: 300;
+  text-decoration: none;
+}
+
 @media (max-width: 40rem) {
   .carousel__title {
     font-size: 3rem;
@@ -209,8 +260,8 @@ Version: 1.0
     display: none;
   }
 
-  #section_products .category__card:nth-child(3),
-  #section_products .category__card:nth-child(4) {
+  #section_categories .category__card:nth-child(3),
+  #section_categories .category__card:nth-child(4) {
     flex-direction: row;
   }
 
@@ -240,9 +291,6 @@ Version: 1.0
   }
 
   .about__img {
-    position: relative;
-    height: auto;
-    left: auto;
-    top: auto;
+    margin: auto;
   }
 }
