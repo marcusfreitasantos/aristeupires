@@ -70,6 +70,46 @@ if($carousel){ ?>
     </div>
 </section>
 
+<?php $aboutSection = get_field("about"); ?>
+<?php if($aboutSection){ ?>
+    <section id="section_about">
+        <div class="container bg-white">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-md-4">
+                    <div class="about__info">
+                        <h3 class="about__title">
+                            <?php echo $aboutSection["title"]; ?>
+                        </h3>
+    
+                        <p class="about__description">
+                            <?php echo $aboutSection["description"]; ?>
+                        </p>
+                    </div>
+
+                    <div class="about__divisor"></div>
+
+                    <div class="about__btn">
+                        <span>Veja o vídeo: Aristeu Pires Designer</span>
+                        <i class="fa-regular fa-circle-play"></i>
+                    </div>
+                </div>
+    
+                <div class="col-md-8">
+                    <img class="about__img" src="<?php echo $aboutSection["image"]["url"]; ?>" alt="<?php echo $aboutSection["image"]["alt"]; ?>" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="about__video_popup">
+        <span class="about__video_popup_close">
+            <span>Fechar</span>
+            <i class="fa-solid fa-xmark"></i>
+        </span>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/j7UMEFhfwcU?si=eIxtDAa-zuwGrqwx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="allowfullscreen"></iframe>
+    </div>
+<?php } ?>
+
 <script>
     //SWIPER SLIDE
     const swiper = new Swiper(".home__carousel", {
@@ -81,4 +121,18 @@ if($carousel){ ?>
             prevEl: ".swiper-button-prev",
         },
     });
+
+    //VIDEO POPUP
+    const aboutVideoPopup = document.querySelector(".about__video_popup")
+    const openAboutVideoPopup = document.querySelector(".about__btn")
+    const closeAboutVideoPopup = document.querySelector(".about__video_popup_close")
+
+    openAboutVideoPopup.addEventListener("click", function(){
+        aboutVideoPopup.style.display = "block";
+    })
+
+    closeAboutVideoPopup.addEventListener("click",function(){
+        aboutVideoPopup.style.display = "none"
+    })
+
 </script>

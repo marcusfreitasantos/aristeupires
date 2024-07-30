@@ -115,6 +115,86 @@ Version: 1.0
   text-wrap: balance;
 }
 
+/*ABOUT HOME SECTION*/
+#section_about .container {
+  padding: 150px 120px !important;
+}
+
+.about__title {
+  font-size: 4rem;
+  color: var(--primary_color);
+}
+
+.about__description {
+  font-size: 1.6rem;
+  color: var(--primary_color);
+}
+
+.about__divisor {
+  background-color: var(--primary_color);
+  width: 100%;
+  padding: 0.5px;
+  margin: 60px 0;
+}
+
+.about__btn {
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--primary_color);
+  display: flex;
+  flex-direction: column;
+  max-width: 50%;
+  padding: 20px;
+  border-left: 5px solid var(--secondary_color);
+  gap: 10px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.about__btn:hover {
+  opacity: 0.5;
+}
+
+.about__link i {
+  font-size: 3rem;
+}
+
+.about__img {
+  position: absolute;
+  height: 580px;
+  left: 50%;
+  top: 70%;
+}
+
+.about__video_popup {
+  position: fixed;
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+.about__video_popup iframe {
+  height: 100vh;
+}
+
+.about__video_popup_close {
+  color: white;
+  font-size: 2rem;
+  position: absolute;
+  top: 20px;
+  right: 120px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+}
+
 @media (max-width: 40rem) {
   .carousel__title {
     font-size: 3rem;
@@ -149,5 +229,20 @@ Version: 1.0
 
   .category__card_img {
     max-width: 50%;
+  }
+
+  .about__btn {
+    max-width: 100%;
+  }
+
+  #section_about .container {
+    padding: 40px !important;
+  }
+
+  .about__img {
+    position: relative;
+    height: auto;
+    left: auto;
+    top: auto;
   }
 }
