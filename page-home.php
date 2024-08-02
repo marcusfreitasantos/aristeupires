@@ -163,8 +163,45 @@ if($carousel){ ?>
             }
             ?>
         </div>
-    </div>
+    </div>   
 </section>
+
+<?php $productsSection = get_field("products"); ?>
+<?php if($productsSection){ ?>
+
+    <section id="section_products_video">
+        <div class="container">
+            <div class="row g-0">
+                <div class="col-md-5 section__products_video_info">
+                    <?php if($productsSection["title"]){ ?>
+                        <h2 class="section__title text-white">
+                           <?php echo $productsSection["title"]; ?>
+                        </h2>
+                    <?php } ?>
+    
+                    <?php if($productsSection["text"]){ ?>
+                        <p class="text-white">
+                           <?php echo $productsSection["text"]; ?>
+                        </p>
+                    <?php } ?>
+                    
+                    <div class="divisor bg-white"></div>
+
+                </div>
+     
+                <div class="col-md-7">
+                    <?php if($productsSection["video"]){ ?>
+                        <video class="product__video" poster=<?php echo $productsSection["video_poster"]; ?> autobuffer="true" preload="auto" muted loop autoplay >
+                            <source src=<?php echo $productsSection["video"]; ?>  type="video/mp4" />
+                        </video>
+                    <?php } ?>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<?php }?>
+
 
 <script>
     //SWIPER SLIDE
