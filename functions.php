@@ -24,6 +24,7 @@ add_action( 'wp_enqueue_scripts', 'oceanwp_child_enqueue_parent_style' );
 
 include("components/button-link/button-link.php");
 include("components/post-card/post-card.php");
+include("components/product-card/product-card.php");
 
 global $emailHeaders;
 $emailHeaders = array(
@@ -46,5 +47,20 @@ function redirectUserAfterLogin( $redirectTo, $request, $user ) {
 
 //add_filter( 'login_redirect', 'redirectUserAfterLogin', 10, 3 );
 
+
+function getProductCategories($categoryIds=[]){
+    $categoriesToInclude = $categoryIds ? $categoryIds : "";
+    $productCatArgs = array(
+        'taxonomy'   => 'product_cat',
+        'orderby'    => 'name',
+        'order'      => 'ASC',
+        'include'   =>  $categoriesToInclude,
+        'exclude' => array(15),
+        'hide_empty' => false
+    );
+    $productCategories = get_terms($productCatArgs);
+    
+    return $productCategories;
+}
 
 ?>

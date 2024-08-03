@@ -1,26 +1,6 @@
 <?php get_header(); ?>
 <?php $siteUrl = site_url(); ?>
 
-<?php
-function getProductCategories($categoryIds=[]){
-    $categoriesToInclude = $categoryIds ? $categoryIds : "";
-    $productCatArgs = array(
-        'taxonomy'   => 'product_cat',
-        'orderby'    => 'name',
-        'order'      => 'ASC',
-        'include'   =>  $categoriesToInclude,
-        'exclude' => array(15),
-        'hide_empty' => false
-    );
-    $productCategories = get_terms($productCatArgs);
-    
-    return $productCategories;
-}
-
-?>
-
-
-
 <?php 
 $carousel = get_field('carousel');
 if($carousel){ ?>
@@ -134,30 +114,9 @@ if($carousel){ ?>
 
             if($products){
                 foreach($products as $product){  
-                $productImage = get_the_post_thumbnail($product->id, 'full');
                 ?>
                     <div class="col-md-3 mb-5">
-                            <div class="product__card">
-                                <a class="product__img" href=<?php echo "$siteUrl/produto/$product->slug";?>>
-                                    <?php echo $productImage; ?>
-                                    <div class="product__card_img_btn">
-                                        <span>Veja mais</span>
-                                        <i class="fa-solid fa-arrow-right-long"></i>
-                                    </div>
-                                </a>
-
-                                <div class="product__card_info d-flex flex-column text-center">
-                                    <a href=<?php echo "$siteUrl/produto/$product->slug";?> class="product__title">
-                                        <?php echo $product->name; ?>
-                                    </a>
-    
-                                    <?php foreach(getProductCategories($product->category_ids) as $productCat){ ?>
-                                        <a href=<?php echo "$siteUrl/categoria-produto/$cat->slug";?> class="product__category">
-                                            <?php echo $productCat->name; ?>
-                                        </a>
-                                   <?php } ?>
-                                </div>
-                            </div>
+                        <?php echo ProductCard($product); ?>
                     </div>
                 <?php }
             }
