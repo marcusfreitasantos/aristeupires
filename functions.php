@@ -29,23 +29,8 @@ include("components/product-card/product-card.php");
 global $emailHeaders;
 $emailHeaders = array(
 	'Content-Type: text/html; charset=UTF-8',
-	'Reply-To: Blessy <suporte@blessyapp.com>',
+	'Reply-To: Blessy <contato@aristeupires.com.br>',
 );
-
-
-function redirectUserAfterLogin( $redirectTo, $request, $user ) {
-	if ( isset( $user->roles ) && is_array( $user->roles ) ) {
-		if ( in_array( 'administrator', $user->roles ) ) {
-			return admin_url();
-		} else {
-			return site_url() . '/wp-admin/edit.php?post_type=event';
-		}
-	} else {
-		return $redirectTo;
-	}
-}
-
-//add_filter( 'login_redirect', 'redirectUserAfterLogin', 10, 3 );
 
 
 function getProductCategories($categoryIds=[]){
