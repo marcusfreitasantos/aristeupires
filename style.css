@@ -324,7 +324,7 @@ input[type="email"] {
   background: #fff !important;
 }
 
-.wpcf7-select {
+select {
   height: 100%;
   font-family: CantarellRegular, arial;
   font-weight: 400;

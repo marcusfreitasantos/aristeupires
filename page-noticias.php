@@ -1,5 +1,16 @@
 <?php get_header(); ?>
 <?php    
+    $searchTerm = '';
+    $categoriesToSearch = [];
+
+    if(isset($_GET['post_keyword']) || isset($_GET['post_category'])){
+        $searchTerm = $_GET['post_keyword'];
+
+        if((int) $_GET['post_category']){
+            $categoriesToSearch[] =  (int) $_GET['post_category'];
+        }
+    }
+
     $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
     $getPostsArgs = array(
@@ -7,10 +18,14 @@
 		'orderby'          => 'date',
 		'order'            => 'DESC',
 		'post_type'        => 'post',
-        'paged'          => $paged,
+        'category__in'     => $categoriesToSearch,
+        'paged'            => $paged,
+        's'                => $searchTerm
 	);	
     
     $news = new WP_Query($getPostsArgs);
+
+    $postCategories = getAllPostCategories();
 ?>
 
 
@@ -18,10 +33,16 @@
     <div class="container">
         <h2 class="section__title text-center">Notícias</h2>
 
-        <form name="search_posts_form" method="post" action="">
+        <form name="search_posts_form" method="get" action="">
             <div class="row">
                 <div class="col-md-5">
-                    <input type="text"  placeholder="Selecione" name="post_category" id="post_category"/>
+                    <select name="post_category" id="post_category">
+                        <option value="0">Selecione uma categoria</option>
+
+                        <?php foreach($postCategories as $postCategory){ ?>
+                            <option value=<?php echo $postCategory->term_id; ?>><?php echo $postCategory->name; ?></option>
+                       <?php } ?>
+                    </select>
                 </div>
                 <div class="col-md-5">
                     <input type="text"  placeholder="Pesquise pelo título" name="post_keyword" id="post_keyword"/>

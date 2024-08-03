@@ -48,4 +48,16 @@ function getProductCategories($categoryIds=[]){
     return $productCategories;
 }
 
+function getAllPostCategories(){
+    $postCategoriesArgs = array(
+        'taxonomy'   => 'category',
+        'orderby'    => 'name',
+        'order'      => 'ASC',
+        'hide_empty' => false
+    );
+    $postCategories = get_terms($postCategoriesArgs);
+    
+    return $postCategories;
+}
+
 ?>

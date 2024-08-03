@@ -1,5 +1,5 @@
 <?php 
-    function ButtonLink($url, $text, $target = "_blank"){ 
+    function ButtonLink($url, $text, $target = "_self"){ 
         ob_start(); 
         ?>
         <a href=<?php echo $url; ?> class="d-flex flex-row align-items-center post__card_btn mt-4" target=<?php echo $target;?> >
