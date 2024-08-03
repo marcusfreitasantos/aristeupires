@@ -95,7 +95,7 @@
 
 .show__search_form {
   display: block;
-  animation: 3s show_search_form_animation forwards;
+  animation: 1s show_search_form_animation forwards;
 }
 
 @media (max-width: 40rem) {
