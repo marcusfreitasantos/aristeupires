@@ -199,7 +199,8 @@ Version: 1.0
 /*PRODUCTS HOME SECTION*/
 #section_products,
 #section_news,
-#section_location {
+#section_location,
+.section__post_content {
   padding: 100px 0;
 }
 
@@ -396,6 +397,36 @@ textarea {
   font-size: 1.6rem;
   color: var(--primary_color);
   text-decoration: none;
+}
+
+.post__header {
+  margin-bottom: 20px;
+}
+
+.post__title {
+  font-size: 4rem;
+  font-weight: bold;
+  color: var(--primary_color);
+}
+
+.post__meta {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--primary_color);
+}
+
+.post__content {
+  color: var(--primary_color);
+  font-size: 1.6rem;
+  text-align: justify;
+}
+
+.post__social_wrapper {
+  font-size: 1.6rem;
+  color: var(--primary_color);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 @media (max-width: 40rem) {
