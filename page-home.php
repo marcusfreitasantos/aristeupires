@@ -168,7 +168,6 @@ if($carousel){ ?>
 
 <?php $productsSection = get_field("products"); ?>
 <?php if($productsSection){ ?>
-
     <section id="section_products_video">
         <div class="container">
             <div class="row g-0">
@@ -199,8 +198,55 @@ if($carousel){ ?>
             </div>
         </div>
     </section>
-
 <?php }?>
+
+<?php 
+    $getPostsArgs = array(
+		'numberposts'      => 8,
+		'orderby'          => 'date',
+		'order'            => 'DESC',
+		'post_type'        => 'post',
+	);	
+    $news = get_posts($getPostsArgs); 
+?>
+
+<section id="section_news">
+    <div class="container">
+        <h2 class="section__title text-center">Notícias</h2>
+        <div class="row gx-5">
+            <?php foreach($news as $new){ 
+                $categories = wp_get_post_categories($new->ID, array("fields" => "all"));
+                ?>
+                <div class="col-md-3">
+                    <div class="post__card">
+                        <?php echo  get_the_post_thumbnail($new->ID, "full"); ?>
+
+                        <div>
+                            <h4 class="post__card_title"><?php echo $new->post_title; ?></h4>
+                           <?php foreach($categories as $newsCategory){ ?>
+                                <span class="post__card_cat"><?php echo $newsCategory->name; ?></span>
+                            <?php } ?>
+                        </div>
+                     
+                        <p class="post__card_text"><?php echo get_the_excerpt($new->ID); ?></p>
+                        
+                        <a href=<?php echo get_permalink($new->ID); ?> class="d-flex flex-row align-items-center post__card_btn"> 
+                            <span>Leia mais</span>
+                            <i class="fa-solid fa-arrow-right-long"></i>
+                        </a>
+                    </div>
+                </div>
+            <?php } ?>
+
+
+            <div class="col-12 pt-5">
+                <a href=<?php echo "$siteUrl/noticias"; ?> class="d-flex flex-row align-items-center post__card_btn justify-content-center"> 
+                    <span>Mais novidades</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
 
 
 <script>
@@ -229,3 +275,5 @@ if($carousel){ ?>
     })
 
 </script>
+
+<?php get_footer(); ?>

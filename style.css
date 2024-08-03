@@ -10,6 +10,7 @@ Version: 1.0
 
 /* Parent stylesheet should be loaded from functions.php not using @import */
 @import "components/custom-header/styles.css";
+@import "components/custom-footer/styles.css";
 
 .home__carousel {
   width: 100%;
@@ -196,7 +197,8 @@ Version: 1.0
 }
 
 /*PRODUCTS HOME SECTION*/
-#section_products {
+#section_products,
+#section_news {
   padding: 100px 0;
 }
 
@@ -263,6 +265,89 @@ Version: 1.0
   margin: 60px 0;
   position: absolute;
   left: 0;
+}
+
+/*NEWS SECTION*/
+.post__card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.post__card img {
+  height: 300px;
+  object-fit: cover;
+}
+
+.post__card_title {
+  display: -webkit-box;
+  color: var(--primary_color);
+  font-size: 2rem;
+  font-weight: bold;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.post__card_text {
+  display: -webkit-box;
+  color: var(--primary_color);
+  font-size: 1.6rem;
+  font-weight: 300;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.post__card_btn {
+  text-transform: uppercase;
+  color: var(--primary_color);
+  gap: 10px;
+  text-decoration: none;
+}
+
+/*FORMS*/
+input[type="text"],
+input[type="email"] {
+  height: 100%;
+  font-family: CantarellRegular, arial;
+  font-size: 0.1rem;
+  font-weight: 400;
+  line-height: 1em;
+  color: var(--primary_color);
+  border: 0 !important;
+  border-bottom: 1px solid #8a817a !important;
+  background: #fff !important;
+}
+
+textarea {
+  font-family: CantarellRegular, arial;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1em;
+  color: var(--primary_color);
+  border: 0 !important;
+  border-bottom: 1px solid #8a817a !important;
+  background: #fff !important;
+}
+
+#contato p {
+  margin: 0 !important;
+  height: 100%;
+  text-align: right;
+}
+
+#contato .wpcf7-submit {
+  background-color: transparent !important;
+  padding: 0 !important;
+  color: var(--primary_color);
+  margin-right: 10px;
+}
+
+#contato .wpcf7-spinner {
+  display: none;
 }
 
 @media (max-width: 40rem) {
