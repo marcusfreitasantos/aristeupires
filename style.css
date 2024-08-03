@@ -324,6 +324,16 @@ input[type="email"] {
   background: #fff !important;
 }
 
+.wpcf7-select {
+  height: 100%;
+  font-family: CantarellRegular, arial;
+  font-weight: 400;
+  color: var(--primary_color);
+  border: 0 !important;
+  border-bottom: 1px solid #8a817a !important;
+  background: #fff !important;
+}
+
 textarea {
   font-family: CantarellRegular, arial;
   font-size: 1rem;

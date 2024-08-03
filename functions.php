@@ -22,6 +22,8 @@ function oceanwp_child_enqueue_parent_style() {
 add_action( 'wp_enqueue_scripts', 'oceanwp_child_enqueue_parent_style' );
 
 
+include("components/button-link/button-link.php");
+include("components/post-card/post-card.php");
 
 global $emailHeaders;
 $emailHeaders = array(

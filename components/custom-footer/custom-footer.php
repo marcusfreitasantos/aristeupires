@@ -57,10 +57,7 @@
 							</a>	
 						</div>
 
-						<a href="https://www.google.com/maps/place/R.+Perimetral,+364+-+Distrito+Industrial,+Canela+-+RS,+95680-000/@-29.3394999,-50.7887841,17z/data=!3m1!4b1!4m5!3m4!1s0x95192c5fa145a291:0x89d8e2484e00b553!8m2!3d-29.3394999!4d-50.7865954" target="_blank" class="d-flex flex-row align-items-center post__card_btn mt-4"> 
-                            <span>Como chegar</span>
-                            <i class="fa-solid fa-arrow-right-long"></i>
-                        </a>
+						<?php echo ButtonLink("https://www.google.com/maps/place/R.+Perimetral,+364+-+Distrito+Industrial,+Canela+-+RS,+95680-000/@-29.3394999,-50.7887841,17z/data=!3m1!4b1!4m5!3m4!1s0x95192c5fa145a291:0x89d8e2484e00b553!8m2!3d-29.3394999!4d-50.7865954", "Como chegar"); ?>
 					</div>
 				</div>
 			</div>
@@ -95,10 +92,7 @@
 							</a>	
 						</div>
 
-						<a href="https://www.google.com/maps/place/New+York+Design+Center/@40.7454845,-73.9805782,15z/data=!4m2!3m1!1s0x0:0x7e290805cb28d637?sa=X&ved=2ahUKEwingbjG79nzAhUfpZUCHS3yBMEQ_BJ6BAh9EAU" target="_blank" class="d-flex flex-row align-items-center post__card_btn mt-4"> 
-                            <span>Como chegar</span>
-                            <i class="fa-solid fa-arrow-right-long"></i>
-                        </a>
+						<?php echo ButtonLink("https://www.google.com/maps/place/New+York+Design+Center/@40.7454845,-73.9805782,15z/data=!4m2!3m1!1s0x0:0x7e290805cb28d637?sa=X&ved=2ahUKEwingbjG79nzAhUfpZUCHS3yBMEQ_BJ6BAh9EAU", "Como chegar"); ?>
 					</div>
 				</div>
 			</div>
