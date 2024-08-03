@@ -34,7 +34,7 @@ if($carousel){ ?>
     </section>
 <?php } ?>
 
-<section id="section_categories">
+<section id="categorias" class="section_categories">
     <div class="container">
         <div class="row">
             <?php 
@@ -61,7 +61,7 @@ if($carousel){ ?>
 
 <?php $aboutSection = get_field("about"); ?>
 <?php if($aboutSection){ ?>
-    <section id="section_about">
+    <section id="sobre" class="section_about">
         <div class="container bg-white">
             <div class="row align-items-center justify-content-between">
                 <div class="col-md-4">
@@ -101,7 +101,7 @@ if($carousel){ ?>
 
 
 
-<section id="section_products">
+<section id="produtos" class="section_products">
     <div class="container">
         <h2 class="section__title text-center">Destaques</h2>
         <div class="row">
@@ -169,7 +169,7 @@ if($carousel){ ?>
     $news = get_posts($getPostsArgs); 
 ?>
 
-<section id="section_news">
+<section id="noticias" class="section_news">
     <div class="container">
         <h2 class="section__title text-center">Notícias</h2>
         <div class="row gx-5">

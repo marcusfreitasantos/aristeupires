@@ -29,9 +29,9 @@
 ?>
 
 
-<section id="section_news">
+<section class="section_news">
     <div class="container">
-        <h2 class="section__title text-center">Notícias</h2>
+        <h1 class="section__title text-center">Notícias</h1>
 
         <form name="search_posts_form" method="get" action="">
             <div class="row">

@@ -8,7 +8,7 @@
     </div>
 </section>
 
-<section id="section_location">
+<section class="section_location">
 	<div class="container">
 		<h2 class="section__title">Onde estamos</h2>
 		<hr/>

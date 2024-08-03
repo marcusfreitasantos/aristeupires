@@ -59,3 +59,11 @@ $headerIconSize = "24px";
             
     </div>
 </header>
+
+<?php if(!is_page("home")){ ?>
+    <div class="container">
+        <div class="row py-5">
+            <?php echo do_shortcode('[wpseo_breadcrumb]'); ?>
+        </div>
+    </div>
+<?php } ?>

@@ -7,7 +7,7 @@
         <?php echo  get_the_post_thumbnail($post->ID, "full"); ?>
 
         <div>
-            <h4 class="post__card_title"><?php echo $post->post_title; ?></h4>
+            <a href="<?php echo get_permalink($post->ID); ?>" class="post__card_title"><?php echo $post->post_title; ?></a>
             <?php foreach($categories as $postsCategory){ ?>
                 <span class="post__card_cat"><?php echo $postsCategory->name; ?></span>
             <?php } ?>

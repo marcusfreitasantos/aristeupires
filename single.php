@@ -1,4 +1,21 @@
 <?php get_header(); ?>
+<?php $siteUrl = site_url(); ?>
+
+<?php
+   $getPostsArgs = array(
+		'posts_per_page'      => 2,
+		'orderby'          => 'date',
+		'order'            => 'DESC',
+		'post_type'        => 'post',
+        'post__not_in'          => array(get_the_id()),
+        'category__in'     => [],
+	);	
+    
+    $news = new WP_Query($getPostsArgs);
+
+    $postCategories = getAllPostCategories();
+
+?>
 
 <section class="section__post_content">
     <div class="container">
@@ -30,7 +47,19 @@
             </div>  
 
             <div class="col-md-4">
-                sidebar
+                <h2 class="section__title">Veja também</h2>
+                <?php if($news->have_posts()){ 
+                    while ($news->have_posts()) : $news->the_post();
+                    global $post;
+
+                   echo PostCard($post); 
+                    endwhile; 
+                } ?>
+
+                <hr/>
+                <a href=<?php echo "$siteUrl/noticias"; ?> class="post__card_btn"> 
+                    <span>Mais novidades</span>
+                </a>
             </div>
         </div>
     </div>
