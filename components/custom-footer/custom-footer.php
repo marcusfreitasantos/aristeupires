@@ -1,5 +1,6 @@
 <?php $siteUrl = site_url(); ?>
 <?php $productCat = getProductCategories(); ?>
+<?php $footerMenu = wp_get_nav_menu_items("footer_menu"); ?>
 
 <section id="contato" class="py-5"> 
     <div class="container">
@@ -112,12 +113,11 @@
 				<h5 class="footer__column_title">Info</h5>
 				
 				<div class="footer__items_group">
-					<a href="">Sobre</a>
-					<a href="">Produtos</a>
-					<a href="">Notícias</a>
-					<a href="">Onde encontrar</a>
-					<a href="">Vendas corporativas</a>
-					<a href="">Termos e condições</a>
+					<?php foreach($footerMenu as $menuItem){ ?>
+						<a href=<?php echo $menuItem->url; ?>>
+							<?php echo $menuItem->title; ?>
+						</a>
+				<?php } ?>
 				</div>
 			</div>
 			

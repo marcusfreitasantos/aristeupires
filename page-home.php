@@ -195,6 +195,9 @@ if($carousel){ ?>
     const swiper = new Swiper(".home__carousel", {
         direction: "horizontal",
         loop: true,
+        autoplay: {
+            delay: 3000
+        },
 
         navigation: {
             nextEl: ".swiper-button-next",

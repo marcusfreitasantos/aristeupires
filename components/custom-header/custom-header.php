@@ -37,11 +37,11 @@ $headerIconSize = "24px";
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </a>
 
-                    <a href="/cart" >
+                    <a href=<?php echo get_permalink( wc_get_page_id( 'cart' ) ); ?> >
                         <i class="fa-solid fa-cart-shopping"></i>
                     </a>
 
-                    <a href="/myaccount">
+                    <a href=<?php echo get_permalink( wc_get_page_id( 'myaccount' ) ); ?>>
                         <i class="fa-regular fa-user"></i>
                     </a>
                 </div>
@@ -56,7 +56,6 @@ $headerIconSize = "24px";
                     </a>
                <?php } ?>
         </ul>
-            
     </div>
 </header>
 

@@ -5,12 +5,16 @@
   --third_color: #827b76;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .custom__header {
   background-color: white;
   position: sticky;
   position: -webkit-sticky;
   top: 0;
-  z-index: 99999;
+  z-index: 3;
 }
 
 .custom__header i {
