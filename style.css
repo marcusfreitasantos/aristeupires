@@ -523,6 +523,49 @@ textarea {
   color: var(--primary_color);
 }
 
+.section__creator {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.section__creator img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.section__content_wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100% !important;
+  z-index: 2;
+  padding: 150px;
+  font-size: 2rem;
+  font-weight: 300;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  color: white;
+}
+
+.section__content_wrapper a {
+  color: white;
+}
+
+.section__creator_btn {
+  width: 100%;
+  padding: 16px;
+  font-size: 2rem;
+  text-transform: uppercase;
+  border: 1px solid white;
+  text-decoration: none;
+  text-align: center;
+  color: white;
+}
+
 @media (max-width: 40rem) {
   .carousel__title {
     font-size: 3rem;
@@ -581,5 +624,18 @@ textarea {
 
   .location__info_wrapper {
     border: none;
+  }
+
+  .section__content_wrapper {
+    padding: 40px;
+    font-size: 1.6rem;
+  }
+
+  .section__creator_btn {
+    font-size: 1.6rem;
+  }
+
+  textarea {
+    margin-top: 15px !important;
   }
 }

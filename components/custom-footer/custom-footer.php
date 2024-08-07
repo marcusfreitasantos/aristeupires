@@ -2,19 +2,19 @@
 <?php $productCat = getProductCategories(); ?>
 <?php $footerMenu = wp_get_nav_menu_items("footer_menu"); ?>
 
-<section id="contato" class="py-5"> 
+<section id="contato" style="padding: 100px 0;"> 
     <div class="container">
         <h2 class="section__title">Entre em contato</h2>
         <?php echo do_shortcode('[contact-form-7 id="f15653c" title="Contact"]'); ?>
     </div>
 </section>
 
+<!--
 <section class="section_location">
 	<div class="container">
 		<h2 class="section__title">Onde estamos</h2>
 		<hr/>
 
-		<!-- BRAZIL LOCATION -->
 		<div class="row align-items-center">
 			<div class="col-md-4">
 				<div class="row align-items-center">
@@ -67,7 +67,6 @@
 				<img src="<?php echo $siteUrl; ?>/wp-content/uploads/2024/08/brasil.jpg" alt="foto da sede no Brasil" />
 			</div>
 
-		<!-- US LOCATION -->
 		<div class="row align-items-center flex-row-reverse mt-4">
 			<div class="col-md-4">
 				<div class="row align-items-center">
@@ -105,6 +104,7 @@
 		</div>
 	</div>
 </section>
+-->
 
 <footer>
 	<div class="container">
