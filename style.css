@@ -201,8 +201,11 @@ Version: 1.0
 .section_products,
 .section_news,
 .section_location,
-.section__post_content {
-  padding: 100px 0;
+.section__post_content,
+.dedicated_stores,
+.concept_stores,
+.essence_stores {
+  padding: 60px 0;
 }
 
 .product__img {
@@ -430,6 +433,94 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+}
+
+/*ONDE ENCONTRAR*/
+.dedicated_stores_carousel,
+.concept_stores_carousel {
+  width: 1320px !important;
+  overflow: hidden;
+  position: relative;
+}
+
+.dedicated_stores_carousel .swiper-button-next,
+.dedicated_stores_carousel .swiper-button-prev,
+.concept_stores_carousel .swiper-button-next,
+.concept_stores_carousel .swiper-button-prev {
+  color: var(--primary_color);
+}
+
+.stores__card {
+  height: 400px;
+}
+
+.stores__card img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+}
+
+.stores__card_info {
+  padding: 60px !important;
+  background-color: var(--third_color);
+  color: white;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.concept_stores_carousel .stores__card_info {
+  padding: 30px !important;
+}
+.concept_stores_carousel img {
+  height: 100% !important;
+}
+
+.stores__card_title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.stores__card_subtitle,
+.stores__card_address {
+  font-size: 1.6rem;
+  line-height: 2rem;
+}
+
+.stores__card_phone {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.essence__stores_card {
+  background-color: white;
+  padding: 60px;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.essence__stores_card .stores__card_title {
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: var(--third_color);
+}
+
+.essence__stores_card .stores__card_subtitle {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--primary_color);
+}
+
+.essence__stores_card .stores__card_address {
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: var(--primary_color);
 }
 
 @media (max-width: 40rem) {
