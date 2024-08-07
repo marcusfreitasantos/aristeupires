@@ -1,3 +1,5 @@
+<?php /* Template Name: Ariesteu's Home Template based */ ?>
+
 <?php get_header(); ?>
 <?php $siteUrl = site_url(); ?>
 
