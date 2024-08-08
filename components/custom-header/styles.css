@@ -102,6 +102,22 @@ html {
   animation: 1s show_search_form_animation forwards;
 }
 
+.header__cart_icon {
+  padding: 6px;
+  background-color: var(--secondary_color);
+  text-decoration: none;
+  color: var(--primary_color);
+  position: absolute;
+  top: 5px;
+  right: -15px;
+  border-radius: 50px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media (max-width: 40rem) {
   .header__logo_wrapper {
     width: 150px !important;

@@ -4,6 +4,7 @@ $siteUrl = site_url();
 $childThemeDirectory = get_stylesheet_directory_uri();
 $logo = "$childThemeDirectory/assets/img/aristeu.pires-logo-dark-2024.png";
 $headerIconSize = "24px";
+$cartItemsNumber = WC()->cart->get_cart_contents_count();
 ?>
 
 <header class="pt-4 pb-4 custom__header">
@@ -30,15 +31,20 @@ $headerIconSize = "24px";
             <div class="col-4  d-none d-sm-block justify-content-end">
                 <div class="d-flex align-items-center justify-content-end header__right_menu">
                     
-                <div class="header__search_form">
-                    <?php get_search_form(); ?>
-                </div>
+                    <div class="header__search_form">
+                        <?php get_search_form(); ?>
+                    </div>
+
                     <a class="header__search_form_btn" >
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </a>
 
-                    <a href=<?php echo get_permalink( wc_get_page_id( 'cart' ) ); ?> >
+                    <a class="position-relative" href=<?php echo wc_get_cart_url(); ?> >
                         <i class="fa-solid fa-cart-shopping"></i>
+
+                        <?php if($cartItemsNumber){ ?>
+                            <span class="header__cart_icon"><?php echo $cartItemsNumber; ?></span>
+                        <?php } ?>
                     </a>
 
                     <a href=<?php echo get_permalink( wc_get_page_id( 'myaccount' ) ); ?>>

@@ -60,4 +60,14 @@ function getAllPostCategories(){
     return $postCategories;
 }
 
+
+function updateHeaderCartIcon( $fragments ) {
+
+	$fragments[ '.header__cart_icon' ] = '<a href="' . wc_get_cart_url() . '" class="header__cart_icon">' . WC()->cart->get_cart_contents_count() . '</a>';
+ 	return $fragments;
+
+ }
+ add_filter( 'woocommerce_add_to_cart_fragments', 'updateHeaderCartIcon' );
+
+
 ?>
