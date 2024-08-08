@@ -87,7 +87,6 @@
             <div  class="col-12 text-center p-5">
                 <span>Nada encontrado.</span>
             </div>
-
             <?php } ?>
         </div>
     </div>
