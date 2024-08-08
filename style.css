@@ -566,6 +566,37 @@ textarea {
   color: white;
 }
 
+.products__cat_wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.products__cat_link {
+  color: var(--third_color);
+  font-size: 2rem;
+  text-decoration: none;
+  padding: 24px 0;
+}
+
+.products__pagination_wrapper a {
+  text-decoration: none;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--primary_color);
+}
+
+.products__pagination_wrapper a:hover {
+  color: var(--third_color);
+}
+
+.active-link {
+  color: var(--primary_color);
+  font-weight: bold;
+}
+
 @media (max-width: 40rem) {
   .carousel__title {
     font-size: 3rem;
