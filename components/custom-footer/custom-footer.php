@@ -58,13 +58,13 @@
 							</a>	
 						</div>
 
-						<?php echo ButtonLink("https://www.google.com/maps/place/R.+Perimetral,+364+-+Distrito+Industrial,+Canela+-+RS,+95680-000/@-29.3394999,-50.7887841,17z/data=!3m1!4b1!4m5!3m4!1s0x95192c5fa145a291:0x89d8e2484e00b553!8m2!3d-29.3394999!4d-50.7865954", "Como chegar"); ?>
+						<?php //echo ButtonLink("https://www.google.com/maps/place/R.+Perimetral,+364+-+Distrito+Industrial,+Canela+-+RS,+95680-000/@-29.3394999,-50.7887841,17z/data=!3m1!4b1!4m5!3m4!1s0x95192c5fa145a291:0x89d8e2484e00b553!8m2!3d-29.3394999!4d-50.7865954", "Como chegar"); ?>
 					</div>
 				</div>
 			</div>
 
 			<div class="col-md-8">
-				<img src="<?php echo $siteUrl; ?>/wp-content/uploads/2024/08/brasil.jpg" alt="foto da sede no Brasil" />
+				<img src="<?php //echo $siteUrl; ?>/wp-content/uploads/2024/08/brasil.jpg" alt="foto da sede no Brasil" />
 			</div>
 
 		<div class="row align-items-center flex-row-reverse mt-4">
@@ -92,13 +92,13 @@
 							</a>	
 						</div>
 
-						<?php echo ButtonLink("https://www.google.com/maps/place/New+York+Design+Center/@40.7454845,-73.9805782,15z/data=!4m2!3m1!1s0x0:0x7e290805cb28d637?sa=X&ved=2ahUKEwingbjG79nzAhUfpZUCHS3yBMEQ_BJ6BAh9EAU", "Como chegar"); ?>
+						<?php //echo ButtonLink("https://www.google.com/maps/place/New+York+Design+Center/@40.7454845,-73.9805782,15z/data=!4m2!3m1!1s0x0:0x7e290805cb28d637?sa=X&ved=2ahUKEwingbjG79nzAhUfpZUCHS3yBMEQ_BJ6BAh9EAU", "Como chegar"); ?>
 					</div>
 				</div>
 			</div>
 
 			<div class="col-md-8">
-				<img src="<?php echo $siteUrl; ?>/wp-content/uploads/2024/08/eua.jpg" alt="foto da sede no EUA" />
+				<img src="<?php //echo $siteUrl; ?>/wp-content/uploads/2024/08/eua.jpg" alt="foto da sede no EUA" />
 			</div>
 			
 		</div>
