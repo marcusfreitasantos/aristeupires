@@ -56,7 +56,7 @@ function changeBackgroundBasedOnContent($section, $position){
 
 <?php if ($sectionCreator) {
     foreach ($sectionCreator as $section) { ?>
-        <section class="section__creator">
+        <section class="section__creator" id="<?php echo $section['section_name'] ? $section['section_name'] : '' ?>">
             <div class="row gx-0 h-100">
                 <!--GET IMAGES AND VIDEOS FROM LEFT SIDE-->
                 <div class="col-md-6 position-relative h-100">
