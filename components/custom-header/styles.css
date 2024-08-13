@@ -52,7 +52,8 @@ html {
   display: none;
 }
 
-.header__main_menu a {
+.header__main_menu a,
+.header__submenu_title {
   text-decoration: none;
   font-size: 2.5rem;
   font-weight: 300;
@@ -118,6 +119,18 @@ html {
   align-items: center;
 }
 
+.header__submenu {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.header__submenu_item {
+  font-weight: 300;
+  color: var(--third_color);
+  font-size: 2rem !important;
+}
+
 @media (max-width: 40rem) {
   .header__logo_wrapper {
     width: 150px !important;
@@ -125,5 +138,13 @@ html {
 
   .header__main_menu {
     flex-direction: column;
+  }
+
+  .header__submenu {
+    gap: 0;
+  }
+
+  .header__submenu_item {
+    margin-left: 10px;
   }
 }

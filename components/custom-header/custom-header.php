@@ -5,6 +5,16 @@ $childThemeDirectory = get_stylesheet_directory_uri();
 $logo = "$childThemeDirectory/assets/img/aristeu.pires-logo-dark-2024.png";
 $headerIconSize = "24px";
 $cartItemsNumber = WC()->cart->get_cart_contents_count();
+
+
+function hasChildren($menuItems, $itemId) {
+    foreach ($menuItems as $menuItem) {
+        if ($menuItem->menu_item_parent == $itemId) {
+            return true;
+        }
+    }
+    return false;
+}
 ?>
 
 <header class="pt-4 pb-4 custom__header">
@@ -53,15 +63,28 @@ $cartItemsNumber = WC()->cart->get_cart_contents_count();
                 </div>
             </div>
         </div>
-        <ul class="header__main_menu">
-                <?php foreach($mainMenu as $menuItem){ ?>
-                    <a href=<?php echo $menuItem->url; ?>>
-                        <li>
+        <div class="header__main_menu">
+                <?php foreach($mainMenu as $menuItem){                     
+                    if(!hasChildren($mainMenu, $menuItem->ID) && $menuItem->menu_item_parent == 0){ ?>
+                        <a href=<?php echo $menuItem->url; ?>>
                             <?php echo $menuItem->title; ?>
-                        </li>
-                    </a>
+                        </a>
+                    <?php }else if(hasChildren($mainMenu, $menuItem->ID)){ ?>
+                        <div class="header__submenu">
+                            <span class="header__submenu_title"><?php echo $menuItem->title; ?></span>
+
+                            <?php foreach($mainMenu as $submenuItem){ 
+                                if($submenuItem->menu_item_parent == $menuItem->ID){ ?>
+                                    <a href="<?php echo $submenuItem->url; ?>" class="header__submenu_item">
+                                        <?php echo $submenuItem->title; ?> 
+                                    </a>
+                                <?php } ?>
+                           <?php } ?>
+                        </div>
+                    <?php }
+                    ?>
                <?php } ?>
-        </ul>
+        </div>
     </div>
 </header>
 
