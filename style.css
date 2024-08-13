@@ -321,7 +321,7 @@ Version: 1.0
 input[type="text"],
 input[type="email"] {
   height: 100%;
-  font-family: CantarellRegular, arial;
+  font-family: Lato, arial;
   font-size: 0.1rem;
   font-weight: 400;
   line-height: 1em;
@@ -333,7 +333,7 @@ input[type="email"] {
 
 select {
   height: 100%;
-  font-family: CantarellRegular, arial;
+  font-family: Lato, arial;
   font-weight: 400;
   color: var(--primary_color);
   border: 0 !important;
@@ -342,7 +342,7 @@ select {
 }
 
 textarea {
-  font-family: CantarellRegular, arial;
+  font-family: Lato, arial;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1em;

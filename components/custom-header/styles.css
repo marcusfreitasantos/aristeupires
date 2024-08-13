@@ -9,6 +9,14 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  font-family: Lato !important;
+}
+
+.page-header {
+  display: none !important;
+}
+
 .custom__header {
   background-color: white;
   position: sticky;
