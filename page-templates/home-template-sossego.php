@@ -79,6 +79,13 @@ function changeBackgroundBasedOnContentRightColumn($section, $textPosition){
         <section class="section__creator" id="<?php echo $section['section_name'] ? $section['section_name'] : '' ?>">
             <div class="row gx-0">
                 <div class="col-md-6 section__creator_column" style="<?php echo changeBackgroundBasedOnContentLeftColumn($section, $section["text_position"]); ?>">
+
+                    <?php if($section["media_selector"]["left_image"]){ ?>
+                        <div class="d-md-none d-block">
+                            <img src="<?php echo $section["media_selector"]["left_image"]["url"]; ?>" height="200px" />
+                        </div>
+                    <?php } ?>
+
                     <?php if($section["text"] && $section["text_position"] === "left"){ ?>
                         <div class="section__content_wrapper">
                             <?php echo $section["text"]; ?>
@@ -102,6 +109,13 @@ function changeBackgroundBasedOnContentRightColumn($section, $textPosition){
                 </div>
 
                 <div class="col-md-6 section__creator_column" style="<?php echo changeBackgroundBasedOnContentRightColumn($section, $section["text_position"]); ?>">
+
+                    <?php if($section["media_selector"]["right_image"]){ ?>
+                        <div class="d-md-none d-block">
+                            <img src="<?php echo $section["media_selector"]["right_image"]["url"]; ?>" height="200px" />
+                        </div>
+                    <?php } ?>
+
                     <?php if($section["text"] && $section["text_position"] === "right"){ ?>
                         <div class="section__content_wrapper">
                             <?php echo $section["text"]; ?>
