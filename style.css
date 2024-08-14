@@ -533,6 +533,14 @@ textarea {
   color: var(--primary_color);
 }
 
+.section__creator {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.section__creator .row {
+  height: 100%;
+}
 .section__creator img {
   width: 100%;
   height: 100%;
@@ -544,6 +552,10 @@ textarea {
   background-repeat: no-repeat !important;
   background-position: top center !important;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .section__creator_video {
@@ -574,6 +586,7 @@ textarea {
   color: white;
   position: relative;
   z-index: 3;
+  height: 100vh;
 }
 
 .section__content_wrapper a {
@@ -813,7 +826,9 @@ textarea {
     margin-top: 15px !important;
   }
 
-  .product__page_header {
+  .product__page_header,
+  .section__creator,
+  .section__content_wrapper {
     height: auto;
   }
 
