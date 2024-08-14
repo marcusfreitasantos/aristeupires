@@ -56,41 +56,40 @@ function renderWhatsappButton(){
     $whatsappCustomBtnMsg = get_option('whatsapp_custom_btn_msg', '');
     $whatsappCustomLink = "https://api.whatsapp.com/send?phone=+$whatsappCustomBtnNumber&text=$whatsappCustomBtnMsg";
     $btnSize = "80px";
-    ?>
 
-    <style>
-        .whatsapp__custom_btn{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            padding: 24px;
-            width: <?php echo $btnSize; ?>;
-            height: <?php echo $btnSize; ?>;
-            border-radius: 50%;
-            background-color: #25d366;
-            font-size: 4rem;
-            transition: 0.5s;
-            text-decoration: none;
-            z-index: 3;
-        }
+    if($whatsappCustomBtnNumber){ ?>
+        <style>
+            .whatsapp__custom_btn{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                padding: 24px;
+                width: <?php echo $btnSize; ?>;
+                height: <?php echo $btnSize; ?>;
+                border-radius: 50%;
+                background-color: #25d366;
+                font-size: 4rem;
+                transition: 0.5s;
+                text-decoration: none;
+                z-index: 3;
+            }
 
-        .whatsapp__custom_btn:hover{
-            opacity: 0.5;
-        }
+            .whatsapp__custom_btn:hover{
+                opacity: 0.5;
+            }
 
-        .whatsapp__custom_btn i{
-            color: white;
-        }
-    </style>
+            .whatsapp__custom_btn i{
+                color: white;
+            }
+        </style>
 
-    <a class="whatsapp__custom_btn" href="<?php echo $whatsappCustomLink; ?>" target="_blank">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
-
-<?php    
+        <a class="whatsapp__custom_btn" href="<?php echo $whatsappCustomLink; ?>" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    <?php }
 }
 
 add_action("wp_footer", "renderWhatsappButton");
