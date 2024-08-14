@@ -57,9 +57,9 @@ function changeBackgroundBasedOnContent($section, $position){
 <?php if ($sectionCreator) {
     foreach ($sectionCreator as $section) { ?>
         <section class="section__creator" id="<?php echo $section['section_name'] ? $section['section_name'] : '' ?>">
-            <div class="row gx-0 h-100">
+            <div class="row gx-0">
                 <!--GET IMAGES AND VIDEOS FROM LEFT SIDE-->
-                <div class="col-md-6 position-relative h-100">
+                <div class="col-md-6 position-relative">
                     <?php if($section["text"] && $section["text_position"] === "left"){ ?>
                         <div class="section__content_wrapper" style="<?php echo changeBackgroundBasedOnContent($section, "left"); ?>;">
                             <?php echo $section["text"]; ?>
@@ -84,7 +84,7 @@ function changeBackgroundBasedOnContent($section, $position){
                 </div>
 
                 <!--GET IMAGES, VIDEOS AND TEXT FROM RIGHT SIDE-->
-                <div class="col-md-6 position-relative h-100">
+                <div class="col-md-6 position-relative">
                     <?php if($section["text"] && $section["text_position"] === "right"){ ?>
                         <div class="section__content_wrapper" style="<?php echo changeBackgroundBasedOnContent($section, "right"); ?>;">
                             <?php echo $section["text"]; ?>

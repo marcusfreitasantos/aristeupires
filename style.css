@@ -1,5 +1,5 @@
 /*
-Theme Name: OceanWP Child Theme
+Theme Name: Aristeu Pires Theme
 Theme URI: https://oceanwp.org/
 Description: OceanWP WordPress theme. Sample child theme.
 Author: OceanWP
@@ -529,6 +529,10 @@ textarea {
   overflow: hidden;
 }
 
+.section__creator .row {
+  height: 100%;
+}
+
 .section__creator img {
   width: 100%;
   height: 100%;
@@ -763,13 +767,25 @@ textarea {
     border: none;
   }
 
+  .section__creator {
+    height: auto;
+  }
+
   .section__content_wrapper {
     padding: 40px;
     font-size: 1.6rem;
   }
 
+  .section__creator .row {
+    height: auto;
+  }
+
   .section__creator_btn {
     font-size: 1.6rem;
+  }
+
+  .section__content_wrapper {
+    position: relative;
   }
 
   textarea {
