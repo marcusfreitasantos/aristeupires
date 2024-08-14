@@ -12,6 +12,10 @@ Version: 1.0
 @import "components/custom-header/styles.css";
 @import "components/custom-footer/styles.css";
 
+a {
+  color: var(--primary_color);
+}
+
 .home__carousel {
   width: 100%;
   height: 100vh;
@@ -530,6 +534,10 @@ textarea {
 }
 
 .section__creator .row {
+  height: 100%;
+}
+
+.section__creator .col-md-6 {
   height: 100%;
 }
 
