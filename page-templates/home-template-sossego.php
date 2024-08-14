@@ -42,7 +42,8 @@ if ($carousel) { ?>
 function changeBackgroundBasedOnContentLeftColumn($section, $textPosition){
     $leftImg = $section["media_selector"]["left_image"] ? $section["media_selector"]["left_image"]["url"] : "";
 
-    if($leftImg && $textPosition === "left"){
+
+    if(($leftImg && $textPosition === "left")){
         $sectionCreatorColumnBackground = "background: url($leftImg); box-shadow: inset 0 1000px 0 0 rgba(0,0,0,0.7);";
     
     }else if($leftImg){
@@ -71,8 +72,6 @@ function changeBackgroundBasedOnContentRightColumn($section, $textPosition){
     return  $sectionCreatorColumnBackground;
 }
 
-
-
 ?>
 
 <?php if ($sectionCreator) {
@@ -91,6 +90,15 @@ function changeBackgroundBasedOnContentRightColumn($section, $textPosition){
                             <?php } ?>
                         </div>
                     <?php } ?>
+
+
+                    <?php if($section["media_selector"]["left_video"]) { ?>
+                        <div class="section__creator_video">
+                            <video autobuffer="true" preload="auto" muted loop autoplay >
+                                <source src=<?php echo $section["media_selector"]["left_video"]; ?>  type="video/mp4" />
+                            </video>
+                        </div>
+                    <?php } ?>
                 </div>
 
                 <div class="col-md-6 section__creator_column" style="<?php echo changeBackgroundBasedOnContentRightColumn($section, $section["text_position"]); ?>">
@@ -103,6 +111,14 @@ function changeBackgroundBasedOnContentRightColumn($section, $textPosition){
                                     <?php echo $section["cta"]["title"]; ?>
                                 </a>
                             <?php } ?>
+                        </div>
+                    <?php } ?>
+
+                    <?php if($section["media_selector"]["right_video"]) { ?>
+                        <div class="section__creator_video">
+                            <video autobuffer="true" preload="auto" muted loop autoplay >
+                                <source src=<?php echo $section["media_selector"]["right_video"]; ?>  type="video/mp4" />
+                            </video>
                         </div>
                     <?php } ?>
                 </div>
