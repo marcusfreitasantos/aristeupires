@@ -28,8 +28,6 @@
 		<?php do_action( 'ocean_before_wrap' ); ?>
 
 		<div id="wrap" class="clr">
-
-			<?php do_action( 'ocean_top_bar' ); ?>
 			
 			<?php require_once("components/custom-header/custom-header.php"); ?>
 
