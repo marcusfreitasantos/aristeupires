@@ -11,7 +11,7 @@ html {
 
 body {
   font-family: Lato !important;
-  background-color: white !important;
+  background-color: var(--secondary_color) !important;
 }
 
 .page-header {
