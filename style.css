@@ -459,9 +459,14 @@ textarea {
   height: 400px;
 }
 
+.stores__card__img_wrapper {
+  height: 100%;
+}
+
 .stores__card img {
   width: 100%;
   max-height: 400px;
+  height: 100%;
   object-fit: cover;
 }
 
@@ -615,6 +620,7 @@ textarea {
   height: 80vh;
   overflow: hidden;
 }
+
 .product__page_header_img {
   width: 100%;
   height: 100%;
@@ -798,5 +804,23 @@ textarea {
 
   textarea {
     margin-top: 15px !important;
+  }
+
+  .product__page_header {
+    height: auto;
+  }
+
+  .stores__card_info {
+    padding: 20px !important;
+    height: auto !important;
+  }
+
+  .stores__card {
+    height: auto;
+  }
+
+  .stores__card img {
+    width: 100%;
+    height: auto;
   }
 }

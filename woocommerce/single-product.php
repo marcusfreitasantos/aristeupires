@@ -31,7 +31,7 @@ $otherProductsQuery = wc_get_products( $getProductsArgs );
                 <h1 class="product__page_title"><?php echo the_title(); ?></h1>
             </div>
 
-            <div class="col-md-6 d-flex justify-content-end">
+            <div class="col-md-6 d-flex justify-content-md-end">
                 <div class="product__page_nav_wrapper">
                     <a href="#product-info">
                         Geral
@@ -165,11 +165,21 @@ $otherProductsQuery = wc_get_products( $getProductsArgs );
     const swiper2 = new Swiper(".gallery__carousel", {
         direction: "horizontal",
         loop: true,
-        slidesPerView: 3,
+        slidesPerView: 1,
         spaceBetween: 12,
         autoplay: {
             delay: 3000,
         },
+        breakpoints: {
+        768: {
+        slidesPerView: 2,
+        spaceBetween: 12,
+        },
+        1024: {
+        slidesPerView: 3,
+        spaceBetween: 12,
+        },
+      },
     });
 </script>
 

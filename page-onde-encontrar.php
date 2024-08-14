@@ -165,7 +165,7 @@ $stores = new WP_Query($getPostsArgs);
 
                                     <div class="swiper-slide">
                                         <div class="stores__card row align-items-center g-0">
-                                            <div class="col-md-6 h-100">
+                                            <div class="col-md-6 stores__card__img_wrapper">
                                                 <?php if($postImg){ ?>
                                                     <img src="<?php echo $postImg['url'];?>"  alt="<?php echo $postImg['alt'];?>" />
                                                 <?php } ?>
@@ -264,12 +264,18 @@ $stores = new WP_Query($getPostsArgs);
 
     const swiper2 = new Swiper(".concept_stores_carousel", {
         direction: "horizontal",
-        slidesPerView: 2,
+        slidesPerView: 1,
         spaceBetween: 24,
         loop: true,
         autoplay: {
             delay: 6000
         },
+        breakpoints: {
+        1024: {
+        slidesPerView: 2,
+        spaceBetween: 12,
+        },
+      },
 
         navigation: {
             nextEl: ".swiper-button-next",
