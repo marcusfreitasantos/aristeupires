@@ -39,18 +39,39 @@ if ($carousel) { ?>
 <?php $sectionCreator = get_field('sections_creator'); ?>
 <?php 
 
-function changeBackgroundBasedOnContent($section, $position){
-    if(($section["media_selector"]["left_image"] || $section["media_selector"]["left_video"]) && $position === "left"){
-        $sectionContentWrapperBackgroundColor = "background-color: rgba(0,0,0,0.60);;";
+function changeBackgroundBasedOnContentLeftColumn($section, $textPosition){
+    $leftImg = $section["media_selector"]["left_image"] ? $section["media_selector"]["left_image"]["url"] : "";
 
-    }else if(($section["media_selector"]["right_image"] || $section["media_selector"]["right_video"]) && $position === "right"){
-        $sectionContentWrapperBackgroundColor = "background-color: rgba(0,0,0,0.60);";
+    if($leftImg && $textPosition === "left"){
+        $sectionCreatorColumnBackground = "background: url($leftImg); box-shadow: inset 0 1000px 0 0 rgba(0,0,0,0.7);";
+    
+    }else if($leftImg){
+        $sectionCreatorColumnBackground = "background: url($leftImg);";
+
     }else{
-        $sectionContentWrapperBackgroundColor = "background-color: #73796d;";
+        $sectionCreatorColumnBackground = "background-color: #73796d;";
     }
 
-    return $sectionContentWrapperBackgroundColor;
+    return  $sectionCreatorColumnBackground;
 }
+
+function changeBackgroundBasedOnContentRightColumn($section, $textPosition){
+    $rightImg = $section["media_selector"]["right_image"] ? $section["media_selector"]["right_image"]["url"] : "";
+
+    if($rightImg && $textPosition === "right"){
+        $sectionCreatorColumnBackground = "background: url($rightImg); box-shadow: inset 0 1000px 0 0 rgba(0,0,0,0.7);";
+    
+    }else if($rightImg){
+        $sectionCreatorColumnBackground = "background: url($rightImg);";
+
+    }else{
+        $sectionCreatorColumnBackground = "background-color: #73796d;";
+    }
+
+    return  $sectionCreatorColumnBackground;
+}
+
+
 
 ?>
 
@@ -58,10 +79,9 @@ function changeBackgroundBasedOnContent($section, $position){
     foreach ($sectionCreator as $section) { ?>
         <section class="section__creator" id="<?php echo $section['section_name'] ? $section['section_name'] : '' ?>">
             <div class="row gx-0">
-                <!--GET IMAGES AND VIDEOS FROM LEFT SIDE-->
-                <div class="col-md-6 position-relative">
+                <div class="col-md-6 section__creator_column" style="<?php echo changeBackgroundBasedOnContentLeftColumn($section, $section["text_position"]); ?>">
                     <?php if($section["text"] && $section["text_position"] === "left"){ ?>
-                        <div class="section__content_wrapper" style="<?php echo changeBackgroundBasedOnContent($section, "left"); ?>;">
+                        <div class="section__content_wrapper">
                             <?php echo $section["text"]; ?>
 
                             <?php if($section["cta"]){ ?>
@@ -71,22 +91,11 @@ function changeBackgroundBasedOnContent($section, $position){
                             <?php } ?>
                         </div>
                     <?php } ?>
-
-                    <?php if($section["media_selector"]["left_image"]){ ?>
-                        <img src="<?php echo $section["media_selector"]["left_image"]["url"]; ?>" />
-                    <?php } ?>
-
-                    <?php if($section["media_selector"]["left_video"]) { ?>
-                        <video class="product__video" autobuffer="true" preload="auto" muted loop autoplay >
-                            <source src=<?php echo $section["media_selector"]["left_video"]; ?>  type="video/mp4" />
-                        </video>
-                    <?php } ?>
                 </div>
 
-                <!--GET IMAGES, VIDEOS AND TEXT FROM RIGHT SIDE-->
-                <div class="col-md-6 position-relative">
+                <div class="col-md-6 section__creator_column" style="<?php echo changeBackgroundBasedOnContentRightColumn($section, $section["text_position"]); ?>">
                     <?php if($section["text"] && $section["text_position"] === "right"){ ?>
-                        <div class="section__content_wrapper" style="<?php echo changeBackgroundBasedOnContent($section, "right"); ?>;">
+                        <div class="section__content_wrapper">
                             <?php echo $section["text"]; ?>
 
                             <?php if($section["cta"]){ ?>
@@ -96,17 +105,9 @@ function changeBackgroundBasedOnContent($section, $position){
                             <?php } ?>
                         </div>
                     <?php } ?>
-
-                    <?php if($section["media_selector"]["right_image"]){ ?>
-                        <img src="<?php echo $section["media_selector"]["right_image"]["url"]; ?>" />
-                    <?php } ?>
-
-                    <?php if($section["media_selector"]["right_video"]) { ?>
-                        <video class="product__video" autobuffer="true" preload="auto" muted loop autoplay >
-                            <source src=<?php echo $section["media_selector"]["right_video"]; ?>  type="video/mp4" />
-                        </video>
-                    <?php } ?>
                 </div>
+
+          
             </div>
         </section>
     <?php }
