@@ -82,7 +82,7 @@ $otherProductsQuery = wc_get_products( $getProductsArgs );
 <section id="product-resources">
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 product__resources_col">
                 <h2 class="section__title">Descrição</h2>
 
                 <div class="product__details">
@@ -90,7 +90,7 @@ $otherProductsQuery = wc_get_products( $getProductsArgs );
                 </div>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-6 product__resources_col">
                 <h2 class="section__title">Recursos</h2>
 
                 <?php if($productResources){ ?>
