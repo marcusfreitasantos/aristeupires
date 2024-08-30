@@ -2,10 +2,12 @@
 
 <?php get_header(); ?>
 <?php $siteUrl = site_url(); ?>
+<?php $heroMedia = get_field('hero_media_selector'); ?>
+<?php $carousel = get_field('carousel'); ?>
+<?php $videoBg = get_field('video_background'); ?>
 
 <?php 
-$carousel = get_field('carousel');
-if ($carousel) { ?>
+if ($carousel && $heroMedia == "image_carousel") { ?>
     <section class="home__carousel">
         <div class="swiper-wrapper">
             <?php foreach ($carousel as $carouselItem) { ?>
@@ -36,11 +38,42 @@ if ($carousel) { ?>
     </section>
 <?php } ?>
 
+<?php if ($videoBg && $heroMedia == "video_bg") { ?>
+    <section class="video__background_section position-relative">
+        <a href=<?php echo $videoBg["slide_url"]; ?>>
+            <video autobuffer="true" preload="auto" muted loop autoplay >
+                <source src=<?php echo $videoBg["video_url"]; ?>  type="video/mp4" />
+            </video>
+
+            <div class="video__background_content h-100">
+                <div class="container h-100">
+                    <div class="d-flex align-items-center justify-content-center flex-column h-100">
+                        <?php if ($videoBg['title']) { ?>
+                            <h2 class="video__background_title"><?php echo $videoBg['title']; ?></h2>
+                        <?php } ?>
+        
+                        <?php if ($videoBg['subtitle']) { ?>
+                            <h3 class="video__background_subtitle"><?php echo $videoBg['subtitle']; ?></h3>
+                        <?php } ?>
+                        
+                        <?php if ($videoBg['button_text']) { ?>
+                            <span class="video__background_btn">
+                                <?php echo $videoBg['button_text']; ?>
+                            </span>
+                        <?php } ?>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </section>
+ <?php } ?>
+
 <?php $sectionCreator = get_field('sections_creator'); ?>
 <?php 
 
 function changeBackgroundBasedOnContentLeftColumn($section, $textPosition){
     $leftImg = $section["media_selector"]["left_image"] ? $section["media_selector"]["left_image"]["url"] : "";
+    $backgroundColor = $section['background_color'];
 
 
     if(($leftImg && $textPosition === "left")){
@@ -50,7 +83,7 @@ function changeBackgroundBasedOnContentLeftColumn($section, $textPosition){
         $sectionCreatorColumnBackground = "background: url($leftImg);";
 
     }else{
-        $sectionCreatorColumnBackground = "background-color: #73796d;";
+        $sectionCreatorColumnBackground = "background-color: $backgroundColor;";
     }
 
     return  $sectionCreatorColumnBackground;
@@ -58,6 +91,7 @@ function changeBackgroundBasedOnContentLeftColumn($section, $textPosition){
 
 function changeBackgroundBasedOnContentRightColumn($section, $textPosition){
     $rightImg = $section["media_selector"]["right_image"] ? $section["media_selector"]["right_image"]["url"] : "";
+    $backgroundColor = $section['background_color'];
 
     if($rightImg && $textPosition === "right"){
         $sectionCreatorColumnBackground = "background: url($rightImg); box-shadow: inset 0 1000px 0 0 rgba(0,0,0,0.7);";
@@ -66,7 +100,7 @@ function changeBackgroundBasedOnContentRightColumn($section, $textPosition){
         $sectionCreatorColumnBackground = "background: url($rightImg);";
 
     }else{
-        $sectionCreatorColumnBackground = "background-color: #73796d;";
+        $sectionCreatorColumnBackground = "background-color: $backgroundColor;";
     }
 
     return  $sectionCreatorColumnBackground;

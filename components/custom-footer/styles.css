@@ -1,12 +1,12 @@
 footer {
-  background-color: var(--primary_color);
+  background-color: #c9c8c7;
   padding: 60px 0;
 }
 
 .footer__column_title {
-  color: var(--secondary_color);
+  color: black;
   font-size: 1.6rem;
-  font-weight: bold;
+  font-weight: 400;
   text-transform: uppercase;
 }
 
@@ -18,26 +18,27 @@ footer {
 
 .footer__items_group a {
   text-decoration: none;
-  color: var(--secondary_color);
+  color: black;
   font-size: 1.4rem;
-  border-bottom: 0.5px solid var(--secondary_color);
-  padding: 12px 0;
+  padding: 6px 0;
+  font-weight: 300;
 }
 
 .footer__items_group p {
-  color: var(--secondary_color);
+  color: black;
   font-size: 1.4rem;
+  font-weight: 300;
 }
 
 .footer__bottom_bar {
   background-color: var(--primary_color);
   text-align: center;
-  border-top: 1px solid var(--secondary_color);
+  border-top: 1px solid black;
   padding: 12px;
 }
 
 .footer__bottom_bar span {
-  color: var(--secondary_color);
+  color: black;
   font-size: 1.2rem;
 }
 
@@ -50,14 +51,20 @@ footer .wpforms-container {
   align-items: center;
 }
 
-.newsletter_input {
-  border-radius: 5px 0 0 5px !important;
+#newsletter_form .newsletter_input {
+  background: none !important;
+  border: 1px solid black !important;
+  border-right: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  height: 45px !important;
 }
 
-.newsletter_btn {
-  background-color: var(--secondary_color) !important;
-  border-radius: 0 5px 5px 0 !important;
-  color: var(--primary_color) !important;
+#newsletter_form .newsletter_btn {
+  color: black !important;
+  background: none !important;
+  border: 1px solid black !important;
+  height: 45px !important;
 }
 
 .footer__social_links {

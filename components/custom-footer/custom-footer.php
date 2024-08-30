@@ -151,7 +151,7 @@
 				<div class="footer__items_group">
 					<p>Para receber nossa newsletter e ficar por dentro das novidades e eventos, adicione seu endereço de e-mail abaixo.</p>
 
-                    <form name="newsletter_form" method="post" action="">
+                    <form name="newsletter_form" method="post" action="" id="newsletter_form">
                         <div class="newsletter_input_row">
                             <input type="email" class="newsletter_input" placeholder="Seu email" name="newsletter_user_email" id="newsletter_user_email"/>
                             <button class="newsletter_btn" type="submit"><i class="fa-solid fa-chevron-right"></i></button>
@@ -168,6 +168,6 @@
 	</div>
 </footer>
 
-<div class="footer__bottom_bar">
+<!-- <div class="footer__bottom_bar">
     <span>© Copyright Aristeu Pires <?php echo date('Y'); ?>. Móveis de Design Autoral. Todos direitos reservados. </span>
-</div>
+</div> -->
