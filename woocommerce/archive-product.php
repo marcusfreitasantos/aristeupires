@@ -3,6 +3,7 @@
 <?php $currentPage = isset($_GET['page']) ? intval($_GET['page']) : 1; ?>
 <?php $mainImage = get_field("main_image", 7); ?>
 <?php $productCats = getProductCategories(); ?>
+<?php $productsPage = get_permalink( wc_get_page_id( 'shop' ) ); ?>
 <?php 
     $currentCategories = [];
 
@@ -38,7 +39,7 @@
         <hr/>
 
         <div class="products__cat_wrapper">
-            <a class="products__cat_link <?php echo empty($currentCategories) ? 'active-link' : ''; ?>" href="<?php echo "$siteUrl/loja" ?>">Todos os produtos</a>
+            <a class="products__cat_link <?php echo empty($currentCategories) ? 'active-link' : ''; ?>" href="<?php echo $productsPage; ?>">Todos os produtos</a>
             <?php foreach($productCats as $cat){ ?>
                 <a class="products__cat_link <?php echo in_array($cat->slug, $currentCategories) ? 'active-link' : ''; ?>" href="<?php echo "$siteUrl/categoria-produto/$cat->slug"; ?>"><?php echo $cat->name; ?></a>
            <?php } ?>
@@ -62,7 +63,7 @@
         <?php if($maxNumPages > 1){ ?>
             <div class="products__pagination_wrapper w-100 d-flex justify-content-center align-items-center">
                 <?php if($currentPage > 1){ ?>
-                    <a class="products__pagination_next" href="http://localhost/aristeu-pires/loja/?page=<?php echo  (int) $currentPage - 1; ?>">
+                    <a class="products__pagination_next" href="<?php echo $productsPage; ?>?page=<?php echo  (int) $currentPage - 1; ?>">
                         <i class="fa-solid fa-chevron-left"></i>    
                         <span>Anterior</span>
                     </a>
@@ -70,7 +71,7 @@
 
 
                 <?php if($currentPage < $maxNumPages){ ?>
-                    <a class="products__pagination_next" href="http://localhost/aristeu-pires/loja/?page=<?php echo  (int) $currentPage + 1; ?>">
+                    <a class="products__pagination_next" href="<?php echo $productsPage; ?>?page=<?php echo  (int) $currentPage + 1; ?>">
                         <span>Próximo</span>
                         <i class="fa-solid fa-chevron-right"></i>
                     </a>
