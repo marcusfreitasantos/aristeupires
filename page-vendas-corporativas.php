@@ -16,12 +16,14 @@
 ?>
 
 
-<?php if($heroImg){ ?>
-    <img src="<?php echo $heroImg['url']; ?>" alt="<?php echo $heroImg['alt']; ?>" />
-<?php } ?>
 
-<section class="corp__section">
-    <div class="container">
+
+<section>
+    <?php if($heroImg){ ?>
+        <img class="corp__hero_img" src="<?php echo $heroImg['url']; ?>" alt="<?php echo $heroImg['alt']; ?>" />
+    <?php } ?>
+
+    <div class="container pt-5">
         <h1 class="corp__page_title text-center"><?php the_title();?></h1>
 
         <?php if(get_field('page_description')){ ?>

@@ -795,6 +795,12 @@ textarea {
   font-weight: 400;
 }
 
+.corp__hero_img {
+  height: 70vh;
+  width: 100%;
+  object-fit: cover;
+}
+
 .corp__page_description {
   font-size: 2rem;
   color: var(--primary_color);
