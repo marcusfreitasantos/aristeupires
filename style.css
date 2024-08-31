@@ -771,6 +771,7 @@ textarea {
 .product__gallery_section {
   height: 500px;
   overflow: hidden;
+  position: relative;
 }
 
 .gallery__carousel {

@@ -67,8 +67,8 @@ $otherProductsQuery = wc_get_products( $getProductsArgs );
 
                     </div>
 
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev" id="product__img_carousel_prev"></div>
+                    <div class="swiper-button-next" id="product__img_carousel_next"></div>
                 </div>
             </div>
 
@@ -121,8 +121,12 @@ $otherProductsQuery = wc_get_products( $getProductsArgs );
                         </div>
                     <?php } ?>
                 </div>
+                
+                <div class="swiper-button-prev" id="gallery__carousel_prev"></div>
+                <div class="swiper-button-next" id="gallery__carousel_next"></div>
             </div>
         <?php } ?>
+        
     </section>
 <?php } ?>
 
@@ -157,8 +161,8 @@ $otherProductsQuery = wc_get_products( $getProductsArgs );
             delay: 3000,
         },
         navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
+            nextEl: "#product__img_carousel_next",
+            prevEl: "#product__img_carousel_prev",
         },
     });
 
@@ -169,6 +173,10 @@ $otherProductsQuery = wc_get_products( $getProductsArgs );
         spaceBetween: 12,
         autoplay: {
             delay: 3000,
+        },
+        navigation: {
+            nextEl: "#gallery__carousel_next",
+            prevEl: "#gallery__carousel_prev",
         },
         breakpoints: {
         768: {
