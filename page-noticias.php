@@ -67,21 +67,9 @@
             <?php 
                 endwhile; 
 
-                $big = 999999999;
                 ?>
 
-                <div class="col-12 text-center mt-5 pt-5">
-                    <?php
-                        echo paginate_links(array(
-                            'base'      => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
-                            'format'    => '?paged=%#%',
-                            'current'   => max(1, get_query_var('paged')),
-                            'total'     => $news->max_num_pages,
-                            'prev_text' => __('«'),
-                            'next_text' => __('»'),
-                        ));
-                    ?>
-                </div>
+            <?php echo PostPagination($news); ?>
 
            <?php }else{ ?>
             <div  class="col-12 text-center p-5">

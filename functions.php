@@ -26,6 +26,7 @@ include("components/button-link/button-link.php");
 include("components/post-card/post-card.php");
 include("components/product-card/product-card.php");
 include("components/whatsapp-btn/whatsapp-btn.php");
+include("components/post-pagination/post-pagination.php");
 
 global $emailHeaders;
 $emailHeaders = array(

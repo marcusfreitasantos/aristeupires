@@ -788,6 +788,19 @@ textarea {
 }
 
 /*VENDAS CORPORATIVAS*/
+.corp__page_title {
+  font-size: 4rem;
+  color: var(--primary_color);
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+
+.corp__page_description {
+  font-size: 2rem;
+  color: var(--primary_color);
+  font-weight: 300;
+}
+
 .corp__section {
   padding: 40px 0;
 }
@@ -870,6 +883,7 @@ textarea {
   flex-direction: column;
   gap: 6px;
   transition: 0.5s;
+  text-decoration: none;
 }
 
 .corp__other_card:hover {
