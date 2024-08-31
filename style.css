@@ -70,6 +70,7 @@ a {
   justify-content: center;
   align-items: center;
   height: 90vh;
+  overflow: hidden;
 }
 
 .video__background_content {
@@ -786,6 +787,105 @@ textarea {
   padding: 40px !important;
 }
 
+/*VENDAS CORPORATIVAS*/
+.corp__section {
+  padding: 40px 0;
+}
+
+.corp__title {
+  font-size: 3rem;
+  font-weight: 400;
+  margin-bottom: 40px;
+}
+
+.corp__content {
+  font-size: 2.4rem !important;
+  font-weight: 300;
+}
+
+.corp__content h4 {
+  font-size: 2.4rem !important;
+  margin-bottom: 20px !important;
+}
+
+.corp__content strong {
+  font-weight: 400 !important;
+}
+
+.corp__details {
+  padding: 20px 0;
+  margin: 20px 0;
+  border-top: 1px solid var(--third_color);
+  border-bottom: 1px solid var(--third_color);
+  font-size: 2rem;
+}
+
+.corp__related_product_card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+.corp__related_product_card:hover {
+  opacity: 0.5;
+}
+
+.corp__related_product_card_title {
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.corp__photo_gallery {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.corp__photo_gallery img {
+  box-sizing: border-box;
+  padding: 12px;
+}
+
+.corp__photo_gallery img:nth-child(4n + 1) {
+  width: 100%;
+}
+
+.corp__photo_gallery img:nth-child(4n + 2),
+.corp__photo_gallery img:nth-child(4n + 3) {
+  width: 50%;
+}
+
+.corp__other_section {
+  padding: 40px 0;
+  background-color: #dfddd9;
+}
+
+.corp__other_section a {
+  text-decoration: none;
+}
+
+.corp__other_card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: 0.5s;
+}
+
+.corp__other_card:hover {
+  opacity: 0.5;
+}
+
+.corp__other_card_title {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.corp__other_card_content {
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
 @media (max-width: 1024px) {
   .carousel__title {
     font-size: 3rem;
@@ -893,5 +993,33 @@ textarea {
 
   .product__resources_col {
     padding: initial !important;
+  }
+
+  .corp__title {
+    font-size: 3rem;
+    font-weight: 400;
+    margin-bottom: 40px;
+  }
+
+  .corp__content,
+  .corp__content h4 {
+    font-size: 2rem !important;
+  }
+
+  .corp__details {
+    font-size: 1.6rem;
+  }
+
+  .video__background_title {
+    font-size: 2.4rem;
+  }
+
+  .video__background_subtitle {
+    font-size: 1.4rem;
+  }
+
+  .video__background_btn {
+    font-size: 2rem;
+    padding: 8px 16px;
   }
 }

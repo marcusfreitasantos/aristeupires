@@ -20,10 +20,10 @@ body {
 
 .custom__header {
   background-color: white;
-  position: sticky;
-  position: -webkit-sticky;
+  position: fixed;
   top: 0;
   z-index: 5;
+  width: 100%;
 }
 
 .custom__header i {
