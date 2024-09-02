@@ -681,6 +681,9 @@ textarea {
 .product__page_header {
   height: 80vh;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .product__page_header_img {

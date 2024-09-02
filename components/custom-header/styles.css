@@ -142,6 +142,10 @@ body {
 }
 
 @media (max-width: 40rem) {
+  body {
+    padding-top: 60px;
+  }
+
   .header__logo_wrapper {
     width: 150px !important;
   }
