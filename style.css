@@ -629,7 +629,6 @@ textarea {
   color: white;
   position: relative;
   z-index: 3;
-  height: 100vh;
 }
 
 .section__content_wrapper a {
@@ -907,6 +906,12 @@ textarea {
   font-weight: 300;
 }
 
+@media (max-width: 1366px) {
+  .section__creator {
+    height: auto;
+  }
+}
+
 @media (max-width: 1024px) {
   .carousel__title {
     font-size: 3rem;
@@ -974,6 +979,8 @@ textarea {
   .section__content_wrapper {
     padding: 40px;
     font-size: 1.6rem;
+    position: relative;
+    height: auto;
   }
 
   .section__creator .row {
@@ -984,17 +991,12 @@ textarea {
     font-size: 1.6rem;
   }
 
-  .section__content_wrapper {
-    position: relative;
-  }
-
   textarea {
     margin-top: 15px !important;
   }
 
   .product__page_header,
-  .section__creator,
-  .section__content_wrapper {
+  .section__creator {
     height: auto;
   }
 
