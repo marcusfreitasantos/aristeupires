@@ -9,7 +9,7 @@
     </div>
 </section>
 
-<footer>
+<footer class="py-5">
 	<div class="container">
 		<div class="row gx-5">
 			<div class="col-md-3 mt-5">
