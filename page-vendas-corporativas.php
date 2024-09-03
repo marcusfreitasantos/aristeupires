@@ -4,7 +4,7 @@
     $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
     $getPostsArgs = array(
-		'posts_per_page'      => 6,
+		'posts_per_page'      => 9,
 		'orderby'          => 'date',
 		'order'            => 'DESC',
 		'post_type'        => 'venda_corporativa',
@@ -19,8 +19,9 @@
 <?php 
     function changeColumnClassBasedOnIndex($colIndex){
         $colClassName = "col-md-3";
+        $indexesToBeChecked = [1,5,7];
         
-        if($colIndex == 1 || $colIndex == 5){
+        if(in_array($colIndex, $indexesToBeChecked )){
             $colClassName = "col-md-6";
         }
         return $colClassName;
