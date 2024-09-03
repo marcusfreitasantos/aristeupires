@@ -92,7 +92,7 @@ $otherProductsQuery = wc_get_products( $getProductsArgs );
                 <h2 class="section__title">Descrição</h2>
 
                 <div class="product__details">
-                    <?php echo $productData['description']; ?>
+                    <?php echo $productData['short_description']; ?>
                 </div>
             </div>
 
@@ -102,12 +102,14 @@ $otherProductsQuery = wc_get_products( $getProductsArgs );
                 <?php if($productResources){ ?>
                     <div class="product__resources_wrapper row">
                         <?php foreach($productResources as $resource){ ?>
-                            <div class="col-md-6 mb-4">
-                                <a class="product__resource_btn" href="<?php echo $resource['link']['url']; ?>" target="<?php echo $resource['link']['target']; ?>">
-                                    <span class="product__resource_btn_title"><?php echo $resource['link']['title']; ?></span>
-                                    <span class="product__resource_btn_text"><?php echo $resource['small_description']; ?></span>
-                                </a>
-                            </div>    
+                            <?php if($resource['link']){ ?>
+                                <div class="col-md-6 mb-4">
+                                    <a class="product__resource_btn" href="<?php echo $resource['link']['url']; ?>" target="<?php echo $resource['link']['target']; ?>">
+                                        <span class="product__resource_btn_title"><?php echo $resource['link']['title']; ?></span>
+                                        <span class="product__resource_btn_text"><?php echo $resource['small_description']; ?></span>
+                                    </a>
+                                </div>    
+                            <?php } ?>
                         <?php } ?>
                     </div>
                 <?php } ?>
@@ -116,21 +118,24 @@ $otherProductsQuery = wc_get_products( $getProductsArgs );
     </div>
 </section>
 
-<?php if($productCustomGallery){ ?>
+<?php if(!empty($productCustomGallery)){ ?>
     <section class="product__gallery_section" id="product-gallery">
         <?php foreach($productCustomGallery as $gallery){ ?>
-            <div class="gallery__carousel">
-                <div class="swiper-wrapper">
-                    <?php foreach($gallery['add_slider_image'] as $galleryImg){ ?>
-                        <div class="swiper-slide">
-                            <img src="<?php echo $galleryImg['url']; ?>"  />
-                        </div>
-                    <?php } ?>
+            <?php if($gallery['add_slider_image'] ){ ?>
+
+                <div class="gallery__carousel">
+                    <div class="swiper-wrapper">
+                        <?php foreach($gallery['add_slider_image'] as $galleryImg){ ?>
+                            <div class="swiper-slide">
+                                <img src="<?php echo $galleryImg['url']; ?>"  />
+                            </div>
+                        <?php } ?>
+                    </div>
+                    
+                    <div class="swiper-button-prev" id="gallery__carousel_prev"></div>
+                    <div class="swiper-button-next" id="gallery__carousel_next"></div>
                 </div>
-                
-                <div class="swiper-button-prev" id="gallery__carousel_prev"></div>
-                <div class="swiper-button-next" id="gallery__carousel_next"></div>
-            </div>
+            <?php } ?>
         <?php } ?>
         
     </section>

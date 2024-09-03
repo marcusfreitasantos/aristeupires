@@ -648,8 +648,10 @@ textarea {
 
 .products__cat_wrapper {
   display: flex;
+  gap: 12px;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .products__cat_link {

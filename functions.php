@@ -43,11 +43,15 @@ function getProductCategories($categoryIds=[]){
         'order'      => 'ASC',
         'include'   =>  $categoriesToInclude,
         'exclude' => array(15),
-        'hide_empty' => false
+        'hide_empty' => true
     );
     $productCategories = get_terms($productCatArgs);
     
-    return $productCategories;
+    $filteredCategories = array_filter($productCategories, function($category) {
+        return $category->parent == 0;
+    });
+    
+    return $filteredCategories;
 }
 
 function getAllPostCategories(){
@@ -55,7 +59,7 @@ function getAllPostCategories(){
         'taxonomy'   => 'category',
         'orderby'    => 'name',
         'order'      => 'ASC',
-        'hide_empty' => false
+        'hide_empty' => true
     );
     $postCategories = get_terms($postCategoriesArgs);
     
