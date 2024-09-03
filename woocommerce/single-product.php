@@ -18,6 +18,12 @@ $getProductsArgs = array(
 $otherProductsQuery = wc_get_products( $getProductsArgs );
 ?>
 
+<style>
+    body{
+        padding: 0 !important;
+    }
+</style>
+
 <?php if($headerImg){ ?>
     <section class="product__page_header">
         <img class="product__page_header_img" src="<?php echo $headerImg['url']; ?>" alt="<?php echo $headerImg['alt']; ?>" />

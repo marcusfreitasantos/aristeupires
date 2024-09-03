@@ -792,14 +792,20 @@ textarea {
 
 /*VENDAS CORPORATIVAS*/
 .corp__page_title {
-  font-size: 4rem;
   color: var(--primary_color);
   margin-bottom: 20px;
-  font-weight: 400;
+  font-size: 4.75rem;
+  text-align: center;
+  font-weight: 300;
+  text-transform: capitalize;
+}
+
+.corp__hero {
+  height: 70vh;
+  overflow: hidden;
 }
 
 .corp__hero_img {
-  height: 70vh;
   width: 100%;
   object-fit: cover;
 }
@@ -893,6 +899,11 @@ textarea {
   gap: 6px;
   transition: 0.5s;
   text-decoration: none;
+}
+
+.corp__other_card img {
+  height: 400px;
+  object-fit: cover;
 }
 
 .corp__other_card:hover {

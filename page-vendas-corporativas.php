@@ -16,13 +16,31 @@
 ?>
 
 
+<?php 
+    function changeColumnClassBasedOnIndex($colIndex){
+        $colClassName = "col-md-3";
+        
+        if($colIndex == 1 || $colIndex == 5){
+            $colClassName = "col-md-6";
+        }
+        return $colClassName;
+    }
+?>
 
 
-<section>
+<style>
+    body{
+        padding: 0 !important;
+    }
+</style>
+
+<section class="corp__hero">
     <?php if($heroImg){ ?>
         <img class="corp__hero_img" src="<?php echo $heroImg['url']; ?>" alt="<?php echo $heroImg['alt']; ?>" />
     <?php } ?>
+</section>
 
+<section>
     <div class="container pt-5">
         <h1 class="corp__page_title text-center"><?php the_title();?></h1>
 
@@ -32,11 +50,12 @@
         
         <div class="row">
             <?php if($corpPosts->have_posts()){ ?>
+                <?php $index = 0; ?>
                 <?php while ($corpPosts->have_posts()) : $corpPosts->the_post(); ?>
                     <?php global $post; ?>
                     <?php $postImg = get_the_post_thumbnail($post->id, 'full'); ?>
                     
-                    <div class="col-md-4 mt-4">
+                    <div class="<?php echo changeColumnClassBasedOnIndex($index); ?> mt-4">
                         <a href="<?php echo the_permalink(); ?>" class="corp__other_card">
                             <?php echo $postImg; ?>
                             <h4 class="corp__other_card_title"><?php echo the_title(); ?></h4>
@@ -48,6 +67,7 @@
                             <?php } ?>
                         </a>
                     </div>
+                    <?php $index++; ?>
                 <?php endwhile; ?>
             <?php } ?>
         </div>
