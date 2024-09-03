@@ -15,6 +15,7 @@
     $big = 999999999;
 ?>
 
+<?php $clients = get_field("clients"); ?>
 
 <?php 
     function changeColumnClassBasedOnIndex($colIndex){
@@ -76,5 +77,57 @@
         <?php echo PostPagination($corpPosts); ?>
     </div>
 </section>
+
+
+<?php if($clients){ ?>
+    <section class="client__section py-5">
+        <div class="container">
+            <div id="clients__carousel">
+                <div class="swiper-wrapper">
+                    <?php foreach($clients as $client){ ?>
+            
+                        <a href="<?php echo $client["url"]; ?>"  target="_blank" class="swiper-slide client__card">
+                            <div class="client__card_img_container">
+                                <img src="<?php echo $client["logo"]["url"]; ?>" alt="<?php echo $client["logo"]["alt"]; ?>"/>
+                            </div>
+                        </a>
+
+                    <?php } ?>
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+                
+            </div>
+        </div>
+    </section>
+<?php } ?>
+
+
+<script>
+    const swiper = new Swiper("#clients__carousel", {
+        direction: "horizontal",
+        loop: true,
+        slidesPerView: 2,
+        spaceBetween: 12,
+        autoplay: {
+            delay: 3000,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+        768: {
+        slidesPerView: 2,
+        spaceBetween: 12,
+        },
+        1024: {
+        slidesPerView: 6,
+        spaceBetween: 12,
+        },
+      },
+    });
+</script>
+
 
 <?php get_footer(); ?>

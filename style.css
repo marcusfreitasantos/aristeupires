@@ -807,6 +807,7 @@ textarea {
 
 .corp__hero_img {
   width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
@@ -918,6 +919,41 @@ textarea {
 .corp__other_card_content {
   font-size: 1.2rem;
   font-weight: 300;
+}
+
+.client__section {
+  background-color: #dfddd9;
+}
+
+#clients__carousel {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.client__card {
+  height: 200px !important;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.5s;
+  overflow: hidden;
+}
+
+.client__card:hover {
+  opacity: 0.5;
+}
+
+.client__card_img_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.client__card_img_container img {
+  width: 80%;
+  height: auto;
+  object-fit: contain;
 }
 
 @media (max-width: 1366px) {
