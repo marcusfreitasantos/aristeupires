@@ -4,7 +4,7 @@
     $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
     $getPostsArgs = array(
-		'posts_per_page'      => 5,
+		'posts_per_page'      => 6,
 		'orderby'          => 'date',
 		'order'            => 'DESC',
 		'post_type'        => 'venda_corporativa',
