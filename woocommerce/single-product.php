@@ -4,6 +4,9 @@
 $product = new WC_product(get_the_id());
 $productData = $product->get_data();
 $attachmentIds = $product->get_gallery_image_ids();
+$productImage = get_the_post_thumbnail($product->id, 'full');
+$productCats = getProductCategories($product->category_ids);
+
 
 //ACFs
 $headerImg = get_field("banner_field");
@@ -60,22 +63,26 @@ $otherProductsQuery = wc_get_products( $getProductsArgs );
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <div class="product__img_carousel w-100 position-relative">
-                    <div class="swiper-wrapper">
-
-                        <?php foreach($attachmentIds as $attachmentId){
-                            $productGalleryImageUrl = wp_get_attachment_url( $attachmentId );
-                            ?>
-                                <div class="swiper-slide">
-                                    <img src="<?php echo $productGalleryImageUrl; ?>"  />
-                                </div>
-                        <?php } ?>
-
+                <?php if($attachmentIds){ ?>
+                    <div class="product__img_carousel w-100 position-relative">
+                        <div class="swiper-wrapper">    
+                            <?php foreach($attachmentIds as $attachmentId){
+                                $productGalleryImageUrl = wp_get_attachment_url( $attachmentId );
+                                ?>
+                                    <div class="swiper-slide">
+                                        <img src="<?php echo $productGalleryImageUrl; ?>"  />
+                                    </div>
+                            <?php } ?>    
+                        </div>
+    
+                        <div class="swiper-button-prev" id="product__img_carousel_prev"></div>
+                        <div class="swiper-button-next" id="product__img_carousel_next"></div>
                     </div>
+                <?php }else{ ?>
 
-                    <div class="swiper-button-prev" id="product__img_carousel_prev"></div>
-                    <div class="swiper-button-next" id="product__img_carousel_next"></div>
-                </div>
+                    <?php echo $productImage; ?>
+
+                <?php } ?>
             </div>
 
             <div class="col-md-6 text-center p-5 d-flex align-items-center justify-content-center">
@@ -88,7 +95,7 @@ $otherProductsQuery = wc_get_products( $getProductsArgs );
 <section id="product-resources">
     <div class="container">
         <div class="row">
-            <div class="col-md-6 product__resources_col">
+            <div class="product__resources_col <?php echo $productResources ? 'col-md-6' : 'col-12'; ?>">
                 <h2 class="section__title">Descrição</h2>
 
                 <div class="product__details">
@@ -96,10 +103,10 @@ $otherProductsQuery = wc_get_products( $getProductsArgs );
                 </div>
             </div>
 
-            <div class="col-md-6 product__resources_col">
-                <h2 class="section__title">Recursos</h2>
+            <?php if($productResources){ ?>
+                <div class="col-md-6 product__resources_col">
+                    <h2 class="section__title">Recursos</h2>
 
-                <?php if($productResources){ ?>
                     <div class="product__resources_wrapper row">
                         <?php foreach($productResources as $resource){ ?>
                             <div class="col-md-6 mb-4">
@@ -110,8 +117,8 @@ $otherProductsQuery = wc_get_products( $getProductsArgs );
                             </div>    
                         <?php } ?>
                     </div>
-                <?php } ?>
-            </div>
+                </div>
+            <?php } ?>
         </div>
     </div>
 </section>
