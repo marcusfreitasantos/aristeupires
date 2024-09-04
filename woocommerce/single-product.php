@@ -102,14 +102,12 @@ $otherProductsQuery = wc_get_products( $getProductsArgs );
                 <?php if($productResources){ ?>
                     <div class="product__resources_wrapper row">
                         <?php foreach($productResources as $resource){ ?>
-                            <?php if($resource['link']){ ?>
-                                <div class="col-md-6 mb-4">
-                                    <a class="product__resource_btn" href="<?php echo $resource['link']['url']; ?>" target="<?php echo $resource['link']['target']; ?>">
-                                        <span class="product__resource_btn_title"><?php echo $resource['link']['title']; ?></span>
-                                        <span class="product__resource_btn_text"><?php echo $resource['small_description']; ?></span>
-                                    </a>
-                                </div>    
-                            <?php } ?>
+                            <div class="col-md-6 mb-4">
+                                <a class="product__resource_btn" href="<?php echo $resource['link'] ? $resource['link']['url'] : ''; ?>" target="_blank">
+                                    <span class="product__resource_btn_title"><?php echo $resource['link'] ? $resource['link']['title'] : "Download"; ?></span>
+                                    <span class="product__resource_btn_text"><?php echo $resource['small_description'] ? $resource['small_description'] : "Description"; ?></span>
+                                </a>
+                            </div>    
                         <?php } ?>
                     </div>
                 <?php } ?>

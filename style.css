@@ -739,6 +739,10 @@ textarea {
   line-height: 3rem !important;
 }
 
+.product__details td {
+  padding: 20px 0 !important;
+}
+
 .product__resource_btn {
   padding: 6px 12px;
   border: 1px solid var(--primary_color);
