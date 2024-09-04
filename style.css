@@ -739,6 +739,24 @@ textarea {
   line-height: 3rem !important;
 }
 
+.product__details_purchase_btn_wrapper {
+  margin: 40px 0;
+}
+
+.product__details_purchase_btn {
+  padding: 20px 60px;
+  background-color: #343a40;
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.5s;
+}
+
+.product__details_purchase_btn:hover {
+  opacity: 0.5;
+  color: white;
+}
+
 .product__details td {
   padding: 20px 0 !important;
 }

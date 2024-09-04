@@ -1,11 +1,24 @@
 <?php get_header(); ?>
 
 <?php
+global $product;
 $product = new WC_product(get_the_id());
 $productData = $product->get_data();
 $attachmentIds = $product->get_gallery_image_ids();
 $productImage = get_the_post_thumbnail($product->id, 'full');
-$productCats = getProductCategories($product->category_ids);
+$purchaseUrl = add_query_arg('add-to-cart', $product->id, wc_get_cart_url());
+
+function checkIfCurrentProductIsMiniatura(){
+    global $product;
+    $productCats = getProductCategories($product->category_ids);
+
+    foreach($productCats as $cat){
+        if($cat->slug == "miniaturas"){
+            return true;
+        };
+        return false;
+    };
+}
 
 
 //ACFs
@@ -101,6 +114,18 @@ $otherProductsQuery = wc_get_products( $getProductsArgs );
                 <div class="product__details">
                     <?php echo $productData['short_description']; ?>
                 </div>
+
+
+                <?php if(checkIfCurrentProductIsMiniatura()) { ?>
+
+                    <div class="product__details_purchase_btn_wrapper">
+                        <a href="<?php echo $purchaseUrl; ?>" class="product__details_purchase_btn">
+                            Comprar Agora
+                        </a>
+                    </div>
+                <?php } ?>
+
+
             </div>
 
             <?php if($productResources){ ?>
