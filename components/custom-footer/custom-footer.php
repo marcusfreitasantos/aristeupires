@@ -41,7 +41,6 @@
 				<h5 class="footer__column_title">Encontre-nos</h5>
 				
 				<div class="footer__items_group">
-					<a href="#contato">Contato</a>
 					<a href="mailto:contato@aristeupires.com.br">contato@aristeupires.com.br</a>
 					<a href="tel:+550543278 1762">(54) 3278 1762</a>
 					<a href="https://maps.app.goo.gl/FfT4rwDhLLPLTPhR8" target="_blank">Rua Perimetral, 394 Distrito Industrial.<br/> Canela/RS</a>
