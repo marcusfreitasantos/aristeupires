@@ -42,7 +42,7 @@
     <?php } ?>
 </section>
 
-<section>
+<section class="py-5">
     <div class="container pt-5">
         <h1 class="corp__page_title text-center"><?php the_title();?></h1>
 
