@@ -77,3 +77,47 @@ footer .wpforms-container {
   font-size: 3rem;
   border: none;
 }
+
+#SIGNUP_HEADING {
+  display: none !important;
+}
+
+#EMBED_FORM_EMAIL_LABEL {
+  border: 1px solid white !important;
+  background: none !important;
+  height: 40px !important;
+  box-sizing: border-box !important;
+  border-radius: 0 !important;
+}
+
+#zcWebOptin {
+  height: 40px !important;
+  box-sizing: border-box !important;
+  border-radius: 0 !important;
+}
+
+.SIGNUP_FLD {
+  display: block !important;
+  position: static !important;
+  margin: 0 !important;
+  height: auto !important;
+}
+
+.quick_form_9_css {
+  height: auto !important;
+}
+
+#zcampaignOptinForm {
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+@media only screen and (max-width: 600px) {
+  .SIGNUP_FLD {
+    display: block !important;
+    position: static !important;
+    margin: 0 !important;
+    height: auto !important;
+  }
+}
