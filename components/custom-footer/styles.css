@@ -83,7 +83,7 @@ footer .wpforms-container {
 }
 
 #EMBED_FORM_EMAIL_LABEL {
-  border: 1px solid white !important;
+  border: 1px solid black !important;
   background: none !important;
   height: 40px !important;
   box-sizing: border-box !important;
@@ -94,6 +94,7 @@ footer .wpforms-container {
   height: 40px !important;
   box-sizing: border-box !important;
   border-radius: 0 !important;
+  color: black !important;
 }
 
 .SIGNUP_FLD {
