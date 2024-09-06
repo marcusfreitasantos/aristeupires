@@ -681,7 +681,7 @@ textarea {
 
 /*PRODUCT PAGE*/
 .product__page_header {
-  height: 80vh;
+  height: 70vh;
   overflow: hidden;
   display: flex;
   justify-content: center;
