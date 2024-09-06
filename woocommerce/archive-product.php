@@ -41,8 +41,8 @@
 ?>
 
 <?php if($mainImage) { ?>
-    <section>
-        <img class="img-fluid h-100 w-100" src="<?php echo $mainImage['url'] ?>" alt="<?php echo $mainImage['alt'] ?>" />
+    <section class="product__page_header">
+        <img class="product__page_header_img" src="<?php echo $mainImage['url'] ?>" alt="<?php echo $mainImage['alt'] ?>" />
     </section>
 <?php } ?>
 
