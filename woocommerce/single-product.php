@@ -113,7 +113,7 @@ $otherProductsQuery = wc_get_products( $getProductsArgs );
                 <h2 class="section__title">Descrição</h2>
 
                 <div class="product__details">
-                    <p><strong>Preço: R$<?php echo $product->get_price(); ?></strong></p>
+                    <p><strong>A partir de: R$<?php echo $product->get_price(); ?></strong></p>
                     <?php echo $productData['short_description']; ?>
                 </div>
 
