@@ -73,9 +73,9 @@ $otherProductsQuery = wc_get_products( $getProductsArgs );
     </div>
 </section>
 
-<section id="product-info">
+<section id="product-info" class="bg-white">
     <div class="container">
-        <div class="row">
+        <div class="row align-items-center">
             <div class="col-md-6">
                 <?php if($attachmentIds){ ?>
                     <div class="product__img_carousel w-100 position-relative">
@@ -99,33 +99,6 @@ $otherProductsQuery = wc_get_products( $getProductsArgs );
                 <?php } ?>
             </div>
 
-            <div class="col-md-6 text-center p-5 d-flex align-items-center justify-content-center">
-                <span>[SOSSEGO'S PLUGIN]</span>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="product-resources">
-    <div class="container">
-        <div class="row">
-            <div class="product__resources_col <?php echo $productResources ? 'col-md-6' : 'col-12'; ?>">
-                <h2 class="section__title">Descrição</h2>
-
-                <div class="product__details">
-                    <p><strong>A partir de: R$<?php echo $product->get_price(); ?></strong></p>
-                    <?php echo $productData['short_description']; ?>
-                </div>
-
-                <?php if($isMiniature) { ?>
-                    <div class="product__details_purchase_btn_wrapper">
-                        <a href="<?php echo $purchaseUrl; ?>" class="product__details_purchase_btn">
-                            Comprar Agora
-                        </a>
-                    </div>
-                <?php } ?>
-            </div>
-
             <?php if($productResources){ ?>
                 <div class="col-md-6 product__resources_col">
                     <h2 class="section__title">Recursos</h2>
@@ -142,6 +115,29 @@ $otherProductsQuery = wc_get_products( $getProductsArgs );
                     </div>
                 </div>
             <?php } ?>
+        </div>
+    </div>
+</section>
+
+<section id="product-resources">
+    <div class="container">
+        <div class="row">
+            <div class="product__resources_col col-12'; ?>">
+                <h2 class="section__title">Descrição</h2>
+
+                <div class="product__details">
+                    <p><strong>A partir de: R$<?php echo $product->get_price(); ?></strong></p>
+                    <?php echo $productData['short_description']; ?>
+                </div>
+
+                <?php if($isMiniature) { ?>
+                    <div class="product__details_purchase_btn_wrapper">
+                        <a href="<?php echo $purchaseUrl; ?>" class="product__details_purchase_btn">
+                            Comprar Agora
+                        </a>
+                    </div>
+                <?php } ?>
+            </div>
         </div>
     </div>
 </section>

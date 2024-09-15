@@ -58,12 +58,12 @@
                 <a class="products__cat_link <?php echo in_array($cat->slug, $currentCategories) ? 'active-link' : ''; ?>" href="<?php echo "$siteUrl/categoria-produto/$cat->slug"; ?>"><?php echo $cat->name; ?></a>
            <?php } ?>
         </div>
-        <div class="row">
+        <div class="row gx-5">
             <?php
             if($products->products){
                 foreach($products->products as $product){  
                 ?>
-                    <div class="col-md-3 mb-5">
+                    <div class="col-md-4 mb-5">
                         <?php echo ProductCard($product); ?>
                     </div>
                 <?php }

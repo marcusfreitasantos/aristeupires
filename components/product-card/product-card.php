@@ -3,26 +3,21 @@
     $siteUrl = site_url();
     $productImage = get_the_post_thumbnail($product->id, 'full');
     $productCat = getProductCategories();
+    $currencySymbol = get_woocommerce_currency_symbol();
     ?>
         <div class="product__card">
             <a class="product__img" href=<?php echo "$siteUrl/produto/$product->slug";?>>
                 <?php echo $productImage; ?>
-                <div class="product__card_img_btn">
-                    <span>Veja mais</span>
-                    <i class="fa-solid fa-arrow-right-long"></i>
-                </div>
             </a>
 
-            <div class="product__card_info d-flex flex-column text-center">
+            <div class="product__card_info d-flex flex-row justify-content-between align-items-center">
                 <a href=<?php echo "$siteUrl/produto/$product->slug";?> class="product__title">
                     <?php echo $product->name; ?>
                 </a>
 
-                <?php foreach(getProductCategories($product->category_ids) as $productCat){ ?>
-                    <a href=<?php echo "$siteUrl/categoria-produto/$productCat->slug";?> class="product__category">
-                        <?php echo $productCat->name; ?>
-                    </a>
-                <?php } ?>
+                <span class="product__price">
+                    a partir de: <?php echo    $currencySymbol . $product->get_price(); ?>
+                </span>
             </div>
         </div>
 
