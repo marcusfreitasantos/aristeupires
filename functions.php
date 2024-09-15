@@ -79,4 +79,13 @@ function updateHeaderCartIcon( $fragments ) {
  add_filter( 'woocommerce_add_to_cart_fragments', 'updateHeaderCartIcon' );
 
 
+
+ function searchOnlyProducts($query) {
+    if ( !is_admin() && $query->is_main_query() && $query->is_search() ) {
+        $query->set('post_type', 'product');
+    }
+}
+add_action('pre_get_posts', 'searchOnlyProducts');
+
+
 ?>

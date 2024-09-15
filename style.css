@@ -329,6 +329,12 @@ a {
   left: 0;
 }
 
+.search__result_title {
+  color: black;
+  font-size: 3rem;
+  font-weight: 400;
+}
+
 /*NEWS SECTION*/
 .post__card {
   display: flex;
