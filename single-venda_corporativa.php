@@ -60,7 +60,10 @@
                 <?php if($photoGallery){ ?>
                     <div class="corp__photo_gallery">
                         <?php foreach($photoGallery as $photo){ ?>
-                            <img src="<?php echo $photo['url']; ?>" alt="<?php echo $photo['alt']; ?>" />
+                            <a href="<?php echo $photo['url']; ?>" data-lightbox="corp__photo_gallery">
+
+                                <img src="<?php echo $photo['url']; ?>" alt="<?php echo $photo['alt']; ?>" />
+                            </a>
                         <?php } ?>
                     </div>
                 <?php } ?>
