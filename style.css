@@ -696,7 +696,7 @@ textarea {
 
 /*PRODUCT PAGE*/
 .product__page_header {
-  height: 70vh;
+  height: 90vh;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -999,6 +999,10 @@ textarea {
   .section__creator {
     height: auto;
   }
+
+  .video__background_title {
+    font-size: 7rem;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -1127,7 +1131,7 @@ textarea {
   }
 
   .video__background_title {
-    font-size: 4rem;
+    font-size: 3rem;
   }
 
   .video__background_subtitle {
