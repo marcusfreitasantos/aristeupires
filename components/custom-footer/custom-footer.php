@@ -60,6 +60,7 @@
                     <div class="footer__social_links">
                         <a href="https://www.facebook.com/aristeupiresdesign" target="_blank"><i class="fa-brands fa-facebook"></i></a>
                         <a href="https://www.instagram.com/aristeupiresdesign/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+						<a href="https://www.linkedin.com/in/aristeu-pires-a9888535/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
                     </div>
 				</div>
 			</div>
