@@ -700,7 +700,7 @@ textarea {
   overflow: hidden;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .product__page_header_img {
