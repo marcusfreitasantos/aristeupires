@@ -1122,8 +1122,12 @@ textarea {
     font-size: 1.6rem;
   }
 
+  .video__background_section {
+    height: 60vh !important;
+  }
+
   .video__background_title {
-    font-size: 2.4rem;
+    font-size: 4rem;
   }
 
   .video__background_subtitle {
@@ -1132,6 +1136,7 @@ textarea {
 
   .video__background_btn {
     font-size: 2rem;
-    padding: 8px 16px;
+    padding: 8px 40px;
+    margin-top: 0 !important;
   }
 }
