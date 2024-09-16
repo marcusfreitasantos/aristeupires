@@ -17,7 +17,7 @@ function hasChildren($menuItems, $itemId) {
 }
 ?>
 
-<header class="pt-4 pb-4 custom__header">
+<header class="custom__header">
     <div class="container">
         <div class="row justify-content-between align-items-center">
            <div class="col-4">
