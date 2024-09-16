@@ -1013,6 +1013,10 @@ textarea {
   .video__background_btn {
     font-size: 3rem;
   }
+
+  .video__background_section video {
+    width: auto;
+  }
 }
 
 @media (max-width: 1024px) {
