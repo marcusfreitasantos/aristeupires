@@ -15,7 +15,7 @@
 ?>
 <?php
     $getProductsArgs = array(
-        'limit'     => 8,
+        'limit'     => 9,
         'status'    => 'publish',
         'page'      => $currentPage,
         'paginate'  => true,
