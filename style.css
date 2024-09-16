@@ -1003,6 +1003,10 @@ textarea {
   .video__background_title {
     font-size: 7rem;
   }
+
+  .video__background_btn {
+    font-size: 3rem;
+  }
 }
 
 @media (max-width: 1024px) {
