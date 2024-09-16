@@ -69,8 +69,14 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 90vh;
+  height: 70vh;
+  width: 100%;
   overflow: hidden;
+}
+
+.video__background_section a,
+.video__background_section video {
+  width: 100%;
 }
 
 .video__background_content {
