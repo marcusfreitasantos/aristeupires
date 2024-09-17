@@ -273,6 +273,7 @@ a {
   padding: 20px;
   text-decoration: none;
   margin-bottom: 20px;
+  overflow: hidden;
 }
 
 .product__img img {
