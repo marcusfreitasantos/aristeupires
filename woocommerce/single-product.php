@@ -127,7 +127,7 @@ $otherProductsQuery = wc_get_products( $getProductsArgs );
 
                 <div class="product__details">
                     <p><strong>A partir de: R$<?php echo $product->get_price(); ?></strong></p>
-                    <?php echo $productData['short_description']; ?>
+                    <?php echo wpautop($productData['short_description'], true ); ?>
                 </div>
 
                 <?php if($isMiniature) { ?>
