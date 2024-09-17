@@ -1,4 +1,9 @@
 <?php get_header(); ?>
+<?php
+    $whatsappCustomBtnNumber = get_option('whatsapp_custom_btn_number', '');
+    $whatsappCustomBtnMsg = get_option('whatsapp_custom_btn_msg', '');
+    $whatsappCustomLink = "https://api.whatsapp.com/send?phone=+$whatsappCustomBtnNumber&text=$whatsappCustomBtnMsg";
+?>
 
 <?php
 $brazilianStates = [
@@ -34,18 +39,25 @@ $brazilianStates = [
 
 <?php
 $storeStateToSearch = "";
-$getPostsArgs = [];
 
 if(isset($_GET['store_state']) && $_GET['store_state'] !== "todos"){
     $storeStateToSearch = $_GET['store_state'];
 }
 
+//LOJAS DEDICADAS
 if($storeStateToSearch){
-    $getPostsArgs = array(
+    $dedicatedStoresArgs = array(
 		'posts_per_page'      => -1,
 		'orderby'          => 'date',
 		'order'            => 'DESC',
 		'post_type'        => 'loja',
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'lojas_cat',
+                'field'    => 'slug',
+                'terms'    => 'lojas-dedicadas',
+            ),
+        ),
         'meta_query' => array(
             array(
                 'key'     => 'state', 
@@ -55,17 +67,105 @@ if($storeStateToSearch){
         ),
     );
 }else{
-    $getPostsArgs = array(
+    $dedicatedStoresArgs = array(
 		'posts_per_page'      => -1,
 		'orderby'          => 'date',
 		'order'            => 'DESC',
 		'post_type'        => 'loja',
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'lojas_cat',
+                'field'    => 'slug',
+                'terms'    => 'lojas-dedicadas',
+            ),
+        ),
     );
 }
-    
-$stores = new WP_Query($getPostsArgs);
+
+//LOJAS CONCEITO
+if($storeStateToSearch){
+    $conceptStoresArgs = array(
+		'posts_per_page'      => -1,
+		'orderby'          => 'date',
+		'order'            => 'DESC',
+		'post_type'        => 'loja',
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'lojas_cat',
+                'field'    => 'slug',
+                'terms'    => 'conceito-aristeu-pires',
+            ),
+        ),
+        'meta_query' => array(
+            array(
+                'key'     => 'state', 
+                'value'   => $storeStateToSearch, 
+                'compare' => '=',
+            ),
+        ),
+    );
+}else{
+    $conceptStoresArgs = array(
+		'posts_per_page'      => -1,
+		'orderby'          => 'date',
+		'order'            => 'DESC',
+		'post_type'        => 'loja',
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'lojas_cat',
+                'field'    => 'slug',
+                'terms'    => 'conceito-aristeu-pires',
+            ),
+        ),
+    );
+}
+
+
+
+//LOJAS ESSÊNCIA
+if($storeStateToSearch){
+    $essenceStoresArgs = array(
+		'posts_per_page'      => -1,
+		'orderby'          => 'date',
+		'order'            => 'DESC',
+		'post_type'        => 'loja',
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'lojas_cat',
+                'field'    => 'slug',
+                'terms'    => 'lojas-essencia',
+            ),
+        ),
+        'meta_query' => array(
+            array(
+                'key'     => 'state', 
+                'value'   => $storeStateToSearch, 
+                'compare' => '=',
+            ),
+        ),
+    );
+}else{
+    $essenceStoresArgs = array(
+		'posts_per_page'      => -1,
+		'orderby'          => 'date',
+		'order'            => 'DESC',
+		'post_type'        => 'loja',
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'lojas_cat',
+                'field'    => 'slug',
+                'terms'    => 'lojas-essencia',
+            ),
+        ),
+    );
+}
+   
+$dedicatedStores = new WP_Query($dedicatedStoresArgs);
+$conceptStores = new WP_Query($conceptStoresArgs);
+$essenceStores = new WP_Query($essenceStoresArgs);
 
 ?>
+
 
 
 <section class="section__post_content">
@@ -93,72 +193,71 @@ $stores = new WP_Query($getPostsArgs);
     </div>
 </section>
 
-<section class="dedicated_stores">
-    <div class="container">
-        <h2 class="section__title text-center mb-5">Lojas Dedicadas</h2>
-        <div class="row">
-            <div class="dedicated_stores_carousel">
-                <div class="swiper-wrapper">
-                    <?php 
-                        if ($stores->have_posts()) {
-                            while ($stores->have_posts()) {
-                                $stores->the_post();
-                                $postImg = get_field('image');
-                                $categories = get_the_terms(get_the_ID(), 'lojas_cat');
-                                if (has_term('lojas-dedicadas', 'lojas_cat')){   ?>
 
-                                    <div class="swiper-slide">
-                                        <div class="stores__card row align-items-center g-0">
-                                            <div class="col-md-8">
-                                                <?php if($postImg){ ?>
-                                                    <img src="<?php echo $postImg['url'];?>"  alt="<?php echo $postImg['alt'];?>" />
+
+<?php if ($dedicatedStores->have_posts()) { ?>
+    <section class="dedicated_stores">
+        <div class="container">
+            <h2 class="section__title text-center mb-5">Lojas Dedicadas</h2>
+            <div class="row">
+                <div class="dedicated_stores_carousel">
+                    <div class="swiper-wrapper">
+                        <?php 
+                                while ($dedicatedStores->have_posts()) {
+                                    $dedicatedStores->the_post();
+                                    $postImg = get_field('image');
+                                    $categories = get_the_terms(get_the_ID(), 'lojas_cat');
+                                    if (has_term('lojas-dedicadas', 'lojas_cat')){   ?>
+
+                                        <div class="swiper-slide">
+                                            <div class="stores__card row align-items-center g-0">
+                                                <div class="col-md-8">
+                                                    <?php if($postImg){ ?>
+                                                        <img src="<?php echo $postImg['url'];?>"  alt="<?php echo $postImg['alt'];?>" />
+                                                    <?php } ?>
+                                                </div>
+
+                                                <div class="col-md-4 stores__card_info">
+                                                    <h2 class="stores__card_title"><?php the_title(); ?></h2>
+
+                                                    <?php if(get_field('city') && get_field('state')){?>
+                                                        <h3 class="stores__card_subtitle"><?php echo the_field('city'); ?> / <?php echo the_field('state'); ?></h3>
                                                 <?php } ?>
-                                            </div>
 
-                                            <div class="col-md-4 stores__card_info">
-                                                <h2 class="stores__card_title"><?php the_title(); ?></h2>
+                                                    <?php if(get_field('address')){?>
+                                                        <p class="stores__card_address"><?php echo the_field('address'); ?></p>
+                                                <?php } ?>
 
-                                                <?php if(get_field('city') && get_field('state')){?>
-                                                    <h3 class="stores__card_subtitle"><?php echo the_field('city'); ?> / <?php echo the_field('state'); ?></h3>
-                                            <?php } ?>
-
-                                                <?php if(get_field('address')){?>
-                                                    <p class="stores__card_address"><?php echo the_field('address'); ?></p>
-                                            <?php } ?>
-
-                                                <?php if(get_field('phone')){?>
-                                                    <span class="stores__card_phone"><?php echo the_field('phone'); ?></span>
-                                            <?php } ?>
+                                                    <?php if(get_field('phone')){?>
+                                                        <span class="stores__card_phone"><?php echo the_field('phone'); ?></span>
+                                                <?php } ?>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                <?php }
-                            }
-                            wp_reset_postdata();
-                        } else{ ?>
-                            <div  class="col-12 text-center p-5">
-                                <span>Nada encontrado.</span>
-                            </div>
-                    <?php } ?>
+                                    <?php }
+                                }
+                                wp_reset_postdata(); ?>
+                    </div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
                 </div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+<?php } ?>
 
 
-<section class="concept_stores">
-    <div class="container">
-        <h2 class="section__title text-center mb-5">Conceito Aristeu Pires</h2>
-        <div class="row">
-            <div class="concept_stores_carousel">
-                <div class="swiper-wrapper">
-                    <?php 
-                        if ($stores->have_posts()) {
-                            while ($stores->have_posts()) {
-                                $stores->the_post();
+
+<?php if ($conceptStores->have_posts()) { ?>
+    <section class="concept_stores">
+        <div class="container">
+            <h2 class="section__title text-center mb-5">Conceito Aristeu Pires</h2>
+            <div class="row">
+                <div class="concept_stores_carousel">
+                    <div class="swiper-wrapper">
+                        <?php 
+                            while ($conceptStores->have_posts()) {
+                                $conceptStores->the_post();
                                 $postImg = get_field('image');
                                 $categories = get_the_terms(get_the_ID(), 'lojas_cat');
                                 if (has_term('conceito-aristeu-pires', 'lojas_cat')){   ?>
@@ -191,27 +290,25 @@ $stores = new WP_Query($getPostsArgs);
                                 <?php }
                             }
                             wp_reset_postdata();
-                        } else{ ?>
-                            <div  class="col-12 text-center p-5">
-                                <span>Nada encontrado.</span>
-                            </div>
-                    <?php } ?>
+                        ?>
+                    </div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
                 </div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+<?php } ?>
 
-<section class="essence_stores">
-    <div class="container">
-        <h2 class="section__title text-center mb-5">Lojas Essência</h2>
-        <div class="row">
-        <?php 
-            if ($stores->have_posts()) {
-                while ($stores->have_posts()) {
-                    $stores->the_post();
+
+<?php if ($essenceStores->have_posts()) { ?>
+    <section class="essence_stores">
+        <div class="container">
+            <h2 class="section__title text-center mb-5">Lojas Essência</h2>
+            <div class="row">
+            <?php 
+                while ($essenceStores->have_posts()) {
+                    $essenceStores->the_post();
                     $postImg = get_field('image');
                     $categories = get_the_terms(get_the_ID(), 'lojas_cat');
                     if (has_term('lojas-essencia', 'lojas_cat')){   ?>
@@ -221,13 +318,13 @@ $stores = new WP_Query($getPostsArgs);
                                 <?php if(get_field('city') && get_field('state')){?>
                                     <h3 class="stores__card_subtitle"><?php echo the_field('city'); ?> / <?php echo the_field('state'); ?></h3>
                                 <?php } ?>
-    
+
                                 <h2 class="stores__card_title"><?php the_title(); ?></h2>
 
                                 <?php if(get_field('address')){?>
                                     <p class="stores__card_address"><?php echo the_field('address'); ?></p>
                                 <?php } ?>
-    
+
                                 <?php if(get_field('phone')){?>
                                     <span class="stores__card_phone"><?php echo the_field('phone'); ?></span>
                                 <?php } ?>
@@ -236,16 +333,18 @@ $stores = new WP_Query($getPostsArgs);
                     <?php }
                 }
                 wp_reset_postdata();
-            } else{ ?>
-                <div  class="col-12 text-center p-5">
-                    <span>Nada encontrado.</span>
-                </div>
-        <?php } ?>
+            ?>
+            </div>
         </div>
+    </section>
+<?php } ?>
+
+<?php if(!$dedicatedStores->have_posts() && !$conceptStores->have_posts() && !$essenceStores->have_posts()){ ?>
+    <div  class="col-12 text-center p-5">
+        <span><strong>Não temos nenhuma loja em seu estado.</strong> <br>Preencha o formulário abaixo para falar com nosso time comercial, ou <a href="<?php echo  $whatsappCustomLink; ?>">
+ clique aqui para falar conosco no WhatsApp.</a></span>
     </div>
-</section>
-
-
+<?php } ?>
 
 <script>
     //SWIPER SLIDE
