@@ -19,8 +19,7 @@
                     a partir de: <?php echo    $currencySymbol . $product->get_price(); ?>
                 </span>
             </div>
-        </div>
-
+        </div> 
     <?php
     return ob_get_clean();
 

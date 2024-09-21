@@ -13,7 +13,6 @@ function oceanwp_child_enqueue_parent_style() {
 	wp_enqueue_style( 'swiper-style', get_stylesheet_directory_uri() . '/assets/libs/swiper/css/swiper-bundle.min.css',array(), $version );
    	wp_enqueue_style( 'lightbox-style', get_stylesheet_directory_uri() . '/assets/libs/lightbox/css/lightbox.min.css',array(), $version );
 
-
 	wp_enqueue_script( 'bootstrap-main-script', get_stylesheet_directory_uri() . '/assets/libs/bootstrap/js/bootstrap.min.js', array(), $version );
 	wp_enqueue_script( 'bootstrap-bundle-script', get_stylesheet_directory_uri() . '/assets/libs/bootstrap/js/bootstrap.bundle.min.js', array(), $version );
 	wp_enqueue_script( 'swiper-script',get_stylesheet_directory_uri() . '/assets/libs/swiper/js/swiper-bundle.min.js', array(), $version );
@@ -88,4 +87,35 @@ function updateHeaderCartIcon( $fragments ) {
 add_action('pre_get_posts', 'searchOnlyProducts');
 
 
+function my_enqueue_scripts() {
+    wp_enqueue_script( 'ajax-products-script', get_stylesheet_directory_uri() . '/assets/js/ajax-products.js', array('jquery'), null, true );
+
+    wp_localize_script( 'ajax-products-script', 'my_ajax_obj', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
+}
+add_action( 'wp_enqueue_scripts', 'my_enqueue_scripts' );
+
+
+function my_custom_ajax_handler() {
+    if ( isset($_POST['products_page']) ) {
+        $currentPage = sanitize_text_field( $_POST['products_page'] );
+
+        $getProductsArgs = array(
+            'limit'     => 9,
+            'status'    => 'publish',
+            'page'      => $currentPage,
+            'paginate'  => true,
+        );
+        $products = wc_get_products( $getProductsArgs );
+
+        foreach($products->products as $product){ ?>
+            <div class="col-md-4 mb-5">
+                <?php echo ProductCard($product); ?>
+            </div>
+        <?php }
+    }
+
+    wp_die(); 
+}
+add_action( 'wp_ajax_get_products_by_ajax', 'my_custom_ajax_handler' );
+add_action( 'wp_ajax_nopriv_get_products_by_ajax', 'my_custom_ajax_handler' );
 ?>

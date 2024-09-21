@@ -58,7 +58,7 @@
                 <a class="products__cat_link <?php echo in_array($cat->slug, $currentCategories) ? 'active-link' : ''; ?>" href="<?php echo "$siteUrl/categoria-produto/$cat->slug"; ?>"><?php echo $cat->name; ?></a>
            <?php } ?>
         </div>
-        <div class="row gx-5">
+        <div class="row gx-5" id="products__list">
             <?php
             if($products->products){
                 foreach($products->products as $product){  
@@ -74,24 +74,14 @@
             <?php } ?>
         </div>
 
-        <?php if($maxNumPages > 1){ ?>
-            <div class="products__pagination_wrapper w-100 d-flex justify-content-center align-items-center">
-                <?php if($currentPage > 1){ ?>
-                    <a class="products__pagination_next" href="<?php echo definePaginationUrlStructure(); ?>?page=<?php echo  (int) $currentPage - 1; ?>">
-                        <i class="fa-solid fa-chevron-left"></i>    
-                        <span>Anterior</span>
-                    </a>
-                <?php } ?>
 
+        <div class="col-12 text-center py-5 my-5 d-block">
+            <span class="custom__loader"></span>
 
-                <?php if($currentPage < $maxNumPages){ ?>
-                    <a class="products__pagination_next" href="<?php echo definePaginationUrlStructure(); ?>?page=<?php echo  (int) $currentPage + 1; ?>">
-                        <span>Próximo</span>
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </a>
-                <?php } ?>
-            </div>
-        <?php } ?>
+            <span class="loadmore__btn">
+                <span>Ver mais produtos</span>
+            </span>
+        </div>
     </div>   
 </section>
 
