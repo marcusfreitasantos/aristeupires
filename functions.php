@@ -99,11 +99,19 @@ function my_custom_ajax_handler() {
     if ( isset($_POST['products_page']) ) {
         $currentPage = sanitize_text_field( $_POST['products_page'] );
 
+        $currentCategories = [];
+
+        if(is_product_category()){
+            $term = get_queried_object();
+            $currentCategories[] = $term->slug;
+        };
+
         $getProductsArgs = array(
             'limit'     => 9,
             'status'    => 'publish',
             'page'      => $currentPage,
             'paginate'  => true,
+            'category'  => $currentCategories
         );
         $products = wc_get_products( $getProductsArgs );
 
