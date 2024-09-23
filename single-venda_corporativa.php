@@ -24,7 +24,7 @@
 
         <div class="row">
             <?php if($postContent){ ?>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <h1 class="corp__title"><?php echo the_title(); ?></h1>
     
                     <div class="corp__content">
@@ -56,7 +56,7 @@
                 </div>
             <?php } ?>
 
-            <div class="<?php echo $postContent ? 'col-md-6' : 'col-12';?>">
+            <div class="<?php echo $postContent ? 'col-md-8' : 'col-12';?>">
                 <?php if($photoGallery){ ?>
                     <div class="corp__photo_gallery">
                         <?php foreach($photoGallery as $photo){ ?>
