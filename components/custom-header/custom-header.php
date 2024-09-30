@@ -18,7 +18,7 @@ function hasChildren($menuItems, $itemId) {
 ?>
 
 <header class="custom__header">
-    <div class="container">
+    <div class="custom__header_container">
         <div class="row justify-content-between align-items-center">
            <div class="col-4">
                 <div class="header__left_menu">
@@ -63,35 +63,30 @@ function hasChildren($menuItems, $itemId) {
                 </div>
             </div>
         </div>
-        <div class="header__main_menu">
-                <?php foreach($mainMenu as $menuItem){                     
-                    if(!hasChildren($mainMenu, $menuItem->ID) && $menuItem->menu_item_parent == 0){ ?>
-                        <a href=<?php echo $menuItem->url; ?>>
-                            <?php echo $menuItem->title; ?>
-                        </a>
-                    <?php }else if(hasChildren($mainMenu, $menuItem->ID)){ ?>
-                        <div class="header__submenu">
-                            <span class="header__submenu_title"><?php echo $menuItem->title; ?></span>
+        <div class="container">
 
-                            <?php foreach($mainMenu as $submenuItem){ 
-                                if($submenuItem->menu_item_parent == $menuItem->ID){ ?>
-                                    <a href="<?php echo $submenuItem->url; ?>" class="header__submenu_item">
-                                        <?php echo $submenuItem->title; ?> 
-                                    </a>
-                                <?php } ?>
-                           <?php } ?>
-                        </div>
-                    <?php }
-                    ?>
-               <?php } ?>
+            <div class="header__main_menu">
+                    <?php foreach($mainMenu as $menuItem){                     
+                        if(!hasChildren($mainMenu, $menuItem->ID) && $menuItem->menu_item_parent == 0){ ?>
+                            <a href=<?php echo $menuItem->url; ?>>
+                                <?php echo $menuItem->title; ?>
+                            </a>
+                        <?php }else if(hasChildren($mainMenu, $menuItem->ID)){ ?>
+                            <div class="header__submenu">
+                                <span class="header__submenu_title"><?php echo $menuItem->title; ?></span>
+    
+                                <?php foreach($mainMenu as $submenuItem){ 
+                                    if($submenuItem->menu_item_parent == $menuItem->ID){ ?>
+                                        <a href="<?php echo $submenuItem->url; ?>" class="header__submenu_item">
+                                            <?php echo $submenuItem->title; ?> 
+                                        </a>
+                                    <?php } ?>
+                               <?php } ?>
+                            </div>
+                        <?php }
+                        ?>
+                   <?php } ?>
+            </div>
         </div>
     </div>
 </header>
-
-<!-- <?php if(!is_page("home")){ ?>
-    <div class="container">
-        <div class="row py-5">
-            <?php echo do_shortcode('[wpseo_breadcrumb]'); ?>
-        </div>
-    </div>
-<?php } ?> -->

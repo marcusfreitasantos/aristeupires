@@ -31,6 +31,10 @@ body:not(.logged-in) {
   padding: 40px 0 20px 0 !important;
 }
 
+.custom__header_container {
+  padding: 0 2rem;
+}
+
 body:not(.logged-in) .custom__header {
   padding: 16px 0 !important;
 }
@@ -66,7 +70,7 @@ body:not(.logged-in) .custom__header {
   padding: 64px 0;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   display: none;
 }
 
