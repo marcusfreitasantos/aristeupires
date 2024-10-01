@@ -7,7 +7,7 @@
 		'posts_per_page'      => 9,
 		'orderby'          => 'date',
 		'order'            => 'DESC',
-		'post_type'        => 'venda_corporativa',
+		'post_type'        => 'project',
         'paged'            => $paged,
 	);	
     

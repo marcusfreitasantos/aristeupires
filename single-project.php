@@ -7,7 +7,7 @@
 		'posts_per_page'      => 3,
 		'orderby'          => 'date',
 		'order'            => 'DESC',
-		'post_type'        => 'venda_corporativa',
+		'post_type'        => 'project',
         'post__not_in'     => array(get_the_id()),
 	);	
     
