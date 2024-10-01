@@ -53,7 +53,7 @@
         <hr/>
 
         <div class="products__cat_wrapper">
-            <a class="products__cat_link <?php echo empty($currentCategories) ? 'active-link' : ''; ?>" href="<?php echo $productsPage; ?>">Todos os produtos</a>
+            <a class="products__cat_link <?php echo empty($currentCategories) ? 'active-link' : ''; ?>" href="<?php echo $productsPage; ?>">Produtos</a>
             <?php foreach($productCats as $cat){ ?>
                 <a class="products__cat_link <?php echo in_array($cat->slug, $currentCategories) ? 'active-link' : ''; ?>" href="<?php echo "$siteUrl/categoria-produto/$cat->slug"; ?>"><?php echo $cat->name; ?></a>
            <?php } ?>
