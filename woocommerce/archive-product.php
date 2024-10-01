@@ -17,6 +17,8 @@
     $getProductsArgs = array(
         'limit'     => 9,
         'status'    => 'publish',
+        'orderby'    => 'menu_order',
+        'order'      => 'ASC',
         'page'      => $currentPage,
         'paginate'  => true,
         'category'  => $currentCategories
