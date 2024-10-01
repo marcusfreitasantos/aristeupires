@@ -98,10 +98,10 @@ a {
 }
 
 .video__background_subtitle {
-  font-size: 2rem;
+  font-size: 4rem;
   color: white;
-  font-weight: light;
   text-align: center;
+  font-style: italic;
 }
 
 .video__background_btn {
