@@ -1,4 +1,4 @@
-<?php /* Template Name: Sossego's Home Template based */ ?>
+<?php /* Template Name: Aristeu - Home Page Template */ ?>
 
 <?php get_header(); ?>
 <?php $siteUrl = site_url(); ?>
