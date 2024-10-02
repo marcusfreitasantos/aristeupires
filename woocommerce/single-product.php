@@ -84,7 +84,10 @@ $otherProductsQuery = wc_get_products( $getProductsArgs );
                                 $productGalleryImageUrl = wp_get_attachment_url( $attachmentId );
                                 ?>
                                     <div class="swiper-slide">
-                                        <img src="<?php echo $productGalleryImageUrl; ?>"  />
+                                        <a href="<?php echo $productGalleryImageUrl; ?>" data-lightbox="product__img_carousel">                                        
+                                            <img src="<?php echo $productGalleryImageUrl; ?>"  />
+                                        </a>
+
                                     </div>
                             <?php } ?>    
                         </div>
@@ -148,7 +151,9 @@ $otherProductsQuery = wc_get_products( $getProductsArgs );
                     <div class="swiper-wrapper">
                         <?php foreach($gallery['add_slider_image'] as $galleryImg){ ?>
                             <div class="swiper-slide">
-                                <img src="<?php echo $galleryImg['url']; ?>"  />
+                                <a href="<?php echo $galleryImg['url']; ?>" data-lightbox="product__gallery">
+                                    <img src="<?php echo $galleryImg['url']; ?>"  />
+                                </a>
                             </div>
                         <?php } ?>
                     </div>
