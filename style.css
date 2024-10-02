@@ -1040,6 +1040,35 @@ textarea {
   object-fit: contain;
 }
 
+/*DEFAULT PAGES TEMPLATE*/
+.default__pages_section {
+  padding: 0 20px;
+}
+
+.default__pages_section_content {
+  padding: 160px;
+}
+
+.default__pages_section_content h2 {
+  font-size: 6.5rem;
+  font-weight: 300;
+  color: black;
+}
+
+.default__pages_section_content p {
+  font-size: 2.5rem;
+  font-weight: 300;
+  padding: 40px 0;
+}
+
+.default__pages_btn {
+  font-size: 3rem;
+  font-weight: 300;
+  text-decoration: none;
+  border-bottom: 1px solid;
+  padding-bottom: 5px;
+}
+
 @media (max-width: 1366px) {
   .section__creator {
     height: auto;
@@ -1195,5 +1224,30 @@ textarea {
     font-size: 2rem;
     padding: 8px 40px;
     margin-top: 0 !important;
+  }
+
+  .default__pages_section {
+    margin-bottom: 40px;
+  }
+
+  .default__pages_section_content {
+    padding: 0;
+  }
+
+  .default__pages_section_content h2 {
+    font-size: 3.5rem;
+  }
+
+  .default__pages_section_content p {
+    font-size: 2rem;
+    padding: 10px 0;
+  }
+
+  .default__pages_btn {
+    font-size: 2rem;
+  }
+
+  .default__pages_section img {
+    margin-top: 20px;
   }
 }
