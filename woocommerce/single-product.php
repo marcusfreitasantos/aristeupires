@@ -101,17 +101,37 @@ $otherProductsQuery = wc_get_products( $getProductsArgs );
 
             <?php if($productResources){ ?>
                 <div class="col-md-6 product__resources_col">
-                    <h2 class="section__title">Recursos</h2>
 
-                    <div class="product__resources_wrapper row">
-                        <?php foreach($productResources as $resource){ ?>
-                            <div class="col-md-6 mb-4">
-                                <a class="product__resource_btn" href="<?php echo $resource['link'] ? $resource['link']['url'] : ''; ?>" target="_blank">
-                                    <span class="product__resource_btn_title"><?php echo $resource['link'] ? $resource['link']['title'] : "Download"; ?></span>
-                                    <span class="product__resource_btn_text"><?php echo $resource['small_description'] ? $resource['small_description'] : "Description"; ?></span>
+                    <div class="product__resources_description">
+                        <h2 class="section__title">Descrição</h2>
+
+                        <div class="product__details">
+                            <p><strong>A partir de: R$<?php echo $product->get_price(); ?></strong></p>
+                            <?php echo wpautop($productData['short_description'], true ); ?>
+                        </div>
+
+                        <?php if($isMiniature) { ?>
+                            <div class="product__details_purchase_btn_wrapper">
+                                <a href="<?php echo $purchaseUrl; ?>" class="product__details_purchase_btn">
+                                    Comprar Agora
                                 </a>
-                            </div>    
+                            </div>
                         <?php } ?>
+                    </div>
+                    
+                    <div class="product__resources__content">
+                        <h2 class="section__title">Recursos</h2>
+    
+                        <div class="product__resources_wrapper row">
+                            <?php foreach($productResources as $resource){ ?>
+                                <div class="col-md-6 mb-4">
+                                    <a class="product__resource_btn" href="<?php echo $resource['link'] ? $resource['link']['url'] : ''; ?>" target="_blank">
+                                        <span class="product__resource_btn_title"><?php echo $resource['link'] ? $resource['link']['title'] : "Download"; ?></span>
+                                        <span class="product__resource_btn_text"><?php echo $resource['small_description'] ? $resource['small_description'] : "Description"; ?></span>
+                                    </a>
+                                </div>    
+                            <?php } ?>
+                        </div>
                     </div>
                 </div>
             <?php } ?>
@@ -119,30 +139,7 @@ $otherProductsQuery = wc_get_products( $getProductsArgs );
     </div>
 </section>
 
-<section id="product-resources">
-    <div class="container">
-        <div class="row">
-            <div class="product__resources_col col-12'; ?>">
-                <h2 class="section__title">Descrição</h2>
-
-                <div class="product__details">
-                    <p><strong>A partir de: R$<?php echo $product->get_price(); ?></strong></p>
-                    <?php echo wpautop($productData['short_description'], true ); ?>
-                </div>
-
-                <?php if($isMiniature) { ?>
-                    <div class="product__details_purchase_btn_wrapper">
-                        <a href="<?php echo $purchaseUrl; ?>" class="product__details_purchase_btn">
-                            Comprar Agora
-                        </a>
-                    </div>
-                <?php } ?>
-            </div>
-        </div>
-    </div>
-</section>
-
-<?php if(!empty($productCustomGallery)){ ?>
+<?php if(!empty($productCustomGallery[0]["add_slider_image"])){ ?>
     <section class="product__gallery_section" id="product-gallery">
         <?php foreach($productCustomGallery as $gallery){ ?>
             <?php if($gallery['add_slider_image'] ){ ?>
@@ -160,8 +157,7 @@ $otherProductsQuery = wc_get_products( $getProductsArgs );
                     <div class="swiper-button-next" id="gallery__carousel_next"></div>
                 </div>
             <?php } ?>
-        <?php } ?>
-        
+        <?php } ?>        
     </section>
 <?php } ?>
 
