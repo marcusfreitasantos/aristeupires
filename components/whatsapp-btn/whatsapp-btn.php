@@ -73,7 +73,7 @@ function renderWhatsappButton(){
                 font-size: 4rem;
                 transition: 0.5s;
                 text-decoration: none;
-                z-index: 3;
+                z-index: 5;
             }
 
             .whatsapp__custom_btn:hover{

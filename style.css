@@ -60,11 +60,6 @@ a {
   text-transform: uppercase;
 }
 
-.home__carousel .swiper-button-prev,
-.home__carousel .swiper-button-next {
-  color: white !important;
-}
-
 .video__background_section {
   display: flex;
   justify-content: center;
@@ -517,7 +512,17 @@ textarea {
 .swiper-button-next,
 .swiper-button-prev {
   color: var(--primary_color) !important;
-  font-size: 1rem !important;
+  background: white;
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50px;
+  padding: 12px;
+  z-index: 3 !important;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 2rem !important;
 }
 
 .stores__card {
@@ -757,7 +762,7 @@ textarea {
   padding: 1rem 0;
   position: sticky;
   top: 80px;
-  z-index: 3;
+  z-index: 4;
 }
 
 .product__page_title {
