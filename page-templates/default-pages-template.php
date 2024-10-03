@@ -22,7 +22,7 @@
         $indexCount++ ?>
 
         <section class="default__pages_section">
-            <div class="row gx-0 <?php echo checkIfIndexIsOddOrEven($indexCount); ?>">
+            <div class="row gx-0 h-100 <?php echo checkIfIndexIsOddOrEven($indexCount); ?>">
                 <div class="col-md-6 d-flex align-items-center">
                     <div class="default__pages_section_content">
                         <?php if($section["title"]){ ?>

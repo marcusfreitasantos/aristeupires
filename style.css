@@ -1043,6 +1043,13 @@ textarea {
 /*DEFAULT PAGES TEMPLATE*/
 .default__pages_section {
   padding: 0 20px;
+  height: 100vh;
+}
+
+.default__pages_section img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
 .default__pages_section_content {
@@ -1227,6 +1234,7 @@ textarea {
 
   .default__pages_section {
     margin-bottom: 40px;
+    height: auto;
   }
 
   .default__pages_section_content {
