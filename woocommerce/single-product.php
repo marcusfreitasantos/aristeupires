@@ -60,7 +60,7 @@ $otherProductsQuery = wc_get_products( $getProductsArgs );
                         Geral
                     </a>
 
-                    <a href="#product-resources">
+                    <a href="#product-info">
                         Especificações
                     </a>
 
@@ -225,6 +225,24 @@ $otherProductsQuery = wc_get_products( $getProductsArgs );
         },
       },
     });
+
+
+    // ACTIVE BUTTONS
+    document.addEventListener("DOMContentLoaded", function(){
+        const productNavBtns = Array.from(document.querySelectorAll(".product__page_nav_wrapper a"));
+        productNavBtns.map((btn, index) => {
+            btn.addEventListener("click", function(e){
+                btn.classList.add("btn-menu-active")
+                productNavBtns.map((otherBtn, index2) => {
+                    if(index !== index2){
+                        otherBtn.classList.remove("btn-menu-active")
+                    }
+                })
+            })
+        })
+    })
+
+
 </script>
 
 
