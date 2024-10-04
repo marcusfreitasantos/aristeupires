@@ -982,6 +982,12 @@ textarea {
   gap: 6px;
   text-decoration: none;
   transition: 0.5s;
+  height: 100%;
+}
+
+.corp__related_product_card img {
+  height: 200px;
+  object-fit: cover;
 }
 
 .corp__related_product_card:hover {
@@ -989,7 +995,7 @@ textarea {
 }
 
 .corp__related_product_card_title {
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-weight: 400;
 }
 

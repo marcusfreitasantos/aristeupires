@@ -14,7 +14,6 @@
     $corpPosts = new WP_Query($getPostsArgs);
 ?>
 
-
 <section class="corp__section">
     <div class="container">
 
@@ -40,7 +39,8 @@
                     <?php if($relatedProducts){ ?>
                         <div class="row g-5 pt-5 pb-5">
                             <?php foreach($relatedProducts as $product){ ?>
-                                <?php $productImage = get_the_post_thumbnail($product->id, 'full'); ?>
+                                <?php $productImage = get_the_post_thumbnail($product->ID, 'full'); ?>
+                                
                                 <div class="col-md-6">
                                     <a href="<?php echo get_permalink( $product->ID ); ?>" class="corp__related_product_card">
                                         <?php echo $productImage; ?>
@@ -61,7 +61,6 @@
                     <div class="corp__photo_gallery">
                         <?php foreach($photoGallery as $photo){ ?>
                             <a href="<?php echo $photo['url']; ?>" data-lightbox="corp__photo_gallery">
-
                                 <img src="<?php echo $photo['url']; ?>" alt="<?php echo $photo['alt']; ?>" />
                             </a>
                         <?php } ?>
