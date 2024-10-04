@@ -1127,6 +1127,15 @@ textarea {
   padding-bottom: 5px;
 }
 
+.checkout-button {
+  background-color: #343a40 !important;
+  transition: 0.5s;
+}
+
+.checkout-button:hover {
+  opacity: 0.5;
+}
+
 @media (max-width: 1366px) {
   .section__creator {
     height: auto;
