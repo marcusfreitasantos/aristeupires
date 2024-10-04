@@ -102,26 +102,26 @@ $otherProductsQuery = wc_get_products( $getProductsArgs );
                 <?php } ?>
             </div>
 
-            <?php if($productResources){ ?>
-                <div class="col-md-6 product__resources_col">
+            <div class="col-md-6 product__resources_col">
 
-                    <div class="product__resources_description">
-                        <h2 class="section__title">Descrição</h2>
+                <div class="product__resources_description">
+                    <h2 class="section__title">Descrição</h2>
 
-                        <div class="product__details">
-                            <p><strong>A partir de: R$<?php echo $product->get_price(); ?></strong></p>
-                            <?php echo wpautop($productData['short_description'], true ); ?>
-                        </div>
-
-                        <?php if($isMiniature) { ?>
-                            <div class="product__details_purchase_btn_wrapper">
-                                <a href="<?php echo $purchaseUrl; ?>" class="product__details_purchase_btn">
-                                    Comprar Agora
-                                </a>
-                            </div>
-                        <?php } ?>
+                    <div class="product__details">
+                        <p><strong>A partir de: R$<?php echo $product->get_price(); ?></strong></p>
+                        <?php echo wpautop($productData['short_description'], true ); ?>
                     </div>
-                    
+
+                    <?php if($isMiniature) { ?>
+                        <div class="product__details_purchase_btn_wrapper">
+                            <a href="<?php echo $purchaseUrl; ?>" class="product__details_purchase_btn">
+                                Comprar Agora
+                            </a>
+                        </div>
+                    <?php } ?>
+                </div>
+
+                <?php if($productResources){ ?>
                     <div class="product__resources__content">
                         <h2 class="section__title">Recursos</h2>
     
