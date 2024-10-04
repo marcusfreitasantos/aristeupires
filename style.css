@@ -487,10 +487,31 @@ textarea {
   color: var(--primary_color);
 }
 
+.post__featured_img {
+  width: 100%;
+  overflow: hidden;
+  height: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 20px 0;
+  border-radius: 10px;
+}
+
+.post__featured_img img {
+  object-fit: cover;
+  width: 100%;
+}
+
 .post__content {
   color: var(--primary_color);
   font-size: 1.6rem;
   text-align: justify;
+}
+
+.post__content img {
+  width: 100%;
+  border-radius: 10px;
 }
 
 .post__social_wrapper {
@@ -1280,5 +1301,9 @@ textarea {
 
   .default__pages_section img {
     margin-top: 20px;
+  }
+
+  .post__featured_img {
+    height: auto;
   }
 }

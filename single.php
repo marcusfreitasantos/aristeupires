@@ -1,5 +1,7 @@
 <?php get_header(); ?>
 <?php $siteUrl = site_url(); ?>
+<?php global $post; ?>
+
 
 <?php
    $getPostsArgs = array(
@@ -29,8 +31,11 @@
 
                     <span class="post__meta">
                         <?php echo date_i18n( 'F j, Y', strtotime( get_the_date() ) ); ?>
-
                     </span>
+                </div>
+
+                <div class="post__featured_img">
+                    <?php echo $postImg = get_the_post_thumbnail($post->id, 'full'); ?>
                 </div>
 
                 <div class="post__content">
