@@ -208,7 +208,6 @@ $essenceStores = new WP_Query($essenceStoresArgs);
                                     $postImg = get_field('image');
                                     $categories = get_the_terms(get_the_ID(), 'lojas_cat');
                                     if (has_term('lojas-dedicadas', 'lojas_cat')){   ?>
-
                                         <div class="swiper-slide">
                                             <div class="stores__card row align-items-center g-0">
                                                 <div class="col-md-8">
@@ -222,15 +221,23 @@ $essenceStores = new WP_Query($essenceStoresArgs);
 
                                                     <?php if(get_field('city') && get_field('state')){?>
                                                         <h3 class="stores__card_subtitle"><?php echo the_field('city'); ?> / <?php echo the_field('state'); ?></h3>
-                                                <?php } ?>
+                                                    <?php } ?>
 
                                                     <?php if(get_field('address')){?>
                                                         <p class="stores__card_address"><?php echo the_field('address'); ?></p>
-                                                <?php } ?>
+                                                    <?php } ?>
 
                                                     <?php if(get_field('phone')){?>
                                                         <span class="stores__card_phone"><?php echo the_field('phone'); ?></span>
-                                                <?php } ?>
+                                                    <?php } ?>
+
+                                                    <?php if(get_field('whatsapp_number')){?>
+                                                        <?php $whatsappCustomLink = 'https://api.whatsapp.com/send?phone=' . get_field ('whatsapp_number'); ?>
+                                                        
+                                                        <a class="stores__card_whatsapp" href="<?php echo $whatsappCustomLink; ?>" target="_blank">
+                                                            <i class="fa-brands fa-whatsapp" style="color: white;"></i>
+                                                        </a>
+                                                    <?php } ?>
                                                 </div>
                                             </div>
                                         </div>
@@ -275,15 +282,23 @@ $essenceStores = new WP_Query($essenceStoresArgs);
 
                                                 <?php if(get_field('city') && get_field('state')){?>
                                                     <h3 class="stores__card_subtitle"><?php echo the_field('city'); ?> / <?php echo the_field('state'); ?></h3>
-                                            <?php } ?>
+                                                <?php } ?>
 
                                                 <?php if(get_field('address')){?>
                                                     <p class="stores__card_address"><?php echo the_field('address'); ?></p>
-                                            <?php } ?>
+                                                <?php } ?>
 
                                                 <?php if(get_field('phone')){?>
                                                     <span class="stores__card_phone"><?php echo the_field('phone'); ?></span>
-                                            <?php } ?>
+                                                <?php } ?>
+
+                                                <?php if(get_field('whatsapp_number')){?>
+                                                    <?php $whatsappCustomLink = 'https://api.whatsapp.com/send?phone=' . get_field ('whatsapp_number'); ?>
+                                                    
+                                                    <a class="stores__card_whatsapp" href="<?php echo $whatsappCustomLink; ?>" target="_blank">
+                                                        <i class="fa-brands fa-whatsapp" style="color: white;"></i>
+                                                    </a>
+                                                <?php } ?>
                                             </div>
                                         </div>
                                     </div>
@@ -327,6 +342,14 @@ $essenceStores = new WP_Query($essenceStoresArgs);
 
                                 <?php if(get_field('phone')){?>
                                     <span class="stores__card_phone"><?php echo the_field('phone'); ?></span>
+                                <?php } ?>
+
+                                <?php if(get_field('whatsapp_number')){?>
+                                    <?php $whatsappCustomLink = 'https://api.whatsapp.com/send?phone=' . get_field ('whatsapp_number'); ?>
+                                    
+                                    <a class="stores__card_whatsapp" href="<?php echo $whatsappCustomLink; ?>" target="_blank">
+                                        <i class="fa-brands fa-whatsapp" style="color: black;"></i>
+                                    </a>
                                 <?php } ?>
                             </div>
                         </div>

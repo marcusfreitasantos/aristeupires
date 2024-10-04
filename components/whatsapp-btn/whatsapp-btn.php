@@ -54,7 +54,7 @@ function whatsappBtnOptionsPage(){
 function renderWhatsappButton(){
     $whatsappCustomBtnNumber = get_option('whatsapp_custom_btn_number', '');
     $whatsappCustomBtnMsg = get_option('whatsapp_custom_btn_msg', '');
-    $whatsappCustomLink = "https://api.whatsapp.com/send?phone=+$whatsappCustomBtnNumber&text=$whatsappCustomBtnMsg";
+    $whatsappCustomLink = "https://api.whatsapp.com/send?phone=$whatsappCustomBtnNumber&text=$whatsappCustomBtnMsg";
     $btnSize = "60px";
 
     if($whatsappCustomBtnNumber){ ?>
