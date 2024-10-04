@@ -490,7 +490,7 @@ textarea {
 .post__featured_img {
   width: 100%;
   overflow: hidden;
-  height: 800px;
+  max-height: 800px;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -501,6 +501,7 @@ textarea {
 .post__featured_img img {
   object-fit: cover;
   width: 100%;
+  height: 100%;
 }
 
 .post__content {
