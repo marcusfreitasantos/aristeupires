@@ -954,6 +954,11 @@ textarea {
   margin-bottom: 40px;
 }
 
+.corp__content_container {
+  position: sticky;
+  top: 0;
+}
+
 .corp__content {
   font-size: 2.4rem !important;
   font-weight: 300;

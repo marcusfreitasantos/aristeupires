@@ -23,7 +23,7 @@
 
         <div class="row">
             <?php if($postContent){ ?>
-                <div class="col-md-4">
+                <div class="col-md-4 corp__content_container">
                     <h1 class="corp__title"><?php echo the_title(); ?></h1>
     
                     <div class="corp__content">

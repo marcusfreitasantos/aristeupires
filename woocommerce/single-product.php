@@ -56,7 +56,7 @@ $otherProductsQuery = wc_get_products( $getProductsArgs );
 
             <div class="col-md-6 d-flex justify-content-md-end">
                 <div class="product__page_nav_wrapper">
-                    <a href="#product-info">
+                    <a href="#product-info" class="btn-menu-active">
                         Geral
                     </a>
 
