@@ -23,36 +23,41 @@
 
         <div class="row">
             <?php if($postContent){ ?>
-                <div class="col-md-4 corp__content_container">
-                    <h1 class="corp__title"><?php echo the_title(); ?></h1>
+                <div class="col-md-4">
+                    <div class="corp__content_container">
+                        <h1 class="corp__title"><?php echo the_title(); ?></h1>
+
+                        <div class="corp__content">
+                            <?php echo $postContent; ?>
+                        </div>   
+
+                        <?php if(get_field("details")){ ?>
+                            <div class="corp__details">
+                                <?php echo the_field("details"); ?>
+                            </div>
+                        <?php } ?>
+
+                        <?php if($relatedProducts){ ?>
+                            <div class="row g-5 pt-5 pb-5">
+                                <?php foreach($relatedProducts as $product){ ?>
+                                    <?php $productImage = get_the_post_thumbnail($product->ID, 'full'); ?>
+                                    
+                                    <div class="col-md-6">
+                                        <a href="<?php echo get_permalink( $product->ID ); ?>" class="corp__related_product_card">
+                                            <?php echo $productImage; ?>
+                                            <h4 class="corp__related_product_card_title">
+                                                <?php echo $product->post_title; ?>
+                                            </h4>
+                                        </a>
+                                    </div>
+                                    
+                                <?php } ?>
+                            </div>
+                        <?php } ?>
+                    </div>
     
-                    <div class="corp__content">
-                        <?php echo $postContent; ?>
-                    </div>    
                     
-                    <?php if(get_field("details")){ ?>
-                        <div class="corp__details">
-                            <?php echo the_field("details"); ?>
-                        </div>
-                    <?php } ?>
     
-                    <?php if($relatedProducts){ ?>
-                        <div class="row g-5 pt-5 pb-5">
-                            <?php foreach($relatedProducts as $product){ ?>
-                                <?php $productImage = get_the_post_thumbnail($product->ID, 'full'); ?>
-                                
-                                <div class="col-md-6">
-                                    <a href="<?php echo get_permalink( $product->ID ); ?>" class="corp__related_product_card">
-                                        <?php echo $productImage; ?>
-                                        <h4 class="corp__related_product_card_title">
-                                            <?php echo $product->post_title; ?>
-                                        </h4>
-                                    </a>
-                                </div>
-                                
-                            <?php } ?>
-                        </div>
-                    <?php } ?>
                 </div>
             <?php } ?>
 

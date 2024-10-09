@@ -956,7 +956,7 @@ textarea {
 
 .corp__content_container {
   position: sticky;
-  top: 0;
+  top: -300px;
 }
 
 .corp__content {
@@ -1326,5 +1326,9 @@ textarea {
 
   .post__featured_img {
     height: auto;
+  }
+
+  .corp__content_container {
+    position: relative;
   }
 }
