@@ -60,7 +60,7 @@ $otherProductsQuery = wc_get_products( $getProductsArgs );
                         Geral
                     </a>
 
-                    <a href="#product-info">
+                    <a href="#product-details">
                         Especificações
                     </a>
 
@@ -73,7 +73,7 @@ $otherProductsQuery = wc_get_products( $getProductsArgs );
     </div>
 </section>
 
-<section id="product-info" class="bg-white">
+<section  class="bg-white">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-md-6">
@@ -104,7 +104,7 @@ $otherProductsQuery = wc_get_products( $getProductsArgs );
 
             <div class="col-md-6 product__resources_col">
 
-                <div class="product__resources_description">
+                <div class="product__resources_description" id="product-info">
                     <h2 class="section__title">Descrição</h2>
 
                     <div class="product__details">
@@ -122,7 +122,7 @@ $otherProductsQuery = wc_get_products( $getProductsArgs );
                 </div>
 
                 <?php if($productResources){ ?>
-                    <div class="product__resources__content">
+                    <div class="product__resources_content" id="product-details">
                         <h2 class="section__title">Recursos</h2>
     
                         <div class="product__resources_wrapper row">

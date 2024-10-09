@@ -864,6 +864,12 @@ textarea {
   padding: 20px 0 !important;
 }
 
+.product__resources_content,
+.product__resources_description,
+.product__gallery_section {
+  scroll-margin-top: 300px;
+}
+
 .product__resource_btn {
   padding: 6px 12px;
   border: 1px solid var(--primary_color);
