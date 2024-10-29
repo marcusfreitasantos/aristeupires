@@ -51,11 +51,11 @@
 
 <section id="produtos" class="section_products">
     <div class="container">
-        <h2 class="section__title text-center">Todos</h2>
+        <h2 class="section__title text-center">Produtos</h2>
         <hr/>
 
         <div class="products__cat_wrapper">
-            <a class="products__cat_link <?php echo empty($currentCategories) ? 'active-link' : ''; ?>" href="<?php echo $productsPage; ?>">Produtos</a>
+            <a class="products__cat_link <?php echo empty($currentCategories) ? 'active-link' : ''; ?>" href="<?php echo $productsPage; ?>">Todos</a>
             <?php foreach($productCats as $cat){ ?>
                 <a class="products__cat_link <?php echo in_array($cat->slug, $currentCategories) ? 'active-link' : ''; ?>" href="<?php echo "$siteUrl/categoria-produto/$cat->slug"; ?>"><?php echo $cat->name; ?></a>
            <?php } ?>
