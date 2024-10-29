@@ -362,7 +362,7 @@ a {
   overflow: hidden;
   text-overflow: ellipsis;
   text-decoration: none;
-  height: 60px;
+  height: 80px;
 }
 
 .post__card_text {
