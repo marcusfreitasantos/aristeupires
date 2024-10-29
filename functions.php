@@ -87,15 +87,15 @@ function updateHeaderCartIcon( $fragments ) {
 add_action('pre_get_posts', 'searchOnlyProducts');
 
 
-function my_enqueue_scripts() {
+function enqueueCustomScripts() {
     wp_enqueue_script( 'ajax-products-script', get_stylesheet_directory_uri() . '/assets/js/ajax-products.js', array('jquery'), null, true );
 
     wp_localize_script( 'ajax-products-script', 'my_ajax_obj', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
 }
-add_action( 'wp_enqueue_scripts', 'my_enqueue_scripts' );
+add_action( 'wp_enqueue_scripts', 'enqueueCustomScripts' );
 
 
-function my_custom_ajax_handler() {
+function customAjaxHandler() {
     if ( isset($_POST['products_page']) ) {
         $currentPage = sanitize_text_field( $_POST['products_page'] );
 
@@ -124,6 +124,6 @@ function my_custom_ajax_handler() {
 
     wp_die(); 
 }
-add_action( 'wp_ajax_get_products_by_ajax', 'my_custom_ajax_handler' );
-add_action( 'wp_ajax_nopriv_get_products_by_ajax', 'my_custom_ajax_handler' );
+add_action( 'wp_ajax_get_products_by_ajax', 'customAjaxHandler' );
+add_action( 'wp_ajax_nopriv_get_products_by_ajax', 'customAjaxHandler' );
 ?>

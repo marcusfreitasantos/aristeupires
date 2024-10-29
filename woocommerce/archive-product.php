@@ -51,7 +51,7 @@
 
 <section id="produtos" class="section_products">
     <div class="container">
-        <h2 class="section__title text-center">Produtos</h2>
+        <h2 class="section__title text-center">Todos</h2>
         <hr/>
 
         <div class="products__cat_wrapper">

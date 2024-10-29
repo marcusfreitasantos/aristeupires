@@ -3,10 +3,13 @@
     $siteUrl = site_url();
     $productImage = get_the_post_thumbnail($product->id, 'full');
     $productCat = getProductCategories();
+
+   
+
     $currencySymbol = get_woocommerce_currency_symbol();
     ?>
         <div class="product__card">
-            <a class="product__img" href=<?php echo "$siteUrl/produto/$product->slug";?>>
+            <a class="product__img <?php echo has_term('miniaturas', 'product_cat', $product->id) ? 'miniaturas' : ''; ?>" href=<?php echo "$siteUrl/produto/$product->slug";?>>
                 <?php echo $productImage; ?>
             </a>
 

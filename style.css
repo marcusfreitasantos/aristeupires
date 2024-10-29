@@ -260,7 +260,7 @@ a {
 
 .product__img {
   background-color: white;
-  height: 350px;
+  height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -269,6 +269,16 @@ a {
   text-decoration: none;
   margin-bottom: 20px;
   overflow: hidden;
+}
+
+.product__img.miniaturas {
+  padding: 0;
+}
+
+.product__img.miniaturas img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
 .product__img img {
