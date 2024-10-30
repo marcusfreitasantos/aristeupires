@@ -1347,5 +1347,6 @@ textarea {
 
   .corp__content_container {
     position: relative;
+    top: auto;
   }
 }
