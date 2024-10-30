@@ -1,8 +1,7 @@
 <?php
 function oceanwp_child_enqueue_parent_style() {
 
-	$theme   = wp_get_theme( 'OceanWP' );
-	$version = $theme->get( 'Version' );
+	$version = "2.0.1";
 
 	wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/style.css', array( 'oceanwp-style' ), $version );
 	wp_enqueue_style( 'bootstrap-style', get_stylesheet_directory_uri() . '/assets/libs/bootstrap/css/bootstrap.min.css',array(), $version );
