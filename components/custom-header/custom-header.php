@@ -68,7 +68,7 @@ function hasChildren($menuItems, $itemId) {
             <div class="header__main_menu">
                     <?php foreach($mainMenu as $menuItem){                     
                         if(!hasChildren($mainMenu, $menuItem->ID) && $menuItem->menu_item_parent == 0){ ?>
-                            <a href="<?php echo $menuItem->url; ?>" target="<?php echo $menuItem->target; ?>">
+                            <a class="header__submenu_title" href="<?php echo $menuItem->url; ?>" target="<?php echo $menuItem->target; ?>">
                                 <?php echo $menuItem->title; ?>
                             </a>
                         <?php }else if(hasChildren($mainMenu, $menuItem->ID)){ ?>

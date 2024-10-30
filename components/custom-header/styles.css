@@ -176,14 +176,43 @@ body:not(.logged-in) .custom__header {
   }
 
   .header__submenu {
-    gap: 0;
+    gap: 12px;
   }
 
   .header__submenu_item {
-    margin-left: 10px;
+    margin: none;
   }
 
   .header__logo_wrapper img {
     max-width: 100%;
+  }
+
+  .header__submenu_title {
+    font-weight: 400 !important;
+  }
+
+  .show__search_form {
+    display: flex;
+  }
+
+  .header__search_form {
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 90%);
+    justify-content: center;
+    align-items: center;
+  }
+
+  .header__search_form form {
+    width: 90% !important;
+  }
+
+  .show__header_main_menu {
+    justify-content: flex-start;
+    height: 100vh;
+    overflow-y: scroll;
   }
 }
