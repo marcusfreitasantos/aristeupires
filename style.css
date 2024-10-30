@@ -1349,4 +1349,14 @@ textarea {
     position: relative;
     top: auto;
   }
+
+  .products__cat_wrapper {
+    gap: 12px 24px;
+    justify-content: flex-start;
+    margin-bottom: 40px;
+  }
+
+  .products__cat_link {
+    padding: 0;
+  }
 }
