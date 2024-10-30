@@ -216,7 +216,7 @@ body:not(.logged-in) .custom__header {
     overflow-y: scroll;
   }
 
-  .header__main_menu a,
+  .header__submenu_item,
   .header__submenu_title {
     font-size: 1.6rem !important;
   }
