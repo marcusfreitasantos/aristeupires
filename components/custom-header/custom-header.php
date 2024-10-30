@@ -20,7 +20,7 @@ function hasChildren($menuItems, $itemId) {
 <header class="custom__header">
     <div class="custom__header_container">
         <div class="row justify-content-between align-items-center">
-           <div class="col-4">
+           <div class="col-md-4 col-2">
                 <div class="header__left_menu">
                     <span class="header__main_menu_btn">
                         <i class="fa-solid fa-bars"></i>
@@ -38,7 +38,7 @@ function hasChildren($menuItems, $itemId) {
                 </a>
             </div>
 
-            <div class="col-4  d-none d-sm-block justify-content-end">
+            <div class="col-4 d-sm-block justify-content-end">
                 <div class="d-flex align-items-center justify-content-end header__right_menu">
                     
                     <div class="header__search_form">

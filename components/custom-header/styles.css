@@ -52,7 +52,13 @@ body:not(.logged-in) .custom__header {
 }
 
 .header__logo_wrapper {
-  max-width: 200px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header__logo_wrapper img {
+  max-width: 200px;
 }
 
 .header__search_form {
@@ -159,12 +165,14 @@ body:not(.logged-in) .custom__header {
     padding-top: 60px;
   }
 
-  .header__logo_wrapper {
-    width: 150px !important;
+  .custom__header_container .container {
+    padding: 0;
+    margin: 0;
   }
 
   .header__main_menu {
     flex-direction: column;
+    gap: 12px;
   }
 
   .header__submenu {
@@ -173,5 +181,9 @@ body:not(.logged-in) .custom__header {
 
   .header__submenu_item {
     margin-left: 10px;
+  }
+
+  .header__logo_wrapper img {
+    max-width: 100%;
   }
 }
