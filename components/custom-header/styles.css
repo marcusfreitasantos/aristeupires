@@ -218,6 +218,6 @@ body:not(.logged-in) .custom__header {
 
   .header__main_menu a,
   .header__submenu_title {
-    font-size: 1.6rem;
+    font-size: 1.6rem !important;
   }
 }
