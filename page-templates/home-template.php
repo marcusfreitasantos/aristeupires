@@ -111,7 +111,7 @@ function changeBackgroundBasedOnContentRightColumn($section, $textPosition){
 <?php if ($sectionCreator) {
     foreach ($sectionCreator as $section) { ?>
         <section class="section__creator" id="<?php echo $section['section_name'] ? $section['section_name'] : '' ?>">
-            <div class="row gx-0">
+            <div class="row gx-0 section__creator_row">
                 <div class="col-md-6 section__creator_column" style="<?php echo changeBackgroundBasedOnContentLeftColumn($section, $section["text_position"]); ?>">
 
                     <?php if($section["media_selector"]["left_image"]){ ?>

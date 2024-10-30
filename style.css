@@ -1359,4 +1359,8 @@ textarea {
   .products__cat_link {
     padding: 0;
   }
+
+  .section__creator:nth-child(odd) .section__creator_row {
+    flex-direction: column-reverse;
+  }
 }
