@@ -1158,6 +1158,12 @@ textarea {
   opacity: 0.5;
 }
 
+@media (max-width: 1440px) {
+  .section__creator {
+    height: auto;
+  }
+}
+
 @media (max-width: 1366px) {
   .section__creator {
     height: auto;
