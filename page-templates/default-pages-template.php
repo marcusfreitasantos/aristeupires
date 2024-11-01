@@ -3,6 +3,9 @@
 <?php get_header(); ?>
 <?php $siteUrl = site_url(); ?>
 <?php $sectionCreator = get_field('sections'); ?>
+<?php if ( is_page() )
+    $pageSlug = get_queried_object()->post_name;
+?>
 <?php
     $getPostsArgs = array(
 		'posts_per_page'      => 3,
@@ -71,32 +74,38 @@
                             </a>
                         <?php } ?>
 
+
+
+                        <?php if($pageSlug === "corporativo"){ ?>
+
+                            <div class="row justify-content-between projects__carousel">
+                                <?php if($corpPosts->have_posts()){ ?>
+                                    <?php $index = 0; ?>
+                                    <?php while ($corpPosts->have_posts()) : $corpPosts->the_post(); ?>
+                                        <?php global $post; ?>
+                                        <?php $postImg = get_the_post_thumbnail($post->id, 'full'); ?>
+                                        
+                                        <div class="<?php echo changeColumnClassBasedOnIndex($index); ?>  mt-4">
+                                            <a href="<?php echo the_permalink(); ?>" class="corp__other_card">
+                                                <?php echo $postImg; ?>
+                                                <h4 class="corp__other_card_title"><?php echo the_title(); ?></h4>
+                                            </a>
+                                        </div>
+                                        <?php $index++; ?>
+    
+                                    <?php endwhile; ?>
+                                    <?php wp_reset_postdata(); ?>
+                                <?php } ?>
+    
+                                <div class="col-md-1 d-flex align-items-center justify-content-center">
+                                    <a href="/projetos" class="w-100">
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                    </a>
+                                </div> 
+                            </div>
+                        <?php } ?>
+
         
-                        <div class="row justify-content-between projects__carousel">
-                            <?php if($corpPosts->have_posts()){ ?>
-                                <?php $index = 0; ?>
-                                <?php while ($corpPosts->have_posts()) : $corpPosts->the_post(); ?>
-                                    <?php global $post; ?>
-                                    <?php $postImg = get_the_post_thumbnail($post->id, 'full'); ?>
-                                    
-                                    <div class="<?php echo changeColumnClassBasedOnIndex($index); ?>  mt-4">
-                                        <a href="<?php echo the_permalink(); ?>" class="corp__other_card">
-                                            <?php echo $postImg; ?>
-                                            <h4 class="corp__other_card_title"><?php echo the_title(); ?></h4>
-                                        </a>
-                                    </div>
-                                    <?php $index++; ?>
-
-                                <?php endwhile; ?>
-                                <?php wp_reset_postdata(); ?>
-                            <?php } ?>
-
-                            <div class="col-md-1 d-flex align-items-center justify-content-center">
-                                <a href="/projetos" class="w-100">
-                                    <i class="fa-solid fa-chevron-right"></i>
-                                </a>
-                            </div> 
-                        </div>
                     </div>
                 </div>
 
