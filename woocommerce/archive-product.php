@@ -77,13 +77,15 @@
         </div>
 
 
-        <div class="col-12 text-center py-5 my-5 d-block">
-            <span class="custom__loader"></span>
-
-            <span class="loadmore__btn">
-                <span>Ver mais produtos</span>
-            </span>
-        </div>
+        <?php if($totalProducts > 9){ ?>
+            <div class="col-12 text-center py-5 my-5 d-block">
+                <span class="custom__loader"></span>
+    
+                <span class="loadmore__btn">
+                    <span>Ver mais produtos</span>
+                </span>
+            </div>
+        <?php } ?>
     </div>   
 </section>
 

@@ -97,13 +97,7 @@ add_action( 'wp_enqueue_scripts', 'enqueueCustomScripts' );
 function customAjaxHandler() {
     if ( isset($_POST['products_page']) ) {
         $currentPage = sanitize_text_field( $_POST['products_page'] );
-
-        $currentCategories = [];
-
-        if(is_product_category()){
-            $term = get_queried_object();
-            $currentCategories[] = $term->slug;
-        };
+        $currentCategories[] = sanitize_text_field( $_POST['category'] );
 
         $getProductsArgs = array(
             'limit'     => 9,
