@@ -57,7 +57,7 @@
         $indexCount++ ?>
 
         <section class="default__pages_section">
-            <div class="row gx-0 h-100 align-items-start <?php echo checkIfIndexIsOddOrEven($indexCount); ?>">
+            <div class="row gx-0 h-100 align-items-center <?php echo checkIfIndexIsOddOrEven($indexCount); ?>">
                 <div class="col-md-6 d-flex">
                     <div class="default__pages_section_content">
                         <?php if($section["title"]){ ?>
