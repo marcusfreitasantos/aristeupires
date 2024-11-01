@@ -71,6 +71,7 @@
                     </div>
                     <?php $index++; ?>
                 <?php endwhile; ?>
+                <?php wp_reset_postdata(); ?>
             <?php } ?>
         </div>
 
@@ -128,6 +129,5 @@
       },
     });
 </script>
-
 
 <?php get_footer(); ?>
