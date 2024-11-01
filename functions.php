@@ -97,18 +97,19 @@ add_action( 'wp_enqueue_scripts', 'enqueueCustomScripts' );
 function customAjaxHandler() {
     if ( isset($_POST['products_page']) ) {
         $currentPage = sanitize_text_field( $_POST['products_page'] );
-        $currentCategories[] = sanitize_text_field( $_POST['category'] );
+        $productCat = sanitize_text_field( $_POST['category'] );
 
         $getProductsArgs = array(
             'limit'     => 9,
             'status'    => 'publish',
             'page'      => $currentPage,
             'paginate'  => true,
-            'category'  => $currentCategories
+            'category'  => $productCat == 'produtos' ? [] : [$productCat]
         );
         $products = wc_get_products( $getProductsArgs );
+        $totalProducts = $products->total;
 
-        if($products < 9){
+        if($totalProducts < 9){
             echo '<style>.loadmore__btn{display: none !important};</style>';
         }
 
