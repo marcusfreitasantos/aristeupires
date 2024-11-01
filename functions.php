@@ -108,11 +108,17 @@ function customAjaxHandler() {
         );
         $products = wc_get_products( $getProductsArgs );
 
+        if($products < 9){
+            echo '<style>.loadmore__btn{display: none !important};</style>';
+        }
+
         foreach($products->products as $product){ ?>
             <div class="col-md-4 mb-5">
                 <?php echo ProductCard($product); ?>
             </div>
         <?php }
+
+
     }
 
     wp_die(); 
