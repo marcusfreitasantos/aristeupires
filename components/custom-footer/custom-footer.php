@@ -1,10 +1,11 @@
 <?php $siteUrl = site_url(); ?>
 <?php $productCat = getProductCategories(); ?>
 <?php $footerMenu = wp_get_nav_menu_items("footer_menu"); ?>
+<?php $formTitle = get_field("form_title"); ?>
 
 <section id="contato" style="padding: 100px 0;"> 
     <div class="container">
-        <h2 class="section__title">Entre em contato</h2>
+        <h2 class="section__title"><?php echo $formTitle ? $formTitle : "Entre em contato"; ?></h2>
         <?php echo do_shortcode('[contact-form-7 id="f15653c" title="Contact"]'); ?>
     </div>
 </section>
