@@ -87,7 +87,7 @@
 
         <?php if($pageSlug === "corporativo"){ ?>
 
-            <section style="padding: 20px">
+            <section style="padding: 60px 20px; overflow: hidden;">
 
                     <div class="row justify-content-between projects__carousel position-relative" id="projects__carousel">
                         <div class="swiper-wrapper">

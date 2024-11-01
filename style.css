@@ -1115,7 +1115,7 @@ textarea {
 
 /*DEFAULT PAGES TEMPLATE*/
 .default__pages_section {
-  padding: 20px;
+  padding: 0 20px;
   overflow: hidden;
 }
 
@@ -1126,7 +1126,7 @@ textarea {
 }
 
 .default__pages_section_content {
-  padding: 0 40px;
+  padding: 40px;
 }
 
 .default__pages_section_content h2 {
@@ -1135,7 +1135,7 @@ textarea {
 }
 
 .default__pages_section_content p {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 300;
 }
 
