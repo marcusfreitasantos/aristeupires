@@ -1115,18 +1115,18 @@ textarea {
 
 /*DEFAULT PAGES TEMPLATE*/
 .default__pages_section {
-  padding: 0 20px;
+  padding: 20px;
   overflow: hidden;
 }
 
 .default__pages_section img {
   height: 100%;
   width: 100%;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .default__pages_section_content {
-  padding: 40px;
+  padding: 0 40px;
 }
 
 .default__pages_section_content h2 {
@@ -1137,7 +1137,7 @@ textarea {
 .default__pages_section_content p {
   font-size: 2rem;
   font-weight: 300;
-  padding: 40px 0;
+  padding: 20px 0;
 }
 
 .default__pages_btn {
