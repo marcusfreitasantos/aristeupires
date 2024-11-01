@@ -8,7 +8,7 @@
 ?>
 <?php
     $getPostsArgs = array(
-		'posts_per_page'      => 3,
+		'posts_per_page'      => -1,
 		'orderby'          => 'date',
 		'order'            => 'DESC',
 		'post_type'        => 'project',
@@ -72,40 +72,7 @@
                             <a class="default__pages_btn" href="<?php echo $section["link"]["url"]; ?>">
                                 <?php echo $section["link"]["title"]; ?>
                             </a>
-                        <?php } ?>
-
-
-
-                        <?php if($pageSlug === "corporativo"){ ?>
-
-                            <div class="row justify-content-between projects__carousel">
-                                <?php if($corpPosts->have_posts()){ ?>
-                                    <?php $index = 0; ?>
-                                    <?php while ($corpPosts->have_posts()) : $corpPosts->the_post(); ?>
-                                        <?php global $post; ?>
-                                        <?php $postImg = get_the_post_thumbnail($post->id, 'full'); ?>
-                                        
-                                        <div class="<?php echo changeColumnClassBasedOnIndex($index); ?>  mt-4">
-                                            <a href="<?php echo the_permalink(); ?>" class="corp__other_card">
-                                                <?php echo $postImg; ?>
-                                                <h4 class="corp__other_card_title"><?php echo the_title(); ?></h4>
-                                            </a>
-                                        </div>
-                                        <?php $index++; ?>
-    
-                                    <?php endwhile; ?>
-                                    <?php wp_reset_postdata(); ?>
-                                <?php } ?>
-    
-                                <div class="col-md-1 d-flex align-items-center justify-content-center">
-                                    <a href="/projetos" class="w-100">
-                                        <i class="fa-solid fa-chevron-right"></i>
-                                    </a>
-                                </div> 
-                            </div>
-                        <?php } ?>
-
-        
+                        <?php } ?>        
                     </div>
                 </div>
 
@@ -116,8 +83,66 @@
                 </div>
             </div>
         </section>
+
+
+        <?php if($pageSlug === "corporativo"){ ?>
+
+            <section style="padding: 20px">
+
+                    <div class="row justify-content-between projects__carousel position-relative" id="projects__carousel">
+                        <div class="swiper-wrapper">
+        
+                            <?php if($corpPosts->have_posts()){ ?>
+                                <?php while ($corpPosts->have_posts()) : $corpPosts->the_post(); ?>
+                                    <?php global $post; ?>
+                                    <?php $postImg = get_the_post_thumbnail($post->id, 'full'); ?>
+                                    
+                                    <div class="swiper-slide">
+                                        <a href="<?php echo the_permalink(); ?>" class="corp__other_card">
+                                            <?php echo $postImg; ?>
+                                            <h4 class="corp__other_card_title"><?php echo the_title(); ?></h4>
+                                        </a>
+                                    </div>    
+                                <?php endwhile; ?>
+                                <?php wp_reset_postdata(); ?>
+                            <?php } ?>
+        
+        
+        
+                        </div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+            </section>
+                <script>
+                    const swiper = new Swiper("#projects__carousel", {
+                        direction: "horizontal",
+                        loop: true,
+                        slidesPerView: 1,
+                        spaceBetween: 12,
+                        autoplay: {
+                            delay: 3000,
+                        },
+                        navigation: {
+                            nextEl: ".swiper-button-next",
+                            prevEl: ".swiper-button-prev",
+                        },
+                        breakpoints: {
+                        768: {
+                        slidesPerView: 2,
+                        spaceBetween: 12,
+                        },
+                        1024: {
+                        slidesPerView: 4,
+                        spaceBetween: 12,
+                        },
+                    },
+                    });
+                </script>
+        <?php } ?>
     <?php }
 } ?>
+
 
 <?php get_footer(); ?>
 
