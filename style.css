@@ -72,6 +72,8 @@ a {
 .video__background_section a,
 .video__background_section video {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .video__background_content {
@@ -283,7 +285,8 @@ a {
 }
 
 .product__img img {
-  height: auto;
+  height: 400px;
+  width: 400px;
   object-fit: contain;
 }
 
@@ -1157,7 +1160,8 @@ textarea {
 }
 
 @media (max-width: 1440px) {
-  .section__creator {
+  .section__creator,
+  .video__background_section {
     height: auto;
   }
 }
