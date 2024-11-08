@@ -116,7 +116,7 @@ function changeBackgroundBasedOnContentRightColumn($section, $textPosition){
 
                     <?php if($section["media_selector"]["left_image"]){ ?>
                         <div class="d-md-none d-block">
-                            <img src="<?php echo $section["media_selector"]["left_image"]["url"]; ?>" height="200px" />
+                            <img src="<?php echo $section["media_selector"]["left_image"]["url"]; ?>" alt="<?php echo $section["media_selector"]["left_image"]["alt"]; ?>" height="200px" />
                         </div>
                     <?php } ?>
 
@@ -146,7 +146,7 @@ function changeBackgroundBasedOnContentRightColumn($section, $textPosition){
 
                     <?php if($section["media_selector"]["right_image"]){ ?>
                         <div class="d-md-none d-block">
-                            <img src="<?php echo $section["media_selector"]["right_image"]["url"]; ?>" height="200px" />
+                            <img src="<?php echo $section["media_selector"]["right_image"]["url"]; ?>" alt="<?php echo $section["media_selector"]["left_image"]["alt"]; ?>" height="200px" />
                         </div>
                     <?php } ?>
 

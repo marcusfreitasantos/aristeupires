@@ -45,9 +45,9 @@ function hasChildren($menuItems, $itemId) {
                         <?php get_search_form(); ?>
                     </div>
 
-                    <a class="header__search_form_btn" >
+                    <span class="header__search_form_btn" >
                         <i class="fa-solid fa-magnifying-glass"></i>
-                    </a>
+                    </span>
 
                     <a class="position-relative" href=<?php echo wc_get_cart_url(); ?> >
                         <i class="fa-solid fa-cart-shopping"></i>
