@@ -7,7 +7,7 @@
 
 <section class="py-5">
     <div class="container">
-        <h1 class="text-center search__result_title p-5">Resultados de busca para: <?php echo $searchTerm; ?></h1>
+        <h1 class="text-center search__result_title p-5">Resultados de busca para: <?php echo str_replace('/', '', $searchTerm); ?></h1>
         <div class="row gx-5">
 				<?php if ( have_posts() ) : ?>
 						<?php

@@ -1,7 +1,7 @@
 <?php
 function oceanwp_child_enqueue_parent_style() {
 
-	$version = "2.0.4";
+	$version = "2.0.5";
 
 	wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/style.css', array( 'oceanwp-style' ), $version );
 	wp_enqueue_style( 'bootstrap-style', get_stylesheet_directory_uri() . '/assets/libs/bootstrap/css/bootstrap.min.css',array(), $version );
@@ -77,10 +77,17 @@ function updateHeaderCartIcon( $fragments ) {
  add_filter( 'woocommerce_add_to_cart_fragments', 'updateHeaderCartIcon' );
 
 
-
  function searchOnlyProducts($query) {
     if ( !is_admin() && $query->is_main_query() && $query->is_search() ) {
         $query->set('post_type', 'product');
+        // Get the search query
+        $search_query = $query->get('s');
+
+        // Remove any slashes from the search query
+        $search_query = str_replace('/', '', $search_query);
+
+        // Update the search query
+        $query->set('s', $search_query);
     }
 }
 add_action('pre_get_posts', 'searchOnlyProducts');
