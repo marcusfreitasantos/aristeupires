@@ -43,7 +43,7 @@ $otherProductsQuery = wc_get_products( $getProductsArgs );
 
 <?php if($headerImg){ ?>
     <section class="product__page_header">
-        <img class="product__page_header_img" src="<?php echo $headerImg['url']; ?>" alt="<?php echo $headerImg['alt']; ?>" />
+        <img id="product__page_header_img" src="<?php echo $headerImg['url']; ?>" alt="<?php echo $headerImg['alt']; ?>" />
     </section>
 <?php } ?>
 
