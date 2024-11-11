@@ -18,9 +18,9 @@
                     <?php echo $product->name; ?>
                 </a>
 
-                <span class="product__price">
-                    a partir de: <?php echo    $currencySymbol . $product->get_price(); ?>
-                </span>
+                <!-- <span class="product__price">
+                    a partir de: <?php //echo $currencySymbol . $product->get_price(); ?>
+                </span> -->
             </div>
         </div> 
     <?php
