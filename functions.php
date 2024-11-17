@@ -1,7 +1,7 @@
 <?php
 function oceanwp_child_enqueue_parent_style() {
 
-	$version = "2.0.6";
+	$version = "2.0.7";
 
 	wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/style.css', array( 'oceanwp-style' ), $version );
 	wp_enqueue_style( 'bootstrap-style', get_stylesheet_directory_uri() . '/assets/libs/bootstrap/css/bootstrap.min.css',array(), $version );
@@ -28,6 +28,8 @@ include("components/post-card/post-card.php");
 include("components/product-card/product-card.php");
 include("components/whatsapp-btn/whatsapp-btn.php");
 include("components/post-pagination/post-pagination.php");
+include("components/popup/popup.php");
+include("custom-posts/popups.php");
 
 global $emailHeaders;
 $emailHeaders = array(
@@ -133,4 +135,41 @@ function customAjaxHandler() {
 }
 add_action( 'wp_ajax_get_products_by_ajax', 'customAjaxHandler' );
 add_action( 'wp_ajax_nopriv_get_products_by_ajax', 'customAjaxHandler' );
+
+
+function showPopup(){
+    $currentPageID = get_the_ID();
+    $currentPostType = get_post_type($currentPageID);
+
+    $args = [
+        'post_type'  => 'popup',
+        'meta_query' => [
+            'relation' => 'OR',
+            [
+                'key'     => 'pages',
+                'value'   => '"' . $currentPageID . '"',
+                'compare' => 'LIKE',
+            ],
+            [
+                'key'     => 'dynamic_content',
+                'value'   => '"' . $currentPostType . '"',
+                'compare' => 'LIKE',
+            ]
+        ]
+    ];
+
+    $query = new WP_Query($args);
+
+    if ($query->have_posts()) {
+        while ($query->have_posts()) {
+            $query->the_post();
+            $field_value = get_field('related_products');
+
+            echo Popup($query);
+        }
+        wp_reset_postdata();
+    }
+}
+
+add_action('template_redirect', 'showPopup');
 ?>
