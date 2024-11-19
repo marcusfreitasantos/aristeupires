@@ -8,7 +8,6 @@
         $formBgColor = get_field("form_background_color", $popupObj->ID);
         $showForm = get_field("lead_form", $popupObj->ID);
         $delay = get_field("delay", $popupObj->ID);
-        $button = get_field("button",  $popupObj->ID);
 
         ?>
         <div class="custom__popup" style="background-color: <?= $bgColor; ?>">
@@ -33,10 +32,6 @@
                         <input type="submit" value="Enviar" />
                     </form>
                 <?php } ?>
-
-                <?php if($button){ 
-                    echo ButtonLink($button['url'], $button['title']);
-                } ?>
             </div>
         </div>
 
