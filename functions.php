@@ -248,11 +248,11 @@ function emailTemplate($content){
 function sendEmailByAjax() {
     if ( isset($_POST['userEmail']) && $_POST['userEmail'] != "" ) {
         global $emailHeaders;
-        $to = "marcusfreitasantos@gmail.com";
+        $to = "contato@aristeupires.com.br";
         $subject = "Novo contato pelo formulário do popup";
         $userEmail= $_POST['userEmail'];
         $userPhone= $_POST['userPhone'] ? $_POST['userPhone'] : "Sem telefone";
-        $userCompany= $_POST['user_company_name'] ? $_POST['user_company_name'] : "Sem empresa";
+        $userCompany= $_POST['userCompanyName'] ? $_POST['userCompanyName'] : "Sem empresa";
         $originUrl= $_POST['originUrl'];
         
         $message =  "							
