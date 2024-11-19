@@ -43,7 +43,7 @@
         <script>
             document.addEventListener("DOMContentLoaded", function(){
                 const popup = document.querySelector('.custom__popup');
-                const popupCloseBtn = document.querySelector('.custom__popup_close');
+                const popupCloseBtn = document.querySelector('.custom__popup .custom__popup_close');
                 const popupDelay = <?= intval($delay); ?> * 1000;
 
                 popupCloseBtn.addEventListener("click", function(){

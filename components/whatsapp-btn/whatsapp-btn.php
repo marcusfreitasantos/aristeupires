@@ -14,35 +14,54 @@ function whatsappBtnAdminMenu() {
 add_action('admin_menu', 'whatsappBtnAdminMenu');
 
 
-function whatsappBtnOptionsPage(){
+function whatsappBtnOptionsPage() {
     if (!current_user_can('manage_options')) {
         wp_die('You do not have sufficient permissions to access this page.');
     }
 
-    if (isset($_POST['whatsapp_custom_btn_number']) || isset($_POST['whatsapp_custom_btn_msg'])) {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        check_admin_referer('whatsapp_custom_btn_number_nonce'); // Verify nonce for security
+
         update_option('whatsapp_custom_btn_number', sanitize_text_field($_POST['whatsapp_custom_btn_number']));
         update_option('whatsapp_custom_btn_msg', sanitize_text_field($_POST['whatsapp_custom_btn_msg']));
+        update_option('whatsapp_custom_popup_msg', sanitize_text_field($_POST['whatsapp_custom_popup_msg']));
+
+        // Handle checkbox: If checked, save '1'; if not, save '0'
+        update_option('whatsapp_custom_activate', isset($_POST['whatsapp_custom_activate']) ? '1' : '0');
+
         echo '<div class="updated"><p>Options saved!</p></div>';
     }
 
     $whatsappCustomBtnNumber = get_option('whatsapp_custom_btn_number', '');
     $whatsappCustomBtnMsg = get_option('whatsapp_custom_btn_msg', '');
-
+    $whatsappCustomPopupMsg = get_option('whatsapp_custom_popup_msg', '');
+    $whatsappCustomActivate = get_option('whatsapp_custom_activate', '0');
     ?>
     <div class="wrap">
-        <h1>Whats App Button Options</h1>
+        <h1>WhatsApp Button Options</h1>
         <form method="post" action="">
             <?php wp_nonce_field('whatsapp_custom_btn_number_nonce'); ?>
             <table class="form-table">
                 <tr valign="top">
-                    <th scope="row">Whatsapp Number (Only numbers, no spaces or "-")</th>
-                    <td><input type="text" name="whatsapp_custom_btn_number" value="<?php echo esc_attr($whatsappCustomBtnNumber); ?>" /></td>
+                    <th scope="row">Activate WhatsApp Button</th>
+                    <td>
+                        <input type="checkbox" name="whatsapp_custom_activate" value="1" <?php checked($whatsappCustomActivate, '1'); ?> />
+                    </td>
                 </tr>
-   
 
                 <tr valign="top">
-                    <th scope="row">Whatsapp Default Message</th>
+                    <th scope="row">WhatsApp Number (Only numbers, no spaces or "-")</th>
+                    <td><input type="text" name="whatsapp_custom_btn_number" value="<?php echo esc_attr($whatsappCustomBtnNumber); ?>" /></td>
+                </tr>
+
+                <tr valign="top">
+                    <th scope="row">WhatsApp Default Message</th>
                     <td><input type="text" name="whatsapp_custom_btn_msg" value="<?php echo esc_attr($whatsappCustomBtnMsg); ?>" /></td>
+                </tr>
+
+                <tr valign="top">
+                    <th scope="row">WhatsApp Popup Text</th>
+                    <td><input type="text" name="whatsapp_custom_popup_msg" value="<?php echo esc_attr($whatsappCustomPopupMsg); ?>" /></td>
                 </tr>
             </table>
             <?php submit_button(); ?>
@@ -54,10 +73,12 @@ function whatsappBtnOptionsPage(){
 function renderWhatsappButton(){
     $whatsappCustomBtnNumber = get_option('whatsapp_custom_btn_number', '');
     $whatsappCustomBtnMsg = get_option('whatsapp_custom_btn_msg', '');
+    $whatsappCustomPopupMsg = get_option('whatsapp_custom_popup_msg', '');
+    $whatsappCustomActivate = get_option('whatsapp_custom_activate', '0');
     $whatsappCustomLink = "https://api.whatsapp.com/send?phone=$whatsappCustomBtnNumber&text=$whatsappCustomBtnMsg";
     $btnSize = "60px";
 
-    if($whatsappCustomBtnNumber){ ?>
+    if($whatsappCustomActivate){ ?>
         <style>
             .whatsapp__custom_btn{
                 display: flex;
@@ -85,9 +106,24 @@ function renderWhatsappButton(){
             }
         </style>
 
+        <div class="whatsapp__popup">
+            <button class="custom__popup_close">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h4><?= $whatsappCustomPopupMsg; ?></h4>
+        </div>
         <a class="whatsapp__custom_btn" href="<?php echo $whatsappCustomLink; ?>" target="_blank">
             <i class="fa-brands fa-whatsapp"></i>
         </a>
+
+        <script>
+            const closeWhatsappPopup = document.querySelector(".whatsapp__popup .custom__popup_close");
+            const whatsappPopup = document.querySelector(".whatsapp__popup");
+        
+            closeWhatsappPopup.addEventListener("click", function(){
+                whatsappPopup.style.display = "none";
+            })
+        </script>
     <?php }
 }
 

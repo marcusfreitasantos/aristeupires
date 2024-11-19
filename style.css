@@ -1180,12 +1180,6 @@ textarea {
   overflow: hidden;
 }
 
-.custom__popup_close {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-}
-
 .custom__popup_img img {
   width: 100%;
   height: 100%;
@@ -1221,6 +1215,9 @@ textarea {
   border: none;
   color: white;
   transition: 0.5s;
+  position: absolute;
+  top: 20px;
+  right: 20px;
 }
 
 .custom__popup_close:hover {
@@ -1243,6 +1240,54 @@ textarea {
   animation: show__popup_animation 0.5s forwards;
 }
 /*POPUP END*/
+
+/*WHATS APP POPUP START*/
+@keyframes show__whatsapp_popup_animation {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(50px);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1) translateY(-10px);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(0.95) translateY(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.whatsapp__popup {
+  position: fixed;
+  background-color: #f1f1f1;
+  padding: 40px;
+  bottom: 100px;
+  right: 20px;
+  z-index: 5;
+  width: 300px;
+  display: flex;
+  opacity: 0;
+  border-radius: 80px 10px 10px 10px;
+  animation: 0.5s show__whatsapp_popup_animation forwards ease-out;
+  animation-delay: 6s;
+}
+
+.whatsapp__popup h4 {
+  font-size: 2.4rem;
+  line-height: 3rem;
+  font-weight: 300;
+  text-align: center;
+}
+
+.whatsapp__popup .custom__popup_close {
+  color: var(--primary_color);
+}
+
+/*WHATS APP POPUP END*/
 
 @media (max-width: 1440px) {
   .section__creator,
@@ -1455,5 +1500,39 @@ textarea {
 
   .section__creator:nth-child(odd) .section__creator_row {
     flex-direction: column-reverse;
+  }
+
+  .custom__popup {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    flex-direction: column;
+  }
+
+  .custom__popup_img {
+    width: 100%;
+    height: 50%;
+  }
+
+  .custom__popup_form_wrapper {
+    margin: auto;
+    height: 100%;
+    padding: 20px;
+  }
+
+  .custom__popup_form_wrapper h2 {
+    font-size: 2rem;
+  }
+
+  .custom__popup_form_wrapper h3 {
+    font-size: 1.5rem;
+  }
+
+  .custom__popup_form_wrapper form {
+    margin: auto;
+  }
+
+  .custom__popup_close {
+    font-size: 3rem;
   }
 }
