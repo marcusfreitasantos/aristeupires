@@ -34,7 +34,7 @@ include("custom-posts/popups.php");
 global $emailHeaders;
 $emailHeaders = array(
 	'Content-Type: text/html; charset=UTF-8',
-	'Reply-To: Blessy <contato@aristeupires.com.br>',
+	'Reply-To: Aristeu Pires <contato@aristeupires.com.br>',
 );
 
 
@@ -96,14 +96,13 @@ add_action('pre_get_posts', 'searchOnlyProducts');
 
 
 function enqueueCustomScripts() {
-    wp_enqueue_script( 'ajax-products-script', get_stylesheet_directory_uri() . '/assets/js/ajax-products.js', array('jquery'), null, true );
-
-    wp_localize_script( 'ajax-products-script', 'my_ajax_obj', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
+    wp_enqueue_script( 'ajax-scripts', get_stylesheet_directory_uri() . '/assets/js/ajax-scripts.js', array('jquery'), null, true );
+    wp_localize_script( 'ajax-scripts', 'my_ajax_obj', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
 }
 add_action( 'wp_enqueue_scripts', 'enqueueCustomScripts' );
 
 
-function customAjaxHandler() {
+function loadMoreProductsByAjax() {
     if ( isset($_POST['products_page']) ) {
         $currentPage = sanitize_text_field( $_POST['products_page'] );
         $productCat = sanitize_text_field( $_POST['category'] );
@@ -128,16 +127,15 @@ function customAjaxHandler() {
             </div>
         <?php }
 
-
     }
 
     wp_die(); 
 }
-add_action( 'wp_ajax_get_products_by_ajax', 'customAjaxHandler' );
-add_action( 'wp_ajax_nopriv_get_products_by_ajax', 'customAjaxHandler' );
+add_action( 'wp_ajax_get_products_by_ajax', 'loadMoreProductsByAjax' );
+add_action( 'wp_ajax_nopriv_get_products_by_ajax', 'loadMoreProductsByAjax' );
 
 
-function showPopup(){
+function showPopupBasedOnCurrentPage(){
     $currentPageID = get_the_ID();
     $currentPostType = get_post_type($currentPageID);
 
@@ -155,21 +153,133 @@ function showPopup(){
                 'value'   => '"' . $currentPostType . '"',
                 'compare' => 'LIKE',
             ]
-        ]
+        ],
+        'posts_per_page' => 1,
     ];
 
     $query = new WP_Query($args);
 
     if ($query->have_posts()) {
-        while ($query->have_posts()) {
-            $query->the_post();
-            $field_value = get_field('related_products');
-
-            echo Popup($query);
-        }
+        $query->the_post();
+        echo Popup($query);
         wp_reset_postdata();
     }
 }
+add_action('wp_footer', 'showPopupBasedOnCurrentPage');
 
-add_action('template_redirect', 'showPopup');
+
+function emailTemplate($content){
+	return '
+	<table width="100%" style="background: #f7f7f7; padding: 40px;">
+		<tr>
+			<td width="600px">
+				<div style="width: 600px; margin: auto;">
+					<table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" style="border-radius: 5px">
+						<tr>
+							<td align="center" valign="top">
+								<table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<td align="center" valign="top">
+											<!-- Header -->
+											<table border="0" cellpadding="0" cellspacing="0" width="100%" style="background: #000">
+												<tr>
+													<td style="padding: 36px 48px; display: block; text-align: center; background-color: transparent; border: none; border-bottom: 1px solid #eee;">
+														<p style="margin:0;">
+														<img src="https://www.aristeupires.com.br/wp-content/uploads/2024/07/aristeu.pires-logo-2024.png" width="200px"/>
+														</p>
+													</td>
+												</tr>
+											</table>
+											<!-- End Header -->
+										</td>
+									</tr>
+									<tr>
+										<td align="center" valign="top">
+											<!-- Body -->
+											<table border="0" cellpadding="0" cellspacing="0" width="100%" id="template_body" style="background: #fff">
+												<tr>
+													<td valign="top" id="body_content">
+														<!-- Content -->
+														<table border="0" cellpadding="20" cellspacing="0" width="100%">
+															<tr>
+																<td valign="top" style="padding:48px 48px 32px;background-color:transparent;border:none;border-bottom:1px solid #eee">
+																	<div id="body_content_inner" style="font-family: Helvetica, Arial, sans-serif; font-size: 13px;line-height: 1.5em;">' . $content . '</div>
+																</td>
+															</tr>
+														</table>
+														<!-- End Content -->
+													</td>
+												</tr>
+											</table>
+											<!-- End Body -->
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td align="center" valign="top">
+								<!-- Footer -->
+								<table border="0" cellpadding="10" cellspacing="0" width="100%" id="template_footer">
+									<tr>
+										<td valign="top">
+											<table border="0" cellpadding="10" cellspacing="0" width="100%">
+												<tr>
+													<td colspan="2" valign="middle" id="credit">
+														
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table>
+								<!-- End Footer -->
+							</td>
+						</tr>
+					</table>
+				</div>
+			</td>
+		</tr>
+	</table>
+	';
+}
+
+
+function sendEmailByAjax() {
+    if ( isset($_POST['userEmail']) && $_POST['userEmail'] != "" ) {
+        global $emailHeaders;
+        $to = "marcusfreitasantos@gmail.com";
+        $subject = "Novo contato pelo formulário do popup";
+        $userEmail= $_POST['userEmail'];
+        $userPhone= $_POST['userPhone'] ? $_POST['userPhone'] : "Sem telefone";
+        $userCompany= $_POST['user_company_name'] ? $_POST['user_company_name'] : "Sem empresa";
+        $originUrl= $_POST['originUrl'];
+        
+        $message =  "							
+                <p style='font-family: Helvetica, Arial, sans-serif; font-size: 13px;line-height: 1.5em;'><strong>Informações do usuário:</strong></p>
+                <p style='font-family: Helvetica, Arial, sans-serif; font-size: 13px;line-height: 1.5em;'>Email: $userEmail</p>
+                <p style='font-family: Helvetica, Arial, sans-serif; font-size: 13px;line-height: 1.5em;'>Telefone: $userPhone</p>
+                <p style='font-family: Helvetica, Arial, sans-serif; font-size: 13px;line-height: 1.5em;'>Empresa: $userCompany</p>
+                <p style='font-family: Helvetica, Arial, sans-serif; font-size: 13px;line-height: 1.5em;'>URL de origem: $originUrl</p>
+            ";
+    
+        $body = emailTemplate($message);
+    
+        $sendEmail = wp_mail( $to, $subject, $body, $emailHeaders );
+
+        if($sendEmail){
+            echo true;
+        }else{
+            echo false;
+        }
+    } else {
+        echo 'Email não fornecido.';
+    }
+    
+    wp_die();
+}
+add_action( 'wp_ajax_send_email_by_ajax', 'sendEmailByAjax' );
+add_action( 'wp_ajax_nopriv_send_email_by_ajax', 'sendEmailByAjax' );
+
+
 ?>
