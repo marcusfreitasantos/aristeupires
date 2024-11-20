@@ -71,6 +71,8 @@ function whatsappBtnOptionsPage() {
 }
 
 function renderWhatsappButton(){
+    $currentPageID = get_the_ID();
+    $currentPostType = get_post_type($currentPageID);
     $whatsappCustomBtnNumber = get_option('whatsapp_custom_btn_number', '');
     $whatsappCustomBtnMsg = get_option('whatsapp_custom_btn_msg', '');
     $whatsappCustomPopupMsg = get_option('whatsapp_custom_popup_msg', '');
@@ -85,7 +87,7 @@ function renderWhatsappButton(){
                 justify-content: center;
                 align-items: center;
                 position: fixed;
-                bottom: 20px;
+                bottom: 100px;
                 right: 20px;
                 width: <?php echo $btnSize; ?>;
                 height: <?php echo $btnSize; ?>;
@@ -104,26 +106,79 @@ function renderWhatsappButton(){
             .whatsapp__custom_btn i{
                 color: white;
             }
+
+            /*WHATS APP POPUP START*/
+            @keyframes show__whatsapp_popup_animation {
+                0% {
+                    opacity: 0;
+                    transform: scale(0.8) translateY(50px);
+                }
+                50% {
+                    opacity: 0.8;
+                    transform: scale(1.1) translateY(-10px);
+                }
+                70% {
+                    opacity: 1;
+                    transform: scale(0.95) translateY(5px);
+                }
+                100% {
+                    opacity: 1;
+                    transform: scale(1) translateY(0);
+                }
+            }
+
+            .whatsapp__popup {
+                position: fixed;
+                background-color: #f1f1f1;
+                padding: 40px;
+                bottom: 180px;
+                right: 20px;
+                z-index: 5;
+                width: 300px;
+                display: flex;
+                opacity: 0;
+                border-radius: 80px 10px 10px 10px;
+                animation: 0.5s show__whatsapp_popup_animation forwards ease-out;
+                animation-delay: 6s;
+            }
+
+            .whatsapp__popup h4 {
+                font-size: 2.4rem;
+                line-height: 3rem;
+                font-weight: 300;
+                text-align: center;
+            }
+
+            .whatsapp__popup .custom__popup_close {
+                color: var(--primary_color);
+            }
+            /*WHATS APP POPUP END*/
         </style>
 
-        <div class="whatsapp__popup">
-            <button class="custom__popup_close">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-            <h4><?= $whatsappCustomPopupMsg; ?></h4>
-        </div>
+
         <a class="whatsapp__custom_btn" href="<?php echo $whatsappCustomLink; ?>" target="_blank">
             <i class="fa-brands fa-whatsapp"></i>
         </a>
 
-        <script>
-            const closeWhatsappPopup = document.querySelector(".whatsapp__popup .custom__popup_close");
-            const whatsappPopup = document.querySelector(".whatsapp__popup");
-        
-            closeWhatsappPopup.addEventListener("click", function(){
-                whatsappPopup.style.display = "none";
-            })
-        </script>
+
+        <?php if(is_page('corporativo') || is_page('projetos') || $currentPostType == 'project'){ ?>
+            <div class="whatsapp__popup">
+                <button class="custom__popup_close">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <h4><?= $whatsappCustomPopupMsg; ?></h4>
+            </div>
+
+            <script>
+                const closeWhatsappPopup = document.querySelector(".whatsapp__popup .custom__popup_close");
+                const whatsappPopup = document.querySelector(".whatsapp__popup");
+            
+                closeWhatsappPopup.addEventListener("click", function(){
+                    whatsappPopup.style.display = "none";
+                })
+            </script>
+        <?php } ?>
+
     <?php }
 }
 
