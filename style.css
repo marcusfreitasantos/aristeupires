@@ -1241,6 +1241,17 @@ textarea {
 }
 /*POPUP END*/
 
+/* WOOCOMMERCE CHECKOUT */
+.woocommerce-additional-fields,
+#order_review_heading {
+  display: none !important;
+}
+
+.woocommerce-checkout {
+  display: flex;
+  justify-content: space-between;
+}
+
 @media (max-width: 1440px) {
   .section__creator,
   .video__background_section {
