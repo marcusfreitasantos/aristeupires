@@ -399,7 +399,8 @@ a {
 
 /*FORMS*/
 input[type="text"],
-input[type="email"] {
+input[type="email"],
+input[type="tel"] {
   font-family: Lato, arial;
   font-size: 0.1rem;
   font-weight: 400;
@@ -1245,6 +1246,19 @@ textarea {
 .woocommerce-additional-fields,
 #order_review_heading {
   display: none !important;
+}
+
+.checkout.woocommerce-checkout {
+  display: flex;
+  justify-content: space-between;
+}
+
+#customer_details {
+  padding: 20px;
+}
+
+#customer_details .col-1 {
+  width: 100%;
 }
 
 @media (max-width: 1440px) {
