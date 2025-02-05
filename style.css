@@ -1277,6 +1277,10 @@ textarea {
   overflow: hidden;
 }
 
+.video__background_mobile {
+  display: none;
+}
+
 @media (max-width: 1440px) {
   .section__creator,
   .video__background_section {
@@ -1295,10 +1299,6 @@ textarea {
 
   .video__background_btn {
     font-size: 3rem;
-  }
-
-  .video__background_section video {
-    width: auto;
   }
 }
 
@@ -1522,5 +1522,11 @@ textarea {
 
   .custom__popup_close {
     font-size: 3rem;
+  }
+}
+
+@media (max-width: 475px) {
+  .video__background_mobile {
+    display: block;
   }
 }

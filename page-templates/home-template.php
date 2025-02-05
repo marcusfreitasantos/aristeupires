@@ -41,9 +41,15 @@ if ($carousel && $heroMedia == "image_carousel") { ?>
 <?php if ($videoBg && $heroMedia == "video_bg") { ?>
     <section class="video__background_section position-relative">
         <a href=<?php echo $videoBg["slide_url"]; ?>>
-            <video autobuffer="true" preload="auto" muted loop autoplay >
+            <video autobuffer="true" preload="auto" muted loop autoplay class="d-none d-md-block" >
                 <source src=<?php echo $videoBg["video_url"]; ?>  type="video/mp4" />
             </video>
+
+            <?php if($videoBg["video_url_mobile"]){ ?>
+                <video autobuffer="true" preload="auto" muted loop autoplay class="video__background_mobile">
+                    <source src=<?php echo $videoBg["video_url_mobile"]; ?>  type="video/mp4" />
+                </video>
+            <?php } ?>
 
             <div class="video__background_content h-100">
                 <div class="container h-100">
