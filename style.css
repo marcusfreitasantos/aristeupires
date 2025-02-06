@@ -361,9 +361,10 @@ a {
 }
 
 .post__card img {
-  height: 300px;
+  height: 320px;
   width: 100%;
   object-fit: cover;
+  object-position: top;
 }
 
 .post__card_title {
