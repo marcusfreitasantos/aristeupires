@@ -19,6 +19,9 @@
 
         <?php if(!$postContent){ ?>
             <h1 class="corp__title"><?php echo the_title(); ?></h1>
+            <div class="col-12">
+                <?php the_content(); ?>
+            </div>
         <?php } ?>
 
         <div class="row">
