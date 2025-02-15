@@ -162,8 +162,9 @@ function showPopupBasedOnCurrentPage(){
     if ($query->have_posts()) {
         $query->the_post();
         echo Popup($query);
-        wp_reset_postdata();
     }
+    wp_reset_postdata();
+
 }
 add_action('wp_footer', 'showPopupBasedOnCurrentPage');
 
