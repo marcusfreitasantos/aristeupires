@@ -34,7 +34,7 @@ function hasChildren($menuItems, $itemId) {
 
             <div class="header__logo_wrapper col-4 ">
                 <a href=<?php echo $siteUrl; ?>>
-                    <img class="img-fluid" src=<?php echo $logo; ?>  alt="ariteu pires logo" />
+                    <img class="img-fluid" src=<?php echo $logo; ?>  alt="ariteu pires logo" width="200px" height="50px" />
                 </a>
             </div>
 
