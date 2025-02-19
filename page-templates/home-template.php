@@ -5,6 +5,17 @@
 <?php $heroMedia = get_field('hero_media_selector'); ?>
 <?php $carousel = get_field('carousel'); ?>
 <?php $videoBg = get_field('video_background'); ?>
+<?php $videoDesktopUrl = $videoBg["video_url"] ?>
+<?php $videoMobileUrl = $videoBg["video_url_mobile"] ?>
+
+<style>
+    @media(max-width: 40rem){
+        body:not(.logged-in) {
+        padding-top: 0 !important;
+        }
+    }
+</style>
+
 
 <?php 
 if ($carousel && $heroMedia == "image_carousel") { ?>
@@ -41,16 +52,7 @@ if ($carousel && $heroMedia == "image_carousel") { ?>
 <?php if ($videoBg && $heroMedia == "video_bg") { ?>
     <section class="video__background_section position-relative">
         <a href=<?php echo $videoBg["slide_url"]; ?>>
-            <video autobuffer="true" preload="auto" muted loop autoplay class="d-none d-md-block" >
-                <source src=<?php echo $videoBg["video_url"]; ?>  type="video/mp4" />
-            </video>
-
-            <?php if($videoBg["video_url_mobile"]){ ?>
-                <video autobuffer="true" preload="auto" muted loop autoplay class="video__background_mobile">
-                    <source src=<?php echo $videoBg["video_url_mobile"]; ?>  type="video/mp4" />
-                </video>
-            <?php } ?>
-
+            <div class="video__background_container h-100"></div>
             <div class="video__background_content h-100">
                 <div class="container h-100">
                     <div class="d-flex align-items-center justify-content-center flex-column h-100">
@@ -196,6 +198,24 @@ function changeBackgroundBasedOnContentRightColumn($section, $textPosition){
             prevEl: ".swiper-button-prev",
         },
     });
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+    const videoMobileUrl = "<?= $videoMobileUrl ?>"
+    const videoDesktopUrl = "<?= $videoDesktopUrl ?>"
+    const videoContainer = document.querySelector(".video__background_container");
+
+    if(window.innerWidth < 768){
+        videoContainer.innerHTML = `<video autobuffer="true" preload="auto" muted loop autoplay>
+                    <source src="${videoMobileUrl}"  type="video/mp4" />
+                </video>`;
+    }else{
+        videoContainer.innerHTML = `<video autobuffer="true" preload="auto" muted loop autoplay>
+                    <source src="${videoDesktopUrl}"  type="video/mp4" />
+                </video>`;
+    }
+})
 </script>
 
 <?php get_footer(); ?>
