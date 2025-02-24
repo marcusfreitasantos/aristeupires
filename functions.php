@@ -110,14 +110,17 @@ function loadMoreProductsByAjax() {
         $getProductsArgs = array(
             'limit'     => 9,
             'status'    => 'publish',
+            'orderby'    => 'menu_order',
+            'order'      => 'ASC',
             'page'      => $currentPage,
             'paginate'  => true,
             'category'  => $productCat == 'produtos' ? [] : [$productCat]
         );
         $products = wc_get_products( $getProductsArgs );
-        $totalProducts = $products->total;
+        
+        $maxNumberPages = $products->max_num_pages;
 
-        if($totalProducts < 9){
+        if(!$maxNumberPages || $currentPage === $maxNumberPages){
             echo '<style>.loadmore__btn{display: none !important};</style>';
         }
 
