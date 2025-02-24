@@ -24,9 +24,8 @@
         'category'  => $currentCategories
     );
     $products = wc_get_products( $getProductsArgs );
-    
-    $totalProducts = $products->total;
-    $maxNumPages = $products->max_num_pages;
+    $productCount = count($products->products);
+
 ?>
 
 <?php
@@ -77,7 +76,7 @@
         </div>
 
 
-        <?php if($totalProducts > 9){ ?>
+        <?php if($productCount >= 9){ ?>
             <div class="col-12 text-center py-5 my-5 d-block">
                 <span class="custom__loader"></span>
     

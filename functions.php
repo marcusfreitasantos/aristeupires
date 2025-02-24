@@ -118,9 +118,9 @@ function loadMoreProductsByAjax() {
         );
         $products = wc_get_products( $getProductsArgs );
         
-        $maxNumberPages = $products->max_num_pages;
+        $productCount = count($products->products);
 
-        if(!$maxNumberPages || $currentPage === $maxNumberPages){
+        if($productCount < 9){
             echo '<style>.loadmore__btn{display: none !important};</style>';
         }
 
