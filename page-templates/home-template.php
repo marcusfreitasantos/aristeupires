@@ -52,9 +52,9 @@ if ($carousel && $heroMedia == "image_carousel") { ?>
 <?php if ($videoBg && $heroMedia == "video_bg") { ?>
 
     <?php if(wp_is_mobile()){ ?>
-        <div style="padding:120% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/<?= $videoMobileUrl ?>?autoplay=1&amp;loop=1&amp;muted=1&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;controls=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="AP_Home_3"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+        <a href="<?= $videoBg['slide_url'] ?>" style="display: block; padding:120% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/<?= $videoMobileUrl ?>?autoplay=1&amp;loop=1&amp;muted=1&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;controls=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="pointer-events:none; position:absolute;top:0;left:0;width:100%;height:100%;" title="AP_Home_3"></iframe></a><script src="https://player.vimeo.com/api/player.js"></script>
     <?php }else{?>
-        <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/<?= $videoDesktopUrl ?>?autoplay=1&amp;loop=1&amp;muted=1&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;controls=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="AP_Home_3"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+        <a href="<?= $videoBg['slide_url'] ?>" style="display: block; padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/<?= $videoDesktopUrl ?>?autoplay=1&amp;loop=1&amp;muted=1&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;controls=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="pointer-events:none; position:absolute;top:0;left:0;width:100%;height:100%;" title="AP_Home_3"></iframe></a><script src="https://player.vimeo.com/api/player.js"></script>
     <?php } ?>
  
  <?php } ?>
