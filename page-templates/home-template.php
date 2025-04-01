@@ -50,13 +50,34 @@ if ($carousel && $heroMedia == "image_carousel") { ?>
 <?php } ?>
 
 <?php if ($videoBg && $heroMedia == "video_bg") { ?>
-
-    <?php if(wp_is_mobile()){ ?>
-        <a href="<?= $videoBg['slide_url'] ?>" style="display: block; padding:120% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/<?= $videoMobileUrl ?>?autoplay=1&amp;loop=1&amp;muted=1&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;controls=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="pointer-events:none; position:absolute;top:0;left:0;width:100%;height:100%;" title="AP_Home_3"></iframe></a><script src="https://player.vimeo.com/api/player.js"></script>
-    <?php }else{?>
-        <a href="<?= $videoBg['slide_url'] ?>" style="display: block; padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/<?= $videoDesktopUrl ?>?autoplay=1&amp;loop=1&amp;muted=1&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;controls=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="pointer-events:none; position:absolute;top:0;left:0;width:100%;height:100%;" title="AP_Home_3"></iframe></a><script src="https://player.vimeo.com/api/player.js"></script>
-    <?php } ?>
- 
+    <section class="video__background_section position-relative">
+        <a href=<?php echo $videoBg["slide_url"]; ?>>
+            <div class="video__background_container h-100">
+                <video autobuffer="true" preload="auto" muted loop autoplay>
+                    <source src="<?= wp_is_mobile() ? $videoMobileUrl : $videoDesktopUrl ?>"  type="video/mp4" />
+                </video>
+            </div>
+            <div class="video__background_content h-100">
+                <div class="container h-100">
+                    <div class="d-flex align-items-center justify-content-center flex-column h-100">
+                        <?php if ($videoBg['title']) { ?>
+                            <h2 class="video__background_title"><?php echo $videoBg['title']; ?></h2>
+                        <?php } ?>
+        
+                        <?php if ($videoBg['subtitle']) { ?>
+                            <h3 class="video__background_subtitle"><?php echo $videoBg['subtitle']; ?></h3>
+                        <?php } ?>
+                        
+                        <?php if ($videoBg['button_text']) { ?>
+                            <span class="video__background_btn">
+                                <?php echo $videoBg['button_text']; ?>
+                            </span>
+                        <?php } ?>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </section>
  <?php } ?>
 
 <?php $sectionCreator = get_field('sections_creator'); ?>
